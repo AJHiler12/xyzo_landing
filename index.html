@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>XYZO – Coming Soon</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", sans-serif;
+      background-color: #0b0c10;
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3.5em;
+      margin-bottom: 0.2em;
+      letter-spacing: 1px;
+    }
+
+    p {
+      font-size: 1.2em;
+      max-width: 600px;
+      margin-bottom: 2em;
+      color: #cbd5e0;
+    }
+
+    input, button {
+      padding: 12px 20px;
+      font-size: 1em;
+      border-radius: 5px;
+      border: none;
+    }
+
+    input {
+      margin-right: 10px;
+      border: 1px solid #ccc;
+      width: 250px;
+    }
+
+    button {
+      background-color: #1f7aec;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #165ec9;
+    }
+
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    @media (max-width: 500px) {
+      form {
+        flex-direction: column;
+      }
+
+      input {
+        margin-bottom: 10px;
+        width: 100%;
+        margin-right: 0;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>XYZO</h1>
+  <p>A modular USD-native toolkit for artists and designers—built to empower non-destructive 3D workflows.</p>
+
+  <form action="https://formspree.io/f/YOUR-FORM-ID" method="POST">
+    <input type="email" name="email" placeholder="Enter your email" required />
+    <button type="submit">Notify Me</button>
+  </form>
+</body>
+</html>
