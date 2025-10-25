@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>XYZO – Coming Soon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XYZO ⚙ Coming Soon</title>
   <style>
     body {
       margin: 0;
       font-family: "Helvetica Neue", sans-serif;
-      background-color: #0b0c10;
+      background-color: #000c10;
       color: #ffffff;
       display: flex;
       justify-content: center;
@@ -17,6 +17,62 @@
       flex-direction: column;
       padding: 20px;
       text-align: center;
+      overflow: hidden;
+    }
+
+    video.video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -2;
+      filter: blur(8px) brightness(40%);
+      opacity: 0;
+      transition: opacity 2s ease-in;
+    }
+
+    video.video-bg.fade-in {
+      opacity: 1;
+    }
+
+    .fallback {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: black;
+      justify-content: center;
+      align-items: center;
+      z-index: -2;
+    }
+
+    .fallback-logo {
+      width: 200px;
+      opacity: 0.85;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: -1;
+    }
+
+    .content {
+      z-index: 1;
+    }
+
+    .logo {
+      width: 180px;
+      margin-bottom: 30px;
+      opacity: 0.9;
     }
 
     h1 {
@@ -39,52 +95,90 @@
       border: none;
     }
 
-    input {
+    input[type="email"] {
       margin-right: 10px;
-      border: 1px solid #ccc;
       width: 250px;
     }
 
     button {
-      background-color: #1f7aec;
-      color: white;
+      background-color: #ffffff;
+      color: #000c10;
       cursor: pointer;
     }
 
     button:hover {
-      background-color: #165ec9;
+      background-color: #cbd5e0;
     }
 
-    form {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    @media (max-width: 500px) {
-      form {
-        flex-direction: column;
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
       }
 
-      input {
+      input[type="email"] {
+        width: 180px;
         margin-bottom: 10px;
-        width: 100%;
-        margin-right: 0;
       }
 
-      button {
+      input, button {
+        display: block;
         width: 100%;
+        margin: 5px auto;
       }
     }
   </style>
 </head>
 <body>
-  <h1>XYZO</h1>
-  <p>A modular USD-native toolkit for artists and designers—built to empower non-destructive 3D workflows.</p>
 
-  <form action="https://formspree.io/f/YOUR-FORM-ID" method="POST">
-    <input type="email" name="email" placeholder="Enter your email" required />
-    <button type="submit">Notify Me</button>
-  </form>
+  <!-- 🎥 Video Background -->
+  <video id="video-bg" class="video-bg" autoplay muted loop playsinline>
+    <source src="" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- 🖼️ Fallback if video fails -->
+  <div id="fallback" class="fallback">
+    <img src="resources/images/XYZO_Logo_WHITE_Transp.png" alt="XYZO Logo" class="fallback-logo" />
+  </div>
+
+  <!-- Optional dimming overlay -->
+  <div class="overlay"></div>
+
+  <!-- 🔤 Main Content -->
+  <div class="content">
+    <img class="logo" src="resources/images/XYZO_Logo_WHITE_Transp.png" alt="XYZO Logo" />
+    <h1>Build with XYZO</h1>
+    <p>We’re crafting the future of non-linear 3D design workflows. Be the first to experience it.</p>
+    <form action="mailto:hello@xyzo.app" method="POST" enctype="text/plain">
+      <input type="email" name="email" placeholder="Enter your email" required />
+      <button type="submit">Notify Me</button>
+    </form>
+  </div>
+
+  <!-- 🎲 Random video selector with fade -->
+  <script>
+    const splashVideos = [
+      "resources/videos/XYZO_Splash_001.mp4",
+      "resources/videos/XYZO_Splash_002.mp4",
+      "resources/videos/XYZO_Splash_003.mp4",
+      "resources/videos/XYZO_Splash_004.mp4"
+    ];
+
+    const randomVideo = splashVideos[Math.floor(Math.random() * splashVideos.length)];
+    const video = document.getElementById("video-bg");
+    const source = video.querySelector("source");
+    const fallback = document.getElementById("fallback");
+
+    source.src = randomVideo;
+    video.load();
+
+    video.oncanplaythrough = () => {
+      video.classList.add("fade-in");
+    };
+
+    video.onerror = () => {
+      fallback.style.display = "flex";
+    };
+  </script>
 </body>
 </html>
