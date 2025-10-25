@@ -132,13 +132,13 @@
 
   <!-- 🎥 Video Background -->
   <video id="video-bg" class="video-bg" autoplay muted loop playsinline>
-    <source src="" type="video/mp4" />
+    <source type="video/mp4" />
     Your browser does not support the video tag.
   </video>
 
   <!-- 🖼️ Fallback if video fails -->
   <div id="fallback" class="fallback">
-    <img src="resources/images/XYZO_Logo_WHITE_Transp.png" alt="XYZO Logo" class="fallback-logo" />
+    <img src="./resources/images/XYZO_Logo_WHITE_Transp.png" alt="XYZO Logo" class="fallback-logo" />
   </div>
 
   <!-- Optional dimming overlay -->
@@ -146,7 +146,7 @@
 
   <!-- 🔤 Main Content -->
   <div class="content">
-    <img class="logo" src="resources/images/XYZO_Logo_WHITE_Transp.png" alt="XYZO Logo" />
+    <img class="logo" src="./resources/images/XYZO_Logo_WHITE_Transp.png" alt="XYZO Logo" />
     <h1>A System for What's Next</h1>
     <p>We’re crafting the future of non-linear 3D design workflows. Be the first to experience it.</p>
     <form action="mailto:hello@xyzo.app" method="POST" enctype="text/plain">
@@ -155,13 +155,13 @@
     </form>
   </div>
 
-  <!-- 🎲 Random video selector with fade -->
+  <!-- 🎲 Random video selector with fade-in -->
   <script>
     const splashVideos = [
-      "resources/videos/XYZO_Splash_001.mp4",
-      "resources/videos/XYZO_Splash_002.mp4",
-      "resources/videos/XYZO_Splash_003.mp4",
-      "resources/videos/XYZO_Splash_004.mp4"
+      "./resources/videos/XYZO_Splash_001.mp4",
+      "./resources/videos/XYZO_Splash_002.mp4",
+      "./resources/videos/XYZO_Splash_003.mp4",
+      "./resources/videos/XYZO_Splash_004.mp4"
     ];
 
     const randomVideo = splashVideos[Math.floor(Math.random() * splashVideos.length)];
