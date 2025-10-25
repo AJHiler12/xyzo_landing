@@ -5,18 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>XYZO ⚙ Coming Soon</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     html, body {
       margin: 0;
       padding: 0;
+      height: 100%;
       font-family: "Helvetica Neue", sans-serif;
       background-color: #000c10;
       color: #ffffff;
-      height: 100%;
-      width: 100%;
       overflow: hidden;
     }
 
@@ -24,8 +19,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      text-align: center;
-      padding: 20px;
     }
 
     video.video-bg {
@@ -74,8 +67,11 @@
     }
 
     .content {
+      text-align: center;
       z-index: 1;
-      max-width: 600px;
+      max-width: 90%;
+      width: 600px;
+      padding: 20px;
     }
 
     .logo {
@@ -92,9 +88,10 @@
 
     p {
       font-size: 1.2em;
-      max-width: 600px;
-      margin-bottom: 2em;
       color: #cbd5e0;
+      margin-bottom: 2em;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     form {
@@ -113,6 +110,7 @@
 
     input[type="email"] {
       width: 250px;
+      max-width: 100%;
     }
 
     button {
@@ -129,7 +127,7 @@
       display: none;
       color: #90ee90;
       font-size: 1em;
-      margin-top: 1em;
+      margin-top: 1.5em;
     }
 
     @media (max-width: 600px) {
@@ -137,43 +135,43 @@
         font-size: 2em;
       }
 
+      .logo {
+        width: 180px;
+      }
+
       form {
         flex-direction: column;
+        align-items: center;
       }
 
       input[type="email"], button {
         width: 100%;
-      }
-
-      .logo {
-        width: 180px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- 🎥 Background Video -->
+  <!-- 🎥 Video Background -->
   <video id="video-bg" class="video-bg" autoplay muted loop playsinline>
     <source type="video/mp4" />
     Your browser does not support the video tag.
   </video>
 
-  <!-- 🖼️ Fallback if video fails -->
+  <!-- 🖼️ Fallback -->
   <div id="fallback" class="fallback">
     <img src="./resources/images/XYZO_Logo_WHITE_Transp.png" alt="XYZO Logo" class="fallback-logo" />
   </div>
 
-  <!-- Optional dimming overlay -->
+  <!-- 🔲 Overlay -->
   <div class="overlay"></div>
 
-  <!-- 🔤 Main Content -->
+  <!-- ✨ Main Content -->
   <div class="content">
     <img class="logo" src="./resources/images/XYZO_Logo_WHITE_Transp.png" alt="XYZO Logo" />
     <h1>A System for What's Next</h1>
     <p>We’re crafting the future of non-linear 3D design workflows. Be the first to experience it.</p>
 
-    <!-- ✅ Netlify Form -->
     <form name="xyzo_signup" method="POST" data-netlify="true" onsubmit="handleSubmit(event)">
       <input type="hidden" name="form-name" value="xyzo_signup" />
       <input type="email" name="email" placeholder="Enter your email" required />
@@ -183,7 +181,7 @@
     <p id="thank-you">Got it — we’ll be in touch soon.</p>
   </div>
 
-  <!-- 🎲 Random video selector with fade-in -->
+  <!-- 🎲 Random video logic -->
   <script>
     const splashVideos = [
       "./resources/videos/XYZO_Splash_001.mp4",
@@ -192,10 +190,10 @@
       "./resources/videos/XYZO_Splash_004.mp4"
     ];
 
-    const randomVideo = splashVideos[Math.floor(Math.random() * splashVideos.length)];
     const video = document.getElementById("video-bg");
     const source = video.querySelector("source");
     const fallback = document.getElementById("fallback");
+    const randomVideo = splashVideos[Math.floor(Math.random() * splashVideos.length)];
 
     source.src = randomVideo;
     video.load();
@@ -208,6 +206,7 @@
       fallback.style.display = "flex";
     };
 
+    // ✅ Form submission handler
     function handleSubmit(event) {
       event.preventDefault();
       const form = event.target;
@@ -221,9 +220,10 @@
         form.style.display = "none";
         document.getElementById("thank-you").style.display = "block";
       })
-      .catch(() => alert("Oops! Something went wrong."));
+      .catch(() => {
+        alert("Oops! Something went wrong.");
+      });
     }
   </script>
-
 </body>
 </html>
