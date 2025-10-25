@@ -5,19 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>XYZO ⚙ Coming Soon</title>
   <style>
-    body {
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
       margin: 0;
+      padding: 0;
       font-family: "Helvetica Neue", sans-serif;
       background-color: #000c10;
       color: #ffffff;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    body {
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      flex-direction: column;
-      padding: 20px;
       text-align: center;
-      overflow: hidden;
+      padding: 20px;
     }
 
     video.video-bg {
@@ -67,17 +75,18 @@
 
     .content {
       z-index: 1;
+      max-width: 600px;
     }
 
     .logo {
-      width: 270px; /* 1.5x the original 180px */
+      width: 270px;
       margin-bottom: 30px;
       opacity: 0.9;
     }
 
     h1 {
       font-size: 3.5em;
-      margin-bottom: 0.2em;
+      margin-bottom: 0.3em;
       letter-spacing: 1px;
     }
 
@@ -88,7 +97,14 @@
       color: #cbd5e0;
     }
 
-    input, button {
+    form {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    input[type="email"], button {
       padding: 12px 20px;
       font-size: 1em;
       border-radius: 5px;
@@ -96,7 +112,6 @@
     }
 
     input[type="email"] {
-      margin-right: 10px;
       width: 250px;
     }
 
@@ -122,15 +137,12 @@
         font-size: 2em;
       }
 
-      input[type="email"] {
-        width: 180px;
-        margin-bottom: 10px;
+      form {
+        flex-direction: column;
       }
 
-      input, button {
-        display: block;
+      input[type="email"], button {
         width: 100%;
-        margin: 5px auto;
       }
 
       .logo {
@@ -141,7 +153,7 @@
 </head>
 <body>
 
-  <!-- 🎥 Video Background -->
+  <!-- 🎥 Background Video -->
   <video id="video-bg" class="video-bg" autoplay muted loop playsinline>
     <source type="video/mp4" />
     Your browser does not support the video tag.
@@ -196,7 +208,6 @@
       fallback.style.display = "flex";
     };
 
-    // ✅ Netlify form submit handling
     function handleSubmit(event) {
       event.preventDefault();
       const form = event.target;
@@ -210,7 +221,7 @@
         form.style.display = "none";
         document.getElementById("thank-you").style.display = "block";
       })
-      .catch((error) => alert("Oops! Something went wrong."));
+      .catch(() => alert("Oops! Something went wrong."));
     }
   </script>
 
