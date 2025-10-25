@@ -5,22 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>XYZO ⚙ Coming Soon</title>
   <style>
-    body {
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
       margin: 0;
+      padding: 0;
       font-family: "Helvetica Neue", sans-serif;
       background-color: #000c10;
       color: #ffffff;
+      height: 100%;
+    }
+
+    body {
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      flex-direction: column;
-      padding: 20px;
       text-align: center;
+      position: relative;
       overflow: hidden;
+      padding: 20px;
     }
 
-    video.video-bg {
+    .video-bg {
       position: fixed;
       top: 0;
       left: 0;
@@ -33,7 +41,7 @@
       transition: opacity 2s ease-in;
     }
 
-    video.video-bg.fade-in {
+    .video-bg.fade-in {
       opacity: 1;
     }
 
@@ -67,10 +75,15 @@
 
     .content {
       z-index: 1;
+      max-width: 600px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .logo {
-      width: 270px; /* 1.5x the original 180px */
+      width: 270px;
       margin-bottom: 30px;
       opacity: 0.9;
     }
@@ -83,9 +96,14 @@
 
     p {
       font-size: 1.2em;
-      max-width: 600px;
-      margin-bottom: 2em;
       color: #cbd5e0;
+      margin-bottom: 2em;
+    }
+
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     input, button {
@@ -98,12 +116,14 @@
     input[type="email"] {
       margin-right: 10px;
       width: 250px;
+      max-width: 80vw;
     }
 
     button {
       background-color: #ffffff;
       color: #000c10;
       cursor: pointer;
+      margin-top: 10px;
     }
 
     button:hover {
@@ -123,14 +143,13 @@
       }
 
       input[type="email"] {
-        width: 180px;
+        width: 100%;
+        margin-right: 0;
         margin-bottom: 10px;
       }
 
-      input, button {
-        display: block;
+      button {
         width: 100%;
-        margin: 5px auto;
       }
 
       .logo {
@@ -210,7 +229,7 @@
         form.style.display = "none";
         document.getElementById("thank-you").style.display = "block";
       })
-      .catch((error) => alert("Oops! Something went wrong."));
+      .catch(() => alert("Oops! Something went wrong."));
     }
   </script>
 
