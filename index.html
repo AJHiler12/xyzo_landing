@@ -161,10 +161,7 @@
 <body>
 
   <!-- 🎥 Video Background -->
-  <video id="video-bg" class="video-bg" autoplay muted loop playsinline>
-    <source type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
+  <video id="video-bg" class="video-bg" autoplay muted loop playsinline></video>
 
   <!-- 🖼️ Fallback if video fails -->
   <div id="fallback" class="fallback">
@@ -201,14 +198,17 @@
 
     const randomVideo = splashVideos[Math.floor(Math.random() * splashVideos.length)];
     const video = document.getElementById("video-bg");
-    const source = video.querySelector("source");
     const fallback = document.getElementById("fallback");
 
-    source.src = randomVideo;
+    video.setAttribute("src", randomVideo);
     video.load();
 
     video.oncanplaythrough = () => {
       video.classList.add("fade-in");
+      video.play().catch((e) => {
+        console.warn("Autoplay blocked, showing fallback.", e);
+        fallback.style.display = "flex";
+      });
     };
 
     video.onerror = () => {
