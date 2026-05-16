@@ -3,7 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>XYZO | Trusted 3D Asset Packaging</title>
+  <title>XYZO | Modular 3D Asset Packages</title>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#000c10">
   <style>
     :root {
       --bg: #000c10;
@@ -349,36 +355,31 @@
 </head>
 <body>
 
-  <!-- 🎥 Video Background -->
   <video id="video-bg" class="video-bg" autoplay muted loop playsinline>
     <source type="video/mp4" />
     Your browser does not support the video tag.
   </video>
 
-  <!-- 🖼️ Fallback if video fails -->
   <div id="fallback" class="fallback">
     <img src="./resources/images/XYZO_Logo_WHITE_Transp.png" alt="XYZO Logo" class="fallback-logo" />
   </div>
 
-  <!-- Optional dimming overlay -->
   <div class="overlay"></div>
 
-  <!-- 🔤 Main Content -->
   <main class="content">
     <section class="hero">
       <img class="logo" src="./resources/images/XYZO_Logo_WHITE_Transp.png" alt="XYZO Logo" />
       <div class="hero-copy">
-        <h1>Trusted 3D asset packaging for modern creative teams.</h1>
+        <h1>Modular 3D asset packages creative teams can trust.</h1>
         <p class="subtitle">
-          XYZO creates portable, validated 3D asset packages from human-made and AI-generated files — preserving materials, dependencies, variants, and handoff reports without heavy enterprise pipeline tools.
+          XYZO turns human-made and AI-generated 3D files into portable, validated asset packages that preserve materials, dependencies, variants, and editable structure across design iterations.
         </p>
         <p class="support">
-          A lightweight trust layer for 3D handoff, review, and reuse.
+          Built for teams that need assets to stay organized, reviewable, and adaptable &mdash; not locked into one-off exports.
         </p>
       </div>
 
       <div class="signup">
-        <!-- ✅ Netlify Form -->
         <form name="xyzo_signup" method="POST" data-netlify="true" onsubmit="handleSubmit(event)">
           <input type="hidden" name="form-name" value="xyzo_signup" />
           <div class="field-group">
@@ -388,43 +389,43 @@
           <button type="submit">Request Early Access</button>
         </form>
         <p class="audit-note">Early testers may be invited to submit an asset for a private trust audit.</p>
-        <p id="thank-you">Thanks. We’ll follow up with early access details soon.</p>
+        <p id="thank-you">Thanks. We&apos;ll follow up with early access details soon.</p>
       </div>
     </section>
 
     <section class="section" aria-labelledby="what-xyzo-packages">
       <h2 id="what-xyzo-packages">What XYZO packages</h2>
       <p class="section-intro">
-        XYZO turns source 3D files into portable asset packages that preserve structure, materials, dependencies, variants, and handoff context.
+        XYZO turns source 3D files into portable modular asset packages that preserve structure, materials, dependencies, variants, and validation context for continued review, refinement, and handoff.
       </p>
     </section>
 
     <section class="section" aria-labelledby="asset-package-includes">
-      <h2 id="asset-package-includes">What an XYZO Asset Package preserves</h2>
+      <h2 id="asset-package-includes">What a Modular Asset Package preserves</h2>
       <div class="package-grid">
         <article class="package-card">
-          <h3>Source context</h3>
-          <p>Key file origins and packaging context stay attached so teams can review what was handed off and where it came from.</p>
+          <h3>Editable structure</h3>
+          <p>Keep asset organization intact so teams can continue refining geometry, materials, variants, and presentation states.</p>
         </article>
         <article class="package-card">
           <h3>Localized dependencies</h3>
-          <p>Linked textures, references, and supporting files are gathered into a portable package that is easier to move across tools and teams.</p>
+          <p>Gather textures, references, and supporting files into a portable package with stable paths.</p>
         </article>
         <article class="package-card">
           <h3>Material evidence</h3>
-          <p>Material assignments and supporting evidence are preserved to help teams inspect visual fidelity and resolve handoff uncertainty faster.</p>
+          <p>Preserve material assignments and supporting evidence so visual decisions remain inspectable through handoff and review.</p>
         </article>
         <article class="package-card">
-          <h3>Variant structure</h3>
-          <p>Named options and structural variation remain intact so downstream reviewers can understand what changes across asset states.</p>
+          <h3>Variant logic</h3>
+          <p>Keep options and iterations organized without duplicating entire files for every change.</p>
         </article>
         <article class="package-card">
-          <h3>Viewer-ready payloads</h3>
-          <p>Packages can include reviewable payloads that make inspection and handoff easier without requiring a heavy internal pipeline stack.</p>
+          <h3>Review-ready payloads</h3>
+          <p>Generate lightweight viewer outputs while keeping the authoritative asset structure intact.</p>
         </article>
         <article class="package-card">
           <h3>Validation and handoff reports</h3>
-          <p>Each package can carry reports that document packaging outcomes and give collaborators a clearer basis for approval, revision, or reuse.</p>
+          <p>Document what changed, what passed validation, and what needs attention before the asset moves forward.</p>
         </article>
       </div>
     </section>
@@ -432,7 +433,7 @@
     <section class="section" aria-labelledby="ai-validation">
       <h2 id="ai-validation">Why AI-generated 3D needs validation</h2>
       <p>
-        AI-generated 3D can accelerate concept and content creation, but teams still need a reliable way to confirm that materials, linked assets, and package structure hold up in handoff. XYZO helps turn those files into portable packages with clearer trust signals before they move downstream.
+        AI-generated 3D can accelerate concept and content creation, but generated files still need structure, material checks, dependency control, and validation before they can become reliable parts of an iterative creative workflow.
       </p>
     </section>
 
@@ -441,17 +442,16 @@
       <div class="team-grid">
         <article class="team-card">
           <h3>Lightweight by design</h3>
-          <p>XYZO is focused on packaging, validation, and handoff confidence rather than replacing the systems teams already use to create 3D work.</p>
+          <p>XYZO is built for creative teams that need modular, inspectable asset packages they can keep refining across reviews, handoffs, and downstream use.</p>
         </article>
         <article class="team-card">
           <h3>Practical trust layer</h3>
-          <p>It fits the moment where assets need to become portable, inspectable, and easier to review across collaborators and environments.</p>
+          <p>It acts as a lightweight trust layer for design iteration and asset review without requiring a heavy enterprise pipeline stack.</p>
         </article>
       </div>
     </section>
   </main>
 
-  <!-- 🎲 Random video selector with fade-in -->
   <script>
     const splashVideos = [
       "./resources/videos/XYZO_Splash_001.mp4",
@@ -476,7 +476,6 @@
       fallback.style.display = "flex";
     };
 
-    // ✅ Netlify form submit handling
     function handleSubmit(event) {
       event.preventDefault();
       const form = event.target;
