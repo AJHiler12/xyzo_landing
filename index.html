@@ -3,13 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>XYZO ⚙ Coming Soon</title>
+  <title>XYZO | Trusted 3D Asset Packaging</title>
   <style>
+    :root {
+      --bg: #000c10;
+      --text: #ffffff;
+      --muted: #cbd5e0;
+      --soft: #9aa8b8;
+      --line: rgba(255, 255, 255, 0.12);
+      --panel: rgba(3, 12, 18, 0.58);
+      --button-text: #000c10;
+      --accent: #90b9ee;
+    }
+
     body {
       margin: 0;
       font-family: "Helvetica Neue", sans-serif;
-      background-color: #000c10;
-      color: #ffffff;
+      background-color: var(--bg);
+      color: var(--text);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -61,7 +72,9 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(0, 0, 0, 0.4);
+      background:
+        radial-gradient(circle at top, rgba(84, 126, 160, 0.18), transparent 42%),
+        rgba(0, 0, 0, 0.48);
       z-index: -1;
     }
 
@@ -70,96 +83,235 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      min-height: 100vh;
-      padding: 5vh 20px;
+      width: min(100%, 980px);
+      padding: 4vh 20px 8vh;
+      gap: 36px;
     }
 
     .logo {
-      width: 350px;
-      margin-bottom: 30px;
+      width: min(350px, 72vw);
       opacity: 0.9;
     }
 
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+      gap: 20px;
+    }
+
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      max-width: 780px;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
     h1 {
-      font-size: 3em;
-      margin-bottom: 0.2em;
+      font-size: clamp(2.5rem, 5vw, 4.2rem);
       letter-spacing: 1px;
+      line-height: 1.05;
+      text-wrap: balance;
     }
 
     p {
-      font-size: 1.2em;
-      max-width: 600px;
-      margin-bottom: 2em;
-      color: #cbd5e0;
+      font-size: 1.06rem;
+      max-width: 720px;
+      color: var(--muted);
+      line-height: 1.7;
     }
 
     .subtitle {
-      font-size: 1.2em;
-      max-width: 600px;
-      margin-bottom: 1.5em;
-      color: #808080;
+      font-size: clamp(1.08rem, 2vw, 1.3rem);
+      max-width: 760px;
+      color: var(--muted);
     }
 
-    .cta {
-      font-size: 1em;
-      color: #808080;
-      margin-top: 1em;
-      font-style: italic;
+    .support {
+      font-size: 0.98rem;
+      color: var(--soft);
+      letter-spacing: 0.02em;
     }
 
-    input, button {
+    .signup {
+      width: min(100%, 720px);
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--panel);
+      backdrop-filter: blur(10px);
+      box-sizing: border-box;
+    }
+
+    .signup form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      flex: 1 1 320px;
+      min-width: 0;
+    }
+
+    .field-label {
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    input,
+    button {
       padding: 12px 20px;
       font-size: 1em;
-      border-radius: 5px;
+      border-radius: 10px;
       border: none;
+      box-sizing: border-box;
     }
 
     input[type="email"] {
-      margin-right: 10px;
-      width: 250px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.92);
+      color: #04131a;
     }
 
     button {
       background-color: #ffffff;
-      color: #000c10;
+      color: var(--button-text);
       cursor: pointer;
+      font-weight: 600;
+      min-width: 220px;
+      align-self: flex-end;
     }
 
     button:hover {
       background-color: #cbd5e0;
     }
 
+    .audit-note {
+      margin-top: 14px;
+      font-size: 0.92rem;
+      color: var(--soft);
+    }
+
     #thank-you {
       display: none;
-      color: #90b9ee;
+      color: var(--accent);
       font-size: 1em;
       margin-top: 1em;
     }
 
+    .section {
+      width: min(100%, 900px);
+      padding: 28px 0;
+      text-align: left;
+    }
+
+    .section h2 {
+      font-size: clamp(1.5rem, 2.7vw, 2.2rem);
+      margin-bottom: 14px;
+      line-height: 1.15;
+      letter-spacing: 0.01em;
+      text-wrap: balance;
+    }
+
+    .section-intro {
+      max-width: 760px;
+      margin-bottom: 24px;
+    }
+
+    .package-grid,
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .package-card,
+    .team-card {
+      padding: 18px 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(4, 14, 20, 0.52);
+    }
+
+    .package-card h3,
+    .team-card h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .package-card p,
+    .team-card p {
+      font-size: 0.98rem;
+      max-width: none;
+      color: var(--muted);
+    }
+
     @media (max-width: 600px) {
+      body {
+        padding: 16px;
+      }
+
       h1 {
-        font-size: 2em;
+        font-size: 2.3rem;
       }
 
-      input[type="email"] {
+      .content {
+        padding: 3vh 8px 7vh;
+        gap: 28px;
+      }
+
+      .hero {
+        gap: 16px;
+      }
+
+      .signup {
+        padding: 18px;
+      }
+
+      .signup form,
+      .field-group {
         width: 100%;
-        margin-bottom: 10px;
       }
 
-      input, button {
+      input,
+      button {
         display: block;
         width: 100%;
-        margin: 5px auto;
       }
 
       .logo {
         width: 200px;
       }
 
-      .subtitle, p {
+      .subtitle,
+      p,
+      .package-card p,
+      .team-card p {
         font-size: 1em;
+      }
+
+      .package-grid,
+      .team-grid {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -172,12 +324,15 @@
         font-size: 1.8em;
       }
 
-      .subtitle, p {
+      .subtitle,
+      p {
         font-size: 1em;
       }
 
-      input[type="email"] {
-        width: 100%;
+      .hero {
+        min-height: auto;
+        padding-top: 32px;
+        padding-bottom: 32px;
       }
     }
   </style>
@@ -199,25 +354,92 @@
   <div class="overlay"></div>
 
   <!-- 🔤 Main Content -->
-  <div class="content">
-    <img class="logo" src="./resources/images/XYZO_Logo_WHITE_Transp.png" alt="XYZO Logo" />
-    <h1>A new kind of creative platform, powered by USD.</h1>
-    <p class="subtitle">
-      Modular, non-destructive, and ready for designers, developers, and teams building across platforms and pipelines.
-    </p>
-    <p class="cta">
-      This is just the beginning. Stay close.
-    </p>
+  <main class="content">
+    <section class="hero">
+      <img class="logo" src="./resources/images/XYZO_Logo_WHITE_Transp.png" alt="XYZO Logo" />
+      <div class="hero-copy">
+        <h1>Trusted 3D asset packaging for modern creative teams.</h1>
+        <p class="subtitle">
+          XYZO creates portable, validated 3D asset packages from human-made and AI-generated files — preserving materials, dependencies, variants, and handoff reports without heavy enterprise pipeline tools.
+        </p>
+        <p class="support">
+          A lightweight trust layer for 3D handoff, review, and reuse.
+        </p>
+      </div>
 
-    <!-- ✅ Netlify Form -->
-    <form name="xyzo_signup" method="POST" data-netlify="true" onsubmit="handleSubmit(event)">
-      <input type="hidden" name="form-name" value="xyzo_signup" />
-      <input type="email" name="email" placeholder="Enter your email" required />
-      <button type="submit">Notify Me</button>
-    </form>
+      <div class="signup">
+        <!-- ✅ Netlify Form -->
+        <form name="xyzo_signup" method="POST" data-netlify="true" onsubmit="handleSubmit(event)">
+          <input type="hidden" name="form-name" value="xyzo_signup" />
+          <div class="field-group">
+            <label class="field-label" for="email">Work email</label>
+            <input id="email" type="email" name="email" placeholder="Enter your email" required />
+          </div>
+          <button type="submit">Request Early Access</button>
+        </form>
+        <p class="audit-note">Early testers may be invited to submit an asset for a private trust audit.</p>
+        <p id="thank-you">Thanks. We’ll follow up with early access details soon.</p>
+      </div>
+    </section>
 
-    <p id="thank-you">Got it — we’ll be in touch soon.</p>
-  </div>
+    <section class="section" aria-labelledby="what-xyzo-packages">
+      <h2 id="what-xyzo-packages">What XYZO packages</h2>
+      <p class="section-intro">
+        XYZO turns source 3D files into portable asset packages that preserve structure, materials, dependencies, variants, and handoff context.
+      </p>
+    </section>
+
+    <section class="section" aria-labelledby="asset-package-includes">
+      <h2 id="asset-package-includes">What an XYZO Asset Package preserves</h2>
+      <div class="package-grid">
+        <article class="package-card">
+          <h3>Source context</h3>
+          <p>Key file origins and packaging context stay attached so teams can review what was handed off and where it came from.</p>
+        </article>
+        <article class="package-card">
+          <h3>Localized dependencies</h3>
+          <p>Linked textures, references, and supporting files are gathered into a portable package that is easier to move across tools and teams.</p>
+        </article>
+        <article class="package-card">
+          <h3>Material evidence</h3>
+          <p>Material assignments and supporting evidence are preserved to help teams inspect visual fidelity and resolve handoff uncertainty faster.</p>
+        </article>
+        <article class="package-card">
+          <h3>Variant structure</h3>
+          <p>Named options and structural variation remain intact so downstream reviewers can understand what changes across asset states.</p>
+        </article>
+        <article class="package-card">
+          <h3>Viewer-ready payloads</h3>
+          <p>Packages can include reviewable payloads that make inspection and handoff easier without requiring a heavy internal pipeline stack.</p>
+        </article>
+        <article class="package-card">
+          <h3>Validation and handoff reports</h3>
+          <p>Each package can carry reports that document packaging outcomes and give collaborators a clearer basis for approval, revision, or reuse.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="ai-validation">
+      <h2 id="ai-validation">Why AI-generated 3D needs validation</h2>
+      <p>
+        AI-generated 3D can accelerate concept and content creation, but teams still need a reliable way to confirm that materials, linked assets, and package structure hold up in handoff. XYZO helps turn those files into portable packages with clearer trust signals before they move downstream.
+      </p>
+    </section>
+
+    <section class="section" aria-labelledby="built-for-teams">
+      <h2 id="built-for-teams">Built for creative 3D teams, not heavy enterprise pipeline tools</h2>
+      <div class="team-grid">
+        <article class="team-card">
+          <h3>Lightweight by design</h3>
+          <p>XYZO is focused on packaging, validation, and handoff confidence rather than replacing the systems teams already use to create 3D work.</p>
+        </article>
+        <article class="team-card">
+          <h3>Practical trust layer</h3>
+          <p>It fits the moment where assets need to become portable, inspectable, and easier to review across collaborators and environments.</p>
+        </article>
+      </div>
+    </section>
+  </main>
 
   <!-- 🎲 Random video selector with fade-in -->
   <script>
