@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>XYZO | Trusted 3D Asset Orchestration</title>
+  <title>XYZO | Infrastructure for Living 3D Assets</title>
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#000c10">
+  <meta name="description" content="XYZO keeps living 3D assets connected and trustworthy as their geometry, materials, textures, variants, metadata, and dependencies evolve across tools and downstream uses.">
   <style>
     :root {
       --bg: #000c10;
@@ -210,6 +211,27 @@
       background-color: #cbd5e0;
     }
 
+    .button-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 20px;
+      font-size: 1em;
+      border-radius: 10px;
+      border: none;
+      box-sizing: border-box;
+      background-color: #ffffff;
+      color: var(--button-text);
+      cursor: pointer;
+      font-weight: 600;
+      min-width: 220px;
+      text-decoration: none;
+    }
+
+    .button-link:hover {
+      background-color: #cbd5e0;
+    }
+
     .audit-note {
       margin-top: 14px;
       font-size: 0.92rem;
@@ -281,6 +303,36 @@
       text-align: center;
     }
 
+    .loop-list {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 16px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .loop-step {
+      padding: 18px 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(4, 14, 20, 0.52);
+    }
+
+    .loop-step h3 {
+      font-size: 1rem;
+      margin: 0 0 8px;
+      color: var(--text);
+      text-align: center;
+    }
+
+    .loop-step p {
+      font-size: 0.98rem;
+      max-width: none;
+      color: var(--muted);
+      text-align: center;
+    }
+
     @media (max-width: 600px) {
       body {
         padding: 16px;
@@ -326,8 +378,14 @@
       }
 
       .package-grid,
-      .team-grid {
+      .team-grid,
+      .loop-list {
         grid-template-columns: 1fr;
+      }
+
+      .button-link {
+        display: flex;
+        width: 100%;
       }
     }
 
@@ -372,14 +430,14 @@
       <div class="hero-copy">
         <h1>Keep 3D assets trustworthy as they move.</h1>
         <p class="subtitle">
-         XYZO helps creative teams organize, reuse, and deploy 3D assets without losing materials, variants, dependencies, or editable relationships along the way.
+         XYZO is infrastructure for living 3D asset compositions. It orchestrates change across geometry, materials, textures, variants, metadata, and dependencies while preserving one trusted identity.
         </p>
         <p class="support">
-         Built for teams that are tired of rebuilding the same work at every handoff.
+         One canonical asset. Many evolving dimensions. Many trusted representations.
         </p>
       </div>
 
-      <div class="signup">
+      <div class="signup" id="signup">
         <form name="xyzo_signup" method="POST" data-netlify="true" onsubmit="handleSubmit(event)">
           <input type="hidden" name="form-name" value="xyzo_signup" />
           <div class="field-group">
@@ -388,70 +446,110 @@
           </div>
           <button type="submit">Request Early Access</button>
         </form>
-        <p class="audit-note">Early testers may be invited to test XYZO with their own 3D files and real workflow needs.</p>
-        <p id="thank-you">Thanks. We&apos;ll follow up with early access details soon.</p>
+        <p class="audit-note">Early testers may be invited to use XYZO with their own 3D assets and real workflow needs.</p>
+        <p id="thank-you">Thanks. We&apos;ll follow up with early access details.</p>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="assets-after-export">
-      <h2 id="assets-after-export">Assets were never meant to stop at export</h2>
+    <section class="section" aria-labelledby="living-composition">
+      <h2 id="living-composition">A 3D asset is not a file. It is a living composition.</h2>
       <p class="section-intro">
-        Modern 3D assets move through design reviews, visualization workflows, commerce experiences, XR platforms, manufacturing systems, and increasingly AI-driven tools. Every transition creates opportunities for materials to drift, variants to split, dependencies to break, and work to be rebuilt. XYZO keeps the important pieces connected so teams can continue the work instead of rebuilding it.
+        Geometry, materials, textures, variants, metadata, dependencies, and downstream representations continue to change throughout an asset&apos;s lifetime. But most workflows still manage those changes as disconnected files, copies, and exports. The result is fragmentation, asset drift, and a growing loss of trust.
       </p>
     </section>
 
-    <section class="section" aria-labelledby="what-stays-connected">
-      <h2 id="what-stays-connected">What stays connected</h2>
+    <section class="section" aria-labelledby="trusted-identity">
+      <h2 id="trusted-identity">XYZO orchestrates change while preserving one trusted identity.</h2>
       <p class="section-intro">
-        XYZO keeps the important parts of a 3D asset connected so teams can keep working instead of starting over.
+        XYZO creates a canonical asset that remains authoritative while its dimensions evolve independently and specialized tools continue doing what they do best.
       </p>
       <div class="package-grid">
         <article class="package-card">
-          <h3>Structure</h3>
-          <p>Keep geometry, hierarchy, naming, variants, and presentation states organized for continued iteration.</p>
+          <h3>Persistent identity</h3>
+          <p>The asset remains the same asset as its geometry, materials, textures, variants, and uses change.</p>
         </article>
         <article class="package-card">
-          <h3>Dependencies</h3>
-          <p>Keep textures, references, and supporting files gathered into stable, portable asset structures.</p>
+          <h3>Modular dimensions</h3>
+          <p>Each dimension can evolve independently without breaking its relationship to the whole.</p>
         </article>
         <article class="package-card">
-          <h3>Materials</h3>
-          <p>Keep material assignments and supporting evidence inspectable through review, refinement, and handoff.</p>
+          <h3>Trusted dependencies</h3>
+          <p>References, textures, source relationships, and supporting files remain visible, inspectable, and connected.</p>
         </article>
         <article class="package-card">
-          <h3>Variants</h3>
-          <p>Keep options, colorways, concepts, and iterations organized without duplicating entire assets for every change.</p>
+          <h3>Integrity</h3>
+          <p>XYZO validates structure and dependencies so teams can see what is trusted, what changed, and what needs attention.</p>
         </article>
         <article class="package-card">
-          <h3>Review outputs</h3>
-          <p>Create lightweight outputs for fast review while keeping the source asset structure intact.</p>
+          <h3>Synchronization</h3>
+          <p>Changes made in specialized tools can flow back into the canonical asset without rebuilding the entire asset.</p>
         </article>
         <article class="package-card">
-          <h3>Validation</h3>
-          <p>Surface what passed, what changed, and what needs attention before an asset moves downstream.</p>
+          <h3>Trusted representations</h3>
+          <p>Published files remain downstream outputs of canonical state rather than becoming competing sources of truth.</p>
         </article>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="why-this-matters-now">
-      <h2 id="why-this-matters-now">Why this matters now</h2>
-      <p>
-        3D asset creation is accelerating. AI tools, new visualization platforms, commerce needs, and immersive experiences are increasing the number of assets teams need to manage. More assets mean more handoffs, more versions, more variants, and more ways for context to get lost. XYZO helps teams keep the work usable as it moves.
+    <section class="section" aria-labelledby="canonical-asset">
+      <h2 id="canonical-asset">One source of truth. Many trusted representations.</h2>
+      <p class="section-intro">
+        The XYZO canonical asset preserves one authoritative state across geometry, materials, textures, metadata, variants, dependencies, LOD, and animation. Outputs for visualization, commerce, spatial experiences, manufacturing, gaming, and the web are derived from that foundation. The source of truth does not change with every export.
       </p>
     </section>
 
-    <section class="section" aria-labelledby="built-for-real-creative-workflows">
-      <h2 id="built-for-real-creative-workflows">Built for real creative workflows</h2>
-      <div class="team-grid">
-        <article class="team-card">
-          <h3>Lightweight where it should be</h3>
-          <p>XYZO gives teams a practical way to prepare, review, and move 3D assets without forcing every workflow into a heavy platform.</p>
-        </article>
-        <article class="team-card">
-          <h3>Reliable where it matters</h3>
-          <p>XYZO helps materials, variants, dependencies, and structure stay intact as assets move through design, visualization, commerce, XR, and future AI-driven workflows.</p>
-        </article>
-      </div>
+    <section class="section" aria-labelledby="working-product">
+      <h2 id="working-product">The architecture is already working.</h2>
+      <p class="section-intro">
+        XYZO already demonstrates the core operating loop of a trusted canonical asset system.
+      </p>
+      <ol class="loop-list">
+        <li class="loop-step">
+          <h3>Normalize</h3>
+          <p>Convert supported source formats into a deterministic XYZO package with predictable scale, structure, naming, and identity.</p>
+        </li>
+        <li class="loop-step">
+          <h3>Compose</h3>
+          <p>Build modular assets and geometry variants through reference-based OpenUSD composition.</p>
+        </li>
+        <li class="loop-step">
+          <h3>Inspect</h3>
+          <p>Examine hierarchy, dimensions, content, materials, composition, package integrity, and dependency status.</p>
+        </li>
+        <li class="loop-step">
+          <h3>Synchronize</h3>
+          <p>Detect trusted source changes and refresh canonical asset dependencies without rebuilding the asset.</p>
+        </li>
+        <li class="loop-step">
+          <h3>Publish</h3>
+          <p>Create target-specific downstream outputs while leaving the canonical source unchanged.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="section" aria-labelledby="product-boundary">
+      <h2 id="product-boundary">Specialized tools should remain specialized.</h2>
+      <p class="section-intro">
+        Blender, Maya, Houdini, Substance, Photoshop, ZBrush, and emerging generation tools should continue to own creation. Pipeline systems should continue to manage tasks, approvals, schedules, and handoffs. DAM and PIM systems should continue to manage records and distribution. XYZO takes responsibility for something different: preserving the identity, composition, dependencies, and trusted state of the 3D asset across them.
+      </p>
+      <p>
+        XYZO does not replace the tools that create and move 3D work. It keeps the asset itself continuous and trustworthy as they do.
+      </p>
+    </section>
+
+    <section class="section" aria-labelledby="why-now">
+      <h2 id="why-now">The coordination problem is becoming unavoidable.</h2>
+      <p class="section-intro">
+        Creation is fragmenting across more specialized tools, generators, and services. Consumption is multiplying across commerce, visualization, spatial computing, manufacturing, gaming, the web, and AI. More contributors, variants, iterations, and automated transformations are accelerating asset change. The number of representations is growing faster than teams can maintain trust between them.
+      </p>
+    </section>
+
+    <section class="section" aria-labelledby="future-of-3d">
+      <h2 id="future-of-3d">The future of 3D should not be constrained by the limitations of files.</h2>
+      <p class="section-intro">
+        The infrastructure for that future does not exist yet. We are building it.
+      </p>
+      <a class="button-link" href="#signup">Request Early Access</a>
     </section>
   </main>
 
