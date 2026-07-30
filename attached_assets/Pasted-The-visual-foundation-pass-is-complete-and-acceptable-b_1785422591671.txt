@@ -1,0 +1,72 @@
+The visual-foundation pass is complete and acceptable, but it remains too close to the current site.
+
+I now want a genuine design exploration.
+
+Do not modify any files yet.
+
+Read all documents in `/docs` again, then inspect the current `website-v2` implementation and develop three distinct homepage concepts that each express XYZO in a more original, design-led, and credible way.
+
+The concepts must preserve product truth, approved messaging, current capability discipline, accessibility, Netlify deployment, and the existing static-site architecture.
+
+Each concept should differ meaningfully in:
+- page structure
+- visual rhythm
+- use of light and dark environments
+- treatment of product evidence
+- diagram strategy
+- motion strategy
+- typography scale and hierarchy
+- treatment of the canonical asset model
+- relationship between editorial explanation and technical proof
+
+Do not give me three superficial color variations. I want three different design ideas.
+
+For each concept, provide:
+
+1. Concept name
+2. Core visual idea
+3. Narrative structure from hero to closing CTA
+4. Section-by-section layout
+5. How the canonical asset model is visualized
+6. How product screenshots and demo recordings are integrated
+7. How motion communicates continuity, evolution, or synchronization
+8. Typography approach
+9. Color and surface strategy
+10. What makes the concept distinctly XYZO rather than generic SaaS
+11. Risks and tradeoffs
+12. Which existing site elements should be preserved
+13. Which existing site elements should be removed or transformed
+14. A concise description of what the desktop homepage would look and feel like
+15. A concise description of the mobile experience
+
+Constraints:
+- do not invent product capabilities
+- do not create code
+- do not modify files
+- do not introduce a framework or build system
+- do not rely on cyberpunk, gamer, generic SaaS, or heavy enterprise aesthetics
+- do not use random decorative 3D objects
+- do not make all three concepts dark
+- do not make all three concepts card-based
+- do not default to generic three-column feature grids
+- do not overuse gradients, glow, glassmorphism, or wireframe imagery
+- use real product evidence as a core part of the design
+- treat the founder’s industrial-design background as a real design influence
+- draw from the precision and control of Autodesk Alias without inheriting its dated complexity
+- draw from the systems ambition of Omniverse without inheriting its heaviness
+- keep the result clean, considered, technically credible, and visually resolved
+
+At least one concept should be:
+- highly editorial and restrained
+
+At least one concept should be:
+- product-led and immersive
+
+At least one concept should be:
+- system-diagram-driven and explanatory
+
+End with:
+- your recommended concept
+- why it is the strongest fit for XYZO
+- which parts of the other two concepts should be borrowed
+- the smallest next implementation slice that would allow us to test the recommendation without redesigning the whole site
