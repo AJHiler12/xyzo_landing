@@ -9,35 +9,80 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
-  <meta name="theme-color" content="#000c10">
+  <meta name="theme-color" content="#0B0D0F">
   <meta name="description" content="XYZO keeps living 3D assets connected and trustworthy as their geometry, materials, textures, variants, metadata, and dependencies evolve across tools and downstream uses.">
+  <!-- Inter typeface -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
+
+    /* ============================================================
+       DESIGN TOKENS
+       ============================================================ */
     :root {
-      --bg: #000c10;
-      --text: #ffffff;
-      --muted: #cbd5e0;
-      --soft: #9aa8b8;
-      --line: rgba(255, 255, 255, 0.12);
-      --panel: rgba(3, 12, 18, 0.58);
-      --button-text: #000c10;
-      --accent: #90b9ee;
+      /* Neutrals */
+      --color-canvas:       #0B0D0F;
+      --color-graphite:     #1D2226;
+      --color-graphite-mid: #252B30;
+      --color-near-white:   #F7F8F8;
+      --color-soft-surface: #EEF1F2;
+      --color-nardo:        #A0A4A6;
+
+      /* Text — dark surfaces */
+      --text-dark-primary:   #F4F6F7;
+      --text-dark-secondary: #B8C0C5;
+      --text-dark-tertiary:  #858E94;
+
+      /* Text — light surfaces */
+      --text-light-primary:   #0B0D0F;
+      --text-light-secondary: #4E565C;
+      --text-light-tertiary:  #747C82;
+
+      /* Borders */
+      --line-dark:  rgba(255, 255, 255, 0.10);
+      --line-light: rgba(11, 13, 15, 0.10);
+
+      /* Accents */
+      --color-signal-blue:      #005AA2;
+      --color-validation-green: #7FD1AE;
+      --color-mist-blue:        #A7C3D0;
+      --color-attention-orange: #E36F3F;
+
+      /* Spacing */
+      --space-1:  4px;
+      --space-2:  8px;
+      --space-3:  12px;
+      --space-4:  16px;
+      --space-6:  24px;
+      --space-8:  32px;
+      --space-12: 48px;
+      --space-16: 64px;
+      --space-24: 96px;
+      --space-32: 128px;
+    }
+
+    /* ============================================================
+       BASE RESET
+       ============================================================ */
+    *, *::before, *::after {
+      box-sizing: border-box;
     }
 
     body {
       margin: 0;
-      font-family: "Helvetica Neue", sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      padding: 20px;
-      text-align: center;
+      padding: 0;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont,
+                   "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--color-canvas);
+      color: var(--text-dark-primary);
       overflow-x: hidden;
       overflow-y: auto;
     }
 
+    /* ============================================================
+       VIDEO BACKGROUND
+       ============================================================ */
     video.video-bg {
       position: fixed;
       top: 0;
@@ -85,21 +130,54 @@
       z-index: -1;
     }
 
-    .content {
+    /* ============================================================
+       MAIN CONTENT WRAPPER
+       ============================================================ */
+    main.content {
+      position: relative;
       z-index: 1;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      width: min(100%, 980px);
-      padding: 3vh 20px 7vh;
-      gap: 38px;
+      width: 100%;
     }
 
-    .logo {
-      width: min(305px, 65vw);
-      opacity: 0.9;
+    /* ============================================================
+       TYPOGRAPHY
+       ============================================================ */
+    h1, h2, h3, p {
+      margin: 0;
     }
 
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4.2rem);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      line-height: 1.10;
+      text-wrap: balance;
+    }
+
+    h2 {
+      font-size: clamp(1.5rem, 2.7vw, 2.2rem);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      text-wrap: balance;
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       HERO
+       ============================================================ */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -108,65 +186,55 @@
       justify-content: center;
       text-align: center;
       width: 100%;
-      gap: 15px;
+      gap: var(--space-6);
+      padding-block: var(--space-12);
+      padding-inline: max(var(--space-6), calc(50% - 490px));
+      /* No background — video and overlay show through */
     }
 
     .hero-copy {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 13px;
+      gap: var(--space-3);
       max-width: 780px;
+      width: 100%;
     }
 
-    h1,
-    h2,
-    h3,
-    p {
-      margin: 0;
-    }
-
-    h1 {
-      font-size: clamp(2.5rem, 5vw, 4.2rem);
-      letter-spacing: 1px;
-      line-height: 1.05;
-      text-wrap: balance;
-    }
-
-    p {
-      font-size: 1.06rem;
-      max-width: 720px;
-      color: var(--muted);
-      line-height: 1.7;
+    .logo {
+      width: min(305px, 65vw);
+      opacity: 0.9;
     }
 
     .subtitle {
       font-size: clamp(1.08rem, 2vw, 1.3rem);
       max-width: 760px;
-      color: var(--muted);
+      color: var(--text-dark-secondary);
+      line-height: 1.65;
     }
 
     .support {
-      font-size: 0.98rem;
-      color: var(--soft);
+      font-size: 0.95rem;
+      color: var(--text-dark-tertiary);
       letter-spacing: 0.02em;
     }
 
+    /* ============================================================
+       SIGNUP PANEL
+       ============================================================ */
     .signup {
       width: min(100%, 720px);
-      padding: 21px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: var(--panel);
-      backdrop-filter: blur(10px);
-      box-sizing: border-box;
+      padding: var(--space-6);
+      border: 1px solid var(--line-dark);
+      border-radius: 14px;
+      background: var(--color-graphite-mid);
     }
 
     .signup form {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 12px;
+      gap: var(--space-3);
     }
 
     .field-group {
@@ -178,37 +246,56 @@
     }
 
     .field-label {
-      margin-bottom: 8px;
-      font-size: 0.9rem;
-      color: var(--muted);
+      margin-bottom: var(--space-2);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-dark-secondary);
     }
 
     input,
     button {
       padding: 12px 20px;
       font-size: 1em;
-      border-radius: 10px;
+      font-family: inherit;
+      border-radius: 8px;
       border: none;
       box-sizing: border-box;
     }
 
     input[type="email"] {
       width: 100%;
-      background: rgba(255, 255, 255, 0.92);
-      color: #04131a;
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--text-dark-primary);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      caret-color: var(--text-dark-primary);
+      transition: border-color 0.15s ease;
+    }
+
+    input[type="email"]::placeholder {
+      color: var(--text-dark-tertiary);
+    }
+
+    input[type="email"]:hover {
+      border-color: rgba(255, 255, 255, 0.32);
+    }
+
+    input[type="email"]:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 1000px var(--color-graphite) inset;
+      -webkit-text-fill-color: var(--text-dark-primary);
     }
 
     button {
-      background-color: #ffffff;
-      color: var(--button-text);
+      background-color: var(--color-signal-blue);
+      color: #ffffff;
       cursor: pointer;
       font-weight: 600;
       min-width: 220px;
       align-self: flex-end;
+      transition: background-color 0.15s ease;
     }
 
     button:hover {
-      background-color: #cbd5e0;
+      background-color: #004A85;
     }
 
     .button-link {
@@ -217,100 +304,180 @@
       justify-content: center;
       padding: 12px 20px;
       font-size: 1em;
-      border-radius: 10px;
+      font-family: inherit;
+      border-radius: 8px;
       border: none;
       box-sizing: border-box;
-      background-color: #ffffff;
-      color: var(--button-text);
+      background-color: var(--color-signal-blue);
+      color: #ffffff;
       cursor: pointer;
       font-weight: 600;
       min-width: 220px;
       text-decoration: none;
+      transition: background-color 0.15s ease;
     }
 
     .button-link:hover {
-      background-color: #cbd5e0;
+      background-color: #004A85;
     }
 
     .audit-note {
-      margin-top: 14px;
-      font-size: 0.92rem;
-      color: var(--soft);
+      margin-top: var(--space-4);
+      font-size: 0.875rem;
+      color: var(--text-dark-tertiary);
     }
 
     #thank-you {
       display: none;
-      color: var(--accent);
+      color: var(--color-validation-green);
       font-size: 1em;
       margin-top: 1em;
     }
 
+    /* ============================================================
+       KEYBOARD FOCUS
+       ============================================================ */
+    :focus-visible {
+      outline: 2px solid var(--color-signal-blue);
+      outline-offset: 3px;
+    }
+
+    /* ============================================================
+       SECTION BASE
+       ============================================================ */
     .section {
-      width: min(100%, 900px);
-      padding: 25px 0;
+      width: 100%;
+      padding-block: var(--space-24);
+      padding-inline: max(var(--space-6), calc(50% - 450px));
       text-align: center;
     }
 
     .section h2 {
-      font-size: clamp(1.5rem, 2.7vw, 2.2rem);
-      margin-bottom: 14px;
-      line-height: 1.15;
-      letter-spacing: 0.01em;
-      text-wrap: balance;
+      margin-bottom: var(--space-4);
     }
 
-    .section p {
+    /* Direct paragraph children of sections (not inside cards or steps) */
+    .section > p {
+      text-align: left;
+      max-width: 65ch;
       margin-left: auto;
       margin-right: auto;
-      text-align: center;
     }
 
     .section-intro {
-      max-width: 760px;
-      margin-bottom: 21px;
+      max-width: 65ch;
+      text-align: left;
+      margin-bottom: var(--space-6);
       margin-left: auto;
       margin-right: auto;
     }
 
-    .section[aria-labelledby="living-composition"] {
-      padding-top: 46px;
+    /* ============================================================
+       DARK SECTION — graphite
+       ============================================================ */
+    .section-dark {
+      background-color: var(--color-graphite);
+      color: var(--text-dark-primary);
     }
 
+    .section-dark h2 {
+      color: var(--text-dark-primary);
+    }
+
+    .section-dark p {
+      color: var(--text-dark-secondary);
+    }
+
+    /* ============================================================
+       DARK SECTION — canvas
+       ============================================================ */
+    .section-canvas {
+      background-color: var(--color-canvas);
+      color: var(--text-dark-primary);
+    }
+
+    .section-canvas h2 {
+      color: var(--text-dark-primary);
+    }
+
+    .section-canvas p {
+      color: var(--text-dark-secondary);
+    }
+
+    /* ============================================================
+       LIGHT SECTION — near white
+       ============================================================ */
+    .section-light {
+      background-color: var(--color-near-white);
+      color: var(--text-light-primary);
+    }
+
+    .section-light h2 {
+      color: var(--text-light-primary);
+    }
+
+    .section-light p {
+      color: var(--text-light-secondary);
+    }
+
+    /* ============================================================
+       LIGHT SECTION — soft surface
+       ============================================================ */
+    .section-soft {
+      background-color: var(--color-soft-surface);
+      color: var(--text-light-primary);
+    }
+
+    .section-soft h2 {
+      color: var(--text-light-primary);
+    }
+
+    .section-soft p {
+      color: var(--text-light-secondary);
+    }
+
+    /* ============================================================
+       CARDS
+       ============================================================ */
     .package-grid,
     .team-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
+      gap: var(--space-4);
     }
 
     .package-card,
     .team-card {
-      padding: 18px 18px 20px;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: rgba(4, 14, 20, 0.52);
+      padding: var(--space-6) var(--space-6) var(--space-8);
+      border: 1px solid var(--line-dark);
+      border-radius: 12px;
+      background: var(--color-graphite-mid);
+      text-align: left;
     }
 
     .package-card h3,
     .team-card h3 {
       font-size: 1rem;
-      margin-bottom: 8px;
-      color: var(--text);
-      text-align: center;
+      margin-bottom: var(--space-2);
+      color: var(--text-dark-primary);
     }
 
     .package-card p,
     .team-card p {
-      font-size: 0.98rem;
+      font-size: 0.95rem;
       max-width: none;
-      color: var(--muted);
-      text-align: center;
+      margin: 0;
+      color: var(--text-dark-secondary);
+      text-align: left;
     }
 
+    /* ============================================================
+       OPERATING LOOP
+       ============================================================ */
     .loop-list {
       display: grid;
       grid-template-columns: repeat(6, minmax(0, 1fr));
-      gap: 16px;
+      gap: var(--space-4);
       margin: 0;
       padding: 0;
       list-style: none;
@@ -318,10 +485,11 @@
 
     .loop-step {
       grid-column: span 2;
-      padding: 18px 18px 20px;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: rgba(4, 14, 20, 0.52);
+      padding: var(--space-6) var(--space-6) var(--space-8);
+      border: 1px solid var(--line-dark);
+      border-radius: 12px;
+      background: var(--color-graphite-mid);
+      text-align: left;
     }
 
     .loop-step:nth-child(4) {
@@ -334,46 +502,49 @@
 
     .loop-step h3 {
       font-size: 1rem;
-      margin: 0 0 8px;
-      color: var(--text);
-      text-align: center;
+      margin: 0 0 var(--space-2);
+      color: var(--text-dark-primary);
     }
 
     .loop-step p {
-      font-size: 0.98rem;
+      font-size: 0.95rem;
       max-width: none;
-      color: var(--muted);
-      text-align: center;
+      margin: 0;
+      color: var(--text-dark-secondary);
+      text-align: left;
     }
 
-    .section[aria-labelledby="product-boundary"] .section-intro {
-      max-width: 690px;
-    }
-
-    .section[aria-labelledby="future-of-3d"] .section-intro {
-      margin-bottom: 30px;
-    }
-
-    @media (max-width: 600px) {
-      body {
-        padding: 16px;
+    /* ============================================================
+       REDUCED MOTION
+       ============================================================ */
+    @media (prefers-reduced-motion: reduce) {
+      video.video-bg {
+        transition: none;
+        opacity: 1;
       }
+    }
 
+    /* ============================================================
+       RESPONSIVE — narrow viewport
+       ============================================================ */
+    @media (max-width: 600px) {
       h1 {
         font-size: 2.3rem;
       }
 
-      .content {
-        padding: 2vh 10px 6vh;
-        gap: 32px;
+      .hero {
+        gap: var(--space-4);
+        padding-block: var(--space-8);
+        padding-inline: var(--space-4);
       }
 
-      .hero {
-        gap: 14px;
+      .section {
+        padding-block: var(--space-12);
+        padding-inline: var(--space-4);
       }
 
       .signup {
-        padding: 18px;
+        padding: var(--space-4);
       }
 
       .signup form,
@@ -416,6 +587,9 @@
       }
     }
 
+    /* ============================================================
+       RESPONSIVE — short viewport
+       ============================================================ */
     @media (max-height: 600px) {
       .logo {
         width: 155px;
@@ -432,11 +606,11 @@
 
       .hero {
         min-height: auto;
-        gap: 12px;
-        padding-top: 26px;
-        padding-bottom: 26px;
+        gap: var(--space-3);
+        padding-block: var(--space-6);
       }
     }
+
   </style>
 </head>
 <body>
@@ -479,14 +653,14 @@
       </div>
     </section>
 
-    <section class="section" aria-labelledby="living-composition">
+    <section class="section section-light" aria-labelledby="living-composition">
       <h2 id="living-composition">A 3D asset is not a file. It is a living composition.</h2>
       <p class="section-intro">
         Geometry, materials, textures, variants, metadata, dependencies, and downstream representations continue to change throughout an asset&apos;s lifetime. But most workflows still manage those changes as disconnected files, copies, and exports. The result is fragmentation, asset drift, and a growing loss of trust.
       </p>
     </section>
 
-    <section class="section" aria-labelledby="trusted-identity">
+    <section class="section section-dark" aria-labelledby="trusted-identity">
       <h2 id="trusted-identity">XYZO orchestrates change while preserving one trusted identity.</h2>
       <p class="section-intro">
         XYZO creates a canonical asset that remains authoritative while its dimensions evolve independently and specialized tools continue doing what they do best.
@@ -519,14 +693,14 @@
       </div>
     </section>
 
-    <section class="section" aria-labelledby="canonical-asset">
-      <h2 id="canonical-asset">One source of truth. Many trusted representations.</h2>
+    <section class="section section-light" aria-labelledby="canonical-asset">
+      <h2 id="canonical-asset">One evolving authoritative state. Many trusted representations.</h2>
       <p class="section-intro">
         The XYZO canonical asset preserves one authoritative state across geometry, materials, textures, metadata, variants, dependencies, LOD, and animation. Outputs for visualization, commerce, spatial experiences, manufacturing, gaming, and the web are derived from that foundation. The source of truth does not change with every export.
       </p>
     </section>
 
-    <section class="section" aria-labelledby="working-product">
+    <section class="section section-canvas" aria-labelledby="working-product">
       <h2 id="working-product">The architecture is already working.</h2>
       <p class="section-intro">
         XYZO already demonstrates the core operating loop of a trusted canonical asset system.
@@ -555,7 +729,7 @@
       </ol>
     </section>
 
-    <section class="section" aria-labelledby="product-boundary">
+    <section class="section section-light" aria-labelledby="product-boundary">
       <h2 id="product-boundary">Specialized tools should remain specialized.</h2>
       <p class="section-intro">
         Blender, Maya, Houdini, Substance, Photoshop, ZBrush, and emerging generation tools should continue to own creation. Pipeline systems should continue to manage tasks, approvals, schedules, and handoffs. DAM and PIM systems should continue to manage records and distribution. XYZO takes responsibility for something different: preserving the identity, composition, dependencies, and trusted state of the 3D asset across them.
@@ -565,14 +739,14 @@
       </p>
     </section>
 
-    <section class="section" aria-labelledby="why-now">
+    <section class="section section-soft" aria-labelledby="why-now">
       <h2 id="why-now">The coordination problem is becoming unavoidable.</h2>
       <p class="section-intro">
         Creation is fragmenting across more specialized tools, generators, and services. Consumption is multiplying across commerce, visualization, spatial computing, manufacturing, gaming, the web, and AI. More contributors, variants, iterations, and automated transformations are accelerating asset change. The number of representations is growing faster than teams can maintain trust between them.
       </p>
     </section>
 
-    <section class="section" aria-labelledby="future-of-3d">
+    <section class="section section-dark" aria-labelledby="future-of-3d">
       <h2 id="future-of-3d">The future of 3D should not be constrained by the limitations of files.</h2>
       <p class="section-intro">
         The infrastructure for that future does not exist yet. We are building it.
