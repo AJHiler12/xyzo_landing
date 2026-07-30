@@ -1,0 +1,40 @@
+The audit is directionally approved, with these clarifications and decisions:
+
+1. Branch
+This Replit workspace is already checked out on `website-v2`. Verify that before editing. Do not create another branch and do not work on `main`.
+
+2. First implementation slice
+Begin with a visual-foundation pass plus the approved low-risk messaging correction.
+
+Scope:
+- replace “One source of truth. Many trusted representations.” with “One evolving authoritative state. Many trusted representations.”
+- establish the approved color tokens from DESIGN_LANGUAGE.md
+- introduce a stronger light/dark section rhythm using the existing section structure
+- move most body copy to left alignment where appropriate
+- improve typography, spacing, contrast, buttons, form controls, focus states, and responsive behavior
+- add reduced-motion handling
+- preserve the existing hero video behavior, XYZO wordmark, Netlify form integration, section content, JavaScript behavior, and asset paths
+- do not add new content sections yet
+- do not add navigation, diagrams, founder content, product screenshots, or category-boundary content in this slice
+- do not alter the deployment architecture or introduce a framework
+
+3. Typography
+Use Inter as the proposed primary direction for this first pass, with a robust system sans-serif fallback. Do not add a paid font or a large font dependency. Clearly identify how the font is being loaded before implementation.
+
+4. Product evidence
+Product screenshots and recordings exist and will be introduced in a later dedicated slice. Their absence should not block this visual-foundation pass.
+
+5. Founder section
+Founder copy exists, but the section and any photography are deferred until the site structure and visual language are established.
+
+6. Diagrams
+Inline SVG is likely appropriate, but do not create diagrams yet. Propose each diagram’s content and structure for review before implementation.
+
+Before editing, provide:
+- the exact visual changes you propose
+- the CSS variables or design tokens you will introduce
+- the sections that will switch to light versus dark
+- the files that will change
+- any existing behavior at risk
+
+Do not modify files until I approve that implementation plan.
