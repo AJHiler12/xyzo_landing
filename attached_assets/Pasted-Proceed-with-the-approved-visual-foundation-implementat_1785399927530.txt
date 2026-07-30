@@ -1,0 +1,240 @@
+Proceed with the approved visual-foundation implementation on the existing `website-v2` branch.
+
+Before editing:
+- verify the active branch is `website-v2`
+- confirm `index.html` is the only file expected to change
+- search the entire file for every existing CSS variable reference so no unresolved references remain after the token migration
+
+Implementation scope
+
+1. Typography
+- load Inter from Google Fonts using:
+  - preconnect to `fonts.googleapis.com`
+  - preconnect to `fonts.gstatic.com`
+  - a stylesheet request for weights 400, 500, and 600
+  - `display=swap`
+- use this fallback stack:
+  `system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif`
+- use approximately `1.65` to `1.7` body line-height
+- use approximately `1.15` line-height for display headings
+- preserve sentence case
+- keep the hero headline and subtitle centered
+- move most body copy and card copy to left alignment where appropriate
+- constrain longer copy to a readable line length of roughly 60 to 75 characters
+
+2. Replace the current CSS variables with this structured token set
+
+/* Neutrals */
+--color-canvas: #0B0D0F;
+--color-graphite: #1D2226;
+--color-graphite-mid: #252B30;
+--color-near-white: #F7F8F8;
+--color-soft-surface: #EEF1F2;
+--color-nardo: #A0A4A6;
+
+/* Text on dark */
+--text-dark-primary: #F4F6F7;
+--text-dark-secondary: #B8C0C5;
+--text-dark-tertiary: #858E94;
+
+/* Text on light */
+--text-light-primary: #0B0D0F;
+--text-light-secondary: #4E565C;
+--text-light-tertiary: #747C82;
+
+/* Borders */
+--line-dark: rgba(255, 255, 255, 0.10);
+--line-light: rgba(11, 13, 15, 0.10);
+
+/* Accents */
+--color-signal-blue: #005AA2;
+--color-validation-green: #7FD1AE;
+--color-mist-blue: #A7C3D0;
+--color-attention-orange: #E36F3F;
+
+/* Spacing */
+--space-1: 4px;
+--space-2: 8px;
+--space-3: 12px;
+--space-4: 16px;
+--space-6: 24px;
+--space-8: 32px;
+--space-12: 48px;
+--space-16: 64px;
+--space-24: 96px;
+--space-32: 128px;
+
+3. Light and dark section rhythm
+Apply explicit surface classes without changing section order or adding new sections.
+
+- Hero:
+  dark, using `--color-canvas`
+- “A 3D asset is not a file”:
+  light, using `--color-near-white`
+- “XYZO orchestrates change”:
+  dark, using `--color-graphite`
+- “One evolving authoritative state…”:
+  light, using `--color-near-white`
+- “The architecture is already working”:
+  dark, using `--color-canvas`
+- “Specialized tools should remain specialized”:
+  light, using `--color-near-white`
+- “The coordination problem”:
+  light, using `--color-soft-surface`
+- Closing CTA:
+  dark, using `--color-graphite`
+
+Use these transitions to create narrative rhythm, not decorative alternation.
+
+4. Messaging correction
+Replace only this heading:
+
+`One source of truth. Many trusted representations.`
+
+with:
+
+`One evolving authoritative state. Many trusted representations.`
+
+Do not make any other copy changes in this slice.
+
+5. Cards and surfaces
+For dark-section cards such as `.package-card` and `.loop-step`:
+- background: `var(--color-graphite-mid)`
+- border: `1px solid var(--line-dark)`
+- headings: `var(--text-dark-primary)`
+- body text: `var(--text-dark-secondary)`
+
+For light-section contained surfaces, if any:
+- background: `var(--color-soft-surface)`
+- border: `1px solid var(--line-light)`
+- headings: `var(--text-light-primary)`
+- body text: `var(--text-light-secondary)`
+
+Preserve restrained corner radii.
+Do not add excessive shadows, glow, blur, or glassmorphism.
+
+6. Buttons and form controls
+Primary buttons and `.button-link`:
+- background: `var(--color-signal-blue)`
+- text: white
+- font-weight: 600
+- hover background: approximately `#004A85`
+- preserve clear active and focus states
+
+Hero signup panel:
+- background: `var(--color-graphite-mid)`
+- border: `1px solid var(--line-dark)`
+- reduce the muddy translucent appearance
+- preserve current layout and Netlify behavior
+
+Hero email input must receive explicit dark-context styling:
+- dark but distinct input background
+- readable light text
+- readable placeholder text
+- clear border
+- visible hover state
+- visible focus state
+- browser autofill styling where practical
+- preserve the existing input name, label, form structure, and Netlify attributes
+
+Thank-you confirmation text:
+- change from the current pale blue to `var(--color-validation-green)`
+
+7. Focus and accessibility
+Add visible keyboard-focus support using `:focus-visible`:
+
+- `outline: 2px solid var(--color-signal-blue)`
+- `outline-offset: 3px`
+
+Apply it consistently to:
+- links
+- buttons
+- form controls
+- other interactive elements
+
+Preserve:
+- semantic HTML
+- existing labels
+- `aria-labelledby`
+- heading structure
+- alt text
+- keyboard operability
+
+Do not describe this as screen-reader behavior. It is visible keyboard-focus support.
+
+8. Reduced motion
+Add:
+
+`@media (prefers-reduced-motion: reduce)`
+
+Within it:
+- remove the video fade transition
+- ensure the video remains visible
+- do not disable the video entirely
+- do not alter existing loading logic
+
+9. Spacing and layout
+- use the spacing tokens consistently
+- increase major section separation to approximately `--space-24` where appropriate
+- keep readable body-copy widths around 60 to 75 characters
+- preserve wide layouts for grids and the operating loop
+- preserve existing responsive collapse behavior at the current breakpoints
+- do not force every section into the same centered column
+- do not add new grid systems or layout dependencies
+
+10. Preserve existing behavior
+Do not change:
+- hero video random-selection behavior
+- video asset paths
+- logo asset paths
+- Netlify form attributes
+- hidden form fields
+- form submission logic
+- thank-you toggle logic
+- current JavaScript behavior
+- section order
+- current number of sections
+- responsive grid collapse behavior
+- deployment architecture
+
+11. Explicitly out of scope
+Do not:
+- add navigation
+- add a footer
+- add new sections
+- add founder content
+- add product screenshots
+- add diagrams
+- add new JavaScript interactions
+- extract inline CSS
+- extract inline JavaScript
+- split HTML into partials
+- introduce a framework
+- introduce a build system
+- introduce a static-site generator
+- change Netlify
+- change GitHub workflow
+- touch `main`
+
+The separate no-behavior-change modularization slice will happen after this visual pass is reviewed and committed. That later slice will move:
+- inline CSS to `resources/css/styles.css`
+- inline JavaScript to `resources/js/site.js`
+
+Do not perform that extraction now.
+
+After implementation
+- inspect the complete diff
+- confirm only `index.html` changed
+- verify no unresolved CSS variables remain
+- test desktop, tablet, and mobile layouts
+- verify hero video behavior
+- verify all logo and video paths
+- verify the Netlify form structure and submission behavior
+- verify the thank-you state
+- verify keyboard focus visibility
+- verify reduced-motion behavior
+- report the exact changes made
+- report any deviations from this scope
+- report any visual or technical issues found
+
+Proceed with implementation.
