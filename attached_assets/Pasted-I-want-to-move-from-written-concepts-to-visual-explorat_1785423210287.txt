@@ -1,0 +1,125 @@
+I want to move from written concepts to visual exploration.
+
+Create three working, previewable homepage concept prototypes based on the concepts you proposed:
+
+1. The Monograph
+2. One Asset, Followed
+3. The Continuity Thread
+
+This is an exploratory design task. I want to see three genuinely different websites, not three descriptions or minor style variations.
+
+Create these as separate standalone files:
+
+- `concept-monograph.html`
+- `concept-one-asset.html`
+- `concept-continuity.html`
+
+Do not modify `index.html`.
+Do not modify the live website implementation.
+Do not change Netlify configuration.
+Do not change deployment architecture.
+Do not add a framework or build system.
+Do not commit or push until I review the concepts.
+
+Each concept should be fully previewable in Replit and should include enough of a homepage to communicate the design direction:
+
+- hero
+- product thesis/problem
+- canonical asset model
+- operating loop
+- product-evidence treatment
+- category-position treatment
+- closing CTA
+
+Use approved language from `/docs`.
+Do not invent product capabilities or claims.
+
+You may reuse existing XYZO logos, videos, screenshots, and assets from the repository. Where final product evidence is unavailable, use clearly labeled visual placeholders that show the intended crop, scale, hierarchy, and media treatment. Do not fabricate fake product UI.
+
+Concept requirements
+
+## Concept 1: The Monograph
+
+Create a predominantly light, editorial, industrial-design-inspired homepage.
+
+It should use:
+
+- oversized left-aligned typography
+- generous white space
+- thin technical rules
+- numbered sections or plate labels
+- restrained monospace captions
+- dark product-evidence plates
+- no card grid
+- minimal motion
+- a precise canonical asset diagram
+- a calm, resolved, technical-publication feeling
+
+The result should feel like a product monograph or carefully designed technical document, not a SaaS landing page.
+
+## Concept 2: One Asset, Followed
+
+Create a product-led and immersive homepage that follows one persistent asset identity through change.
+
+It should use:
+
+- a dark, product-focused hero
+- a recurring asset identity tag
+- a thin Validation Green continuity line
+- real or clearly marked placeholder evidence for Normalize, Compose, Inspect, Synchronize, and Publish
+- strong before-and-after treatment for synchronization
+- large product media
+- light editorial interludes
+- restrained technical captions
+- no generic feature-card grid
+
+The core experience should communicate:
+
+The asset changes. Its identity persists.
+
+Use one primary asset where possible, but do not fake a single-asset workflow when the available evidence does not support it.
+
+## Concept 3: The Continuity Thread
+
+Create a system-diagram-driven homepage built around one persistent semantic line running through the page.
+
+It should use:
+
+- a Validation Green continuity thread
+- Signal Blue operation nodes
+- dashed gray source-evidence connections
+- thin derived-output branches
+- sections arranged as meaningful stations along the line
+- product screenshots attached to relevant operation nodes
+- mixed light and dark environments
+- precise annotation typography
+- no decorative node graph
+- no card grid
+
+Every line and node must communicate a real authority or continuity relationship.
+
+Shared requirements
+
+- Follow `PROJECT_CONSTITUTION.md`, `PRODUCT_POSITIONING.md`, `WEBSITE_GOALS.md`, `BRAND.md`, and `DESIGN_LANGUAGE.md`.
+- Use Inter and a restrained monospace companion where appropriate.
+- Preserve accessible contrast.
+- Include visible keyboard-focus states.
+- Respect `prefers-reduced-motion`.
+- Create responsive desktop and mobile compositions.
+- Avoid cyberpunk, gamer, generic SaaS, glassmorphism, excessive glow, random wireframes, and decorative 3D objects.
+- Use real product evidence wherever available.
+- Clearly label placeholders and capability status.
+- Keep each prototype self-contained so it can be previewed independently.
+- The prototypes may use inline CSS and JavaScript because they are disposable explorations.
+- Prioritize visual imagination over production architecture in these concept files.
+
+After creating them:
+
+1. Do not commit.
+2. Give me the preview path or URL for each concept.
+3. Summarize the central visual decision in each.
+4. Identify any placeholders or missing assets.
+5. Tell me how to switch between and preview all three concepts in Replit.
+6. Wait for my review before modifying anything else.
+
+Proceed directly to creating the three visual prototypes.

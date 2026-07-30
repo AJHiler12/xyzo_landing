@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="XYZO keeps 3D assets trustworthy as they move. Infrastructure for living 3D asset compositions.">
+  <title>XYZO — The Continuity Thread</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black:#0B0D0F; --graphite:#1D2226; --graphite-2:#252B30;
+      --near:#F7F8F8; --surface:#EEF1F2; --blue:#005AA2; --green:#7FD1AE;
+      --orange:#E36F3F; --nardo:#A0A4A6; --light-text:#0B0D0F;
+      --muted-light:#4E565C; --muted-dark:#B8C0C5; --line:#657078;
+      --thread-x:32.5%;
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--near); color:var(--light-text); font-family:Inter, sans-serif; line-height:1.55; }
+    body:before { content:""; position:fixed; inset:0; pointer-events:none; opacity:.035; z-index:20; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.32'/%3E%3C/svg%3E"); }
+    a { color:inherit; text-decoration:none; }
+    button, a { -webkit-tap-highlight-color:transparent; }
+    :focus-visible { outline:2px solid var(--green); outline-offset:4px; }
+    .mono { font:500 10px/1.4 "IBM Plex Mono", monospace; letter-spacing:.08em; text-transform:uppercase; }
+    .site-nav { height:76px; display:flex; justify-content:space-between; align-items:center; padding:0 5vw; position:absolute; width:100%; top:0; z-index:10; color:#F4F6F7; }
+    .logo { width:64px; display:block; }
+    .nav-links { display:flex; align-items:center; gap:30px; color:#B8C0C5; font-size:12px; }
+    .nav-links a { transition:color .2s ease; }
+    .nav-links a:hover { color:#fff; }
+    .nav-contact { border:1px solid #59636a; padding:9px 13px; color:#F4F6F7; }
+    .nav-contact:hover { border-color:var(--green); color:var(--green)!important; }
+    .thread { position:absolute; z-index:3; top:0; bottom:0; left:var(--thread-x); width:2px; pointer-events:none; }
+    .thread:before, .thread:after { content:""; position:absolute; left:0; width:1px; background:var(--green); }
+    .thread:before { top:0; height:100%; opacity:.2; }
+    .thread svg { position:absolute; top:0; left:-1px; width:4px; height:100%; overflow:visible; }
+    .thread path { fill:none; stroke:var(--green); stroke-width:1.5; stroke-dasharray:1 1; stroke-dashoffset:1; vector-effect:non-scaling-stroke; }
+    .section { position:relative; overflow:hidden; }
+    .dark { background:var(--graphite); color:#F4F6F7; }
+    .black { background:var(--black); color:#F4F6F7; }
+    .light { background:var(--near); }
+    .soft { background:var(--surface); }
+    .inner { width:min(1180px,90vw); margin:0 auto; position:relative; z-index:4; }
+    .hero { min-height:94vh; padding:155px 0 120px; display:flex; align-items:center; }
+    .hero-copy { width:58%; padding-left:7%; }
+    .eyebrow { color:var(--green); margin:0 0 23px; }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { font-size:clamp(3.6rem,7.6vw,7.3rem); line-height:.96; letter-spacing:-.075em; font-weight:600; max-width:800px; margin-bottom:36px; }
+    .hero .lede { max-width:520px; font-size:clamp(1.1rem,1.7vw,1.35rem); color:#B8C0C5; line-height:1.5; margin-bottom:40px; }
+    .hero-actions { display:flex; gap:18px; align-items:center; }
+    .button { display:inline-flex; min-height:44px; align-items:center; padding:11px 16px; border:1px solid var(--blue); font-size:12px; font-weight:600; transition:background .2s ease,color .2s ease,border-color .2s ease; }
+    .button.primary { background:var(--blue); color:#fff; }
+    .button.primary:hover { background:#0872c4; }
+    .button.ghost { border-color:#657078; color:#F4F6F7; }
+    .button.ghost:hover { border-color:var(--green); color:var(--green); }
+    .hero-index { position:absolute; right:4%; bottom:70px; color:#858E94; writing-mode:vertical-rl; }
+    .hero-index span { color:var(--green); }
+    .station-label { display:flex; align-items:center; gap:13px; color:var(--green); margin-bottom:26px; }
+    .station-label:before { content:""; width:24px; height:1px; background:var(--green); }
+    .problem { min-height:83vh; padding:130px 0 145px; }
+    .problem .inner { display:grid; grid-template-columns:28% 1fr; gap:15%; }
+    .problem h2,.model h2,.proof h2,.category h2,.closing h2 { font-size:clamp(2.2rem,4.2vw,4.2rem); letter-spacing:-.06em; line-height:1.04; font-weight:600; }
+    .problem h2 { max-width:450px; margin-bottom:30px; }
+    .problem-copy { max-width:490px; color:var(--muted-light); }
+    .problem-copy p { font-size:1.15rem; }
+    .fragment-map { min-height:340px; position:relative; border-left:1px solid #ccd2d5; margin-top:28px; }
+    .fragment { position:absolute; height:1px; background:#9da5a9; transform-origin:left; }
+    .fragment:after { content:""; position:absolute; right:0; top:-3px; width:7px; height:7px; border:1px solid #9da5a9; background:var(--near); }
+    .fragment span { position:absolute; top:12px; left:0; white-space:nowrap; color:#747c82; }
+    .fragment.f1 { width:205px; left:11%; top:42px; transform:rotate(11deg); }
+    .fragment.f2 { width:173px; left:35%; top:130px; transform:rotate(-8deg); }
+    .fragment.f3 { width:230px; left:7%; top:238px; transform:rotate(5deg); }
+    .fragment.f4 { width:125px; left:57%; top:315px; transform:rotate(-20deg); }
+    .fragment.f1 span:before { content:"source/ chair_v07.fbx"; }
+    .fragment.f2 span:before { content:"review/ chair_final.usd"; }
+    .fragment.f3 span:before { content:"export/ chair_web.glb"; }
+    .fragment.f4 span:before { content:"archive/ chair_old.zip"; }
+    .absence-note { color:var(--orange); position:absolute; left:8%; bottom:10px; }
+    .model { padding:145px 0 170px; background:var(--near); }
+    .model-intro { margin-left:39%; max-width:600px; }
+    .model-intro p { font-size:1.12rem; color:var(--muted-light); }
+    .canonical-diagram { margin:90px 0 0; min-height:400px; position:relative; }
+    .canonical-spine { position:absolute; left:32.5%; top:0; bottom:0; border-left:1px solid var(--green); }
+    .authority { position:absolute; left:32.5%; width:45%; padding:21px 22px; border:1px solid #cbd1d4; background:#fff; }
+    .authority:before { content:""; position:absolute; left:-7px; top:29px; width:12px; height:12px; border-radius:50%; background:var(--green); border:3px solid var(--near); box-sizing:border-box; }
+    .authority h3 { font-size:1.25rem; margin-bottom:8px; letter-spacing:-.03em; }
+    .authority p { color:var(--muted-light); margin:0; max-width:470px; }
+    .authority .mono { color:var(--blue); margin-bottom:12px; }
+    .authority.identity { top:0; }
+    .authority.source { top:145px; border-style:dashed; background:transparent; transform:translateX(-62%); width:46%; }
+    .authority.source:after { content:""; position:absolute; right:-45%; top:34px; width:45%; border-top:1px dashed #9da5a9; }
+    .authority.canonical { top:160px; transform:translateX(0); }
+    .authority.derived { top:310px; transform:translateX(0); width:33%; margin-left:48%; background:var(--surface); }
+    .authority.derived:after { content:""; position:absolute; left:-48%; top:34px; width:48%; border-top:1px solid #a9b1b5; }
+    .model-foot { margin:74px 0 0 39%; color:var(--muted-light); max-width:510px; }
+    .model-foot strong { color:var(--light-text); font-weight:600; }
+    .loop { padding:150px 0 180px; background:var(--black); }
+    .loop-header { margin-left:39%; max-width:620px; }
+    .loop h2 { font-size:clamp(2.3rem,4.7vw,4.8rem); letter-spacing:-.065em; line-height:.98; margin-bottom:26px; }
+    .loop-header p { color:var(--muted-dark); font-size:1.1rem; }
+    .operations { margin-top:110px; margin-left:32.5%; }
+    .operation { min-height:160px; position:relative; padding:7px 0 0 42px; border-left:1px solid #566168; }
+    .operation:before { content:""; position:absolute; left:-8px; top:0; width:14px; height:14px; border:2px solid var(--blue); background:var(--black); border-radius:50%; transition:background .3s ease,border-color .3s ease; }
+    .operation.is-active:before { background:var(--blue); border-color:#7dbce5; }
+    .operation h3 { font-size:1.3rem; margin-bottom:8px; }
+    .operation p { color:var(--muted-dark); max-width:445px; margin-bottom:11px; }
+    .operation .mono { color:#858e94; }
+    .evidence { position:absolute; left:57%; top:-19px; width:275px; min-height:115px; border:1px solid #59636a; padding:14px; background:var(--graphite); }
+    .evidence:before { content:""; position:absolute; left:-38%; top:32px; width:38%; border-top:1px solid #59636a; }
+    .evidence .frame { height:52px; border:1px dashed #778188; display:flex; align-items:center; justify-content:center; color:#B8C0C5; text-align:center; margin-bottom:12px; padding:0 8px; }
+    .evidence .mono { font-size:9px; color:#B8C0C5; }
+    .status { color:var(--green)!important; }
+    .status.dev { color:var(--orange)!important; }
+    .proof { padding:145px 0 165px; background:var(--graphite); }
+    .proof .inner { display:grid; grid-template-columns:28% 1fr; gap:15%; }
+    .proof h2 { margin-bottom:28px; }
+    .proof-intro { color:var(--muted-dark); max-width:470px; font-size:1.1rem; }
+    .proof-frames { display:grid; grid-template-columns:1.3fr .7fr; gap:15px; align-items:end; }
+    .proof-frame { border:1px solid #59636a; padding:12px; background:var(--black); }
+    .proof-frame.large { height:325px; }
+    .proof-frame.small { height:205px; }
+    .proof-frame .screen { height:100%; border:1px dashed #657078; display:flex; align-items:center; justify-content:center; text-align:center; padding:20px; color:#B8C0C5; }
+    .proof-frame figcaption { color:#858E94; margin-top:12px; }
+    .proof-note { grid-column:2; color:#B8C0C5; margin-top:22px; max-width:470px; }
+    .category { padding:150px 0 180px; background:var(--near); }
+    .category-header { margin-left:39%; max-width:610px; }
+    .category h2 { margin-bottom:25px; }
+    .category-header p { color:var(--muted-light); font-size:1.1rem; }
+    .boundaries { position:relative; min-height:440px; margin-top:100px; border-top:1px solid #d2d7d9; border-bottom:1px solid #d2d7d9; }
+    .boundary { position:absolute; left:0; right:0; border-top:1px solid #9da5a9; color:#4E565C; padding-top:12px; }
+    .boundary span { display:inline-block; background:var(--near); padding-right:14px; }
+    .boundary b { font-weight:500; color:#0B0D0F; }
+    .boundary em { font-style:normal; display:block; font-size:12px; max-width:290px; margin-top:8px; color:#747C82; }
+    .boundary.b1 { top:70px; } .boundary.b2 { top:170px; } .boundary.b3 { top:280px; } .boundary.b4 { top:380px; }
+    .boundary .touch { position:absolute; left:32.5%; top:-7px; width:13px; height:13px; border:1px solid #657078; background:var(--near); border-radius:50%; }
+    .category-note { margin:65px 0 0 39%; max-width:490px; color:var(--muted-light); }
+    .category-note strong { color:#0B0D0F; }
+    .closing { padding:160px 0 110px; background:var(--black); min-height:600px; }
+    .closing .inner { margin-left:calc((100% - min(1180px,90vw))/2 + 7%); }
+    .closing h2 { max-width:790px; color:#F4F6F7; margin-bottom:30px; }
+    .closing p { max-width:500px; color:var(--muted-dark); font-size:1.1rem; margin-bottom:38px; }
+    footer { border-top:1px solid #30383d; padding-top:28px; margin-top:125px; width:min(1180px,90vw); display:flex; justify-content:space-between; color:#858E94; }
+    footer img { width:46px; height:auto; }
+    footer .mono { font-size:9px; }
+    @media (max-width:800px) {
+      :root { --thread-x:28px; }
+      .site-nav { padding:0 24px; } .nav-links a:not(.nav-contact) { display:none; }
+      .nav-links { gap:0; } .nav-contact { padding:8px 10px; }
+      .inner { width:calc(100% - 56px); margin-left:56px; }
+      .hero { min-height:850px; padding:150px 0 100px; align-items:flex-start; }
+      .hero-copy { width:auto; padding:0 24px 0 32px; }
+      h1 { font-size:clamp(3.25rem,16vw,5.5rem); }
+      .hero .lede { font-size:1rem; } .hero-actions { flex-wrap:wrap; }
+      .hero-index { right:20px; bottom:35px; }
+      .problem { padding:100px 0 115px; }
+      .problem .inner,.proof .inner { display:block; margin-left:56px; width:calc(100% - 80px); }
+      .problem h2,.proof h2 { font-size:2.8rem; }
+      .problem-copy { font-size:.95rem; }
+      .fragment-map { margin-top:70px; min-height:350px; margin-left:0; }
+      .fragment.f1 { width:135px; left:4%; } .fragment.f2 { width:150px; left:28%; }
+      .fragment.f3 { width:175px; left:1%; } .fragment.f4 { width:105px; left:43%; }
+      .model { padding:105px 0 120px; }
+      .model-intro,.model-foot,.category-header,.category-note,.loop-header { margin-left:32px; width:calc(100% - 56px); }
+      .model h2,.loop h2,.category h2 { font-size:2.8rem; }
+      .canonical-diagram { margin-top:70px; min-height:650px; margin-left:0; }
+      .canonical-spine { left:0; }
+      .authority { left:24px; width:calc(100% - 24px); }
+      .authority.source { top:160px; transform:none; width:calc(100% - 24px); left:24px; }
+      .authority.source:after { left:-24px; right:auto; width:24px; }
+      .authority.canonical { top:310px; } .authority.derived { top:480px; width:calc(100% - 24px); margin-left:0; }
+      .authority.derived:after { left:-24px; width:24px; }
+      .operations { margin-left:0; }
+      .loop { padding:105px 0 130px; }
+      .loop-header { margin-left:32px; }
+      .operation { padding-left:32px; min-height:205px; }
+      .evidence { position:relative; left:auto; top:auto; width:calc(100% - 20px); margin-top:20px; }
+      .evidence:before { left:-20px; width:20px; }
+      .proof { padding:105px 0 120px; }
+      .proof-frames { display:block; margin-top:50px; }
+      .proof-frame.large { height:260px; margin-bottom:18px; } .proof-frame.small { height:180px; }
+      .proof-note { margin-top:28px; }
+      .category { padding:105px 0 130px; }
+      .boundaries { margin-top:65px; min-height:520px; }
+      .boundary { left:0; padding-left:0; }
+      .boundary .touch { left:0; } .boundary span { padding-left:22px; }
+      .boundary.b1 { top:70px; }.boundary.b2 { top:190px; }.boundary.b3 { top:315px; }.boundary.b4 { top:440px; }
+      .closing { padding:110px 0 60px; }
+      .closing .inner { margin-left:56px; width:calc(100% - 80px); }
+      .closing h2 { font-size:3rem; }
+      footer { margin-top:90px; flex-direction:column; gap:22px; }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      html { scroll-behavior:auto; }
+      *,*:before,*:after { animation-duration:.01ms!important; transition-duration:.01ms!important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-nav">
+    <a href="#top" aria-label="XYZO home"><img class="logo" src="./resources/images/XYZO_Logo_WHITE_Transp.png" alt="XYZO"></a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="#model">Canonical asset</a><a href="#loop">Operating loop</a><a href="#category">Category</a>
+      <a class="nav-contact" href="mailto:hello@xyzo.io">Request a conversation</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <div class="thread" aria-hidden="true"><svg preserveAspectRatio="none" viewBox="0 0 2 1000"><path d="M1 0 V1000"></path></svg></div>
+    <section class="section dark hero">
+      <div class="inner">
+        <div class="hero-copy">
+          <p class="mono eyebrow">The continuity thread / 001</p>
+          <h1>Keep the asset.<br>Change the state.</h1>
+          <p class="lede">XYZO keeps 3D assets trustworthy as they move across tools, contributors, workflows, and downstream uses.</p>
+          <div class="hero-actions"><a class="button primary" href="#model">See the asset model</a><a class="button ghost" href="mailto:hello@xyzo.io">Request a conversation</a></div>
+        </div>
+        <p class="mono hero-index"><span>XYZO</span> / infrastructure for living 3D asset compositions</p>
+      </div>
+    </section>
+
+    <section class="section light problem" id="problem">
+      <div class="inner">
+        <div><p class="mono station-label">02 / fragmentation</p><h2>A 3D asset is not a file.</h2></div>
+        <div class="problem-copy">
+          <p>As assets move, they are copied, converted, optimized, renamed, repackaged, and modified.</p>
+          <p>Multiple files claim to represent the same asset. Dimensions evolve without coordination. Dependencies drift or break. Teams lose confidence in which state is authoritative.</p>
+          <div class="fragment-map" aria-label="Disconnected file fragments">
+            <div class="fragment f1"><span></span></div><div class="fragment f2"><span></span></div><div class="fragment f3"><span></span></div><div class="fragment f4"><span></span></div>
+            <p class="mono absence-note">identity absent / continuity interrupted</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section model" id="model">
+      <div class="inner">
+        <p class="mono station-label">03 / canonical asset</p>
+        <div class="model-intro"><h2>It is a living composition.</h2><p>One persistent identity. Source evidence that remains traceable. An evolving canonical state. Derived representations for downstream use.</p></div>
+        <div class="canonical-diagram" aria-label="Canonical asset authority model">
+          <div class="canonical-spine"></div>
+          <article class="authority identity"><p class="mono">persistent identity</p><h3>The same asset throughout its lifetime.</h3><p>Identity persists while asset state evolves.</p></article>
+          <article class="authority source"><p class="mono">source evidence / where it began</p><h3>Origin remains traceable.</h3><p>What was observed and what normalization decisions were made.</p></article>
+          <article class="authority canonical"><p class="mono status">canonical state / what it is now</p><h3>One evolving authoritative state.</h3><p>Trusted normalization, composition, synchronization, and authoring operations may change that state without creating a new asset identity.</p></article>
+          <article class="authority derived"><p class="mono">derived representations / downstream use</p><h3>Outputs remain downstream.</h3><p>Published files, optimized packages, previews, and platform-specific artifacts derive from canonical state.</p></article>
+        </div>
+        <p class="model-foot"><strong>Source evidence records where the asset began. Canonical state defines what the asset is now.</strong><br><br>XYZO preserves continuity across all four.</p>
+      </div>
+    </section>
+
+    <section class="section dark loop" id="loop">
+      <div class="inner">
+        <p class="mono station-label">04 / operating loop</p>
+        <div class="loop-header"><h2>Orchestrate change while preserving one trusted identity.</h2><p>OpenUSD is the composition engine. XYZO is the trusted operating layer around it.</p></div>
+        <div class="operations">
+          <article class="operation"><h3>Normalize</h3><p>Ingest heterogeneous source formats into a deterministic canonical structure while preserving source traceability.</p><p class="mono">working today / import · identity · dependencies</p><div class="evidence"><div class="frame">PLACEHOLDER — Forge: canonical package inspection</div><p class="mono status">working today / intended crop and treatment</p></div></article>
+          <article class="operation"><h3>Compose</h3><p>Let geometry, materials, textures, metadata, variants, levels of detail, animations, and dependencies evolve independently while remaining connected.</p><p class="mono">working today / OpenUSD stage · geometry variants</p><div class="evidence"><div class="frame">PLACEHOLDER — Forge: reference-based geometry composition</div><p class="mono status">working today / intended crop and treatment</p></div></article>
+          <article class="operation"><h3>Inspect</h3><p>Make hierarchy, composition, bounds, content, dependencies, missing references, and package integrity visible.</p><p class="mono">working today / integrity and dependency diagnostics</p><div class="evidence"><div class="frame">PLACEHOLDER — Forge: stage hierarchy and integrity</div><p class="mono status">working today / intended crop and treatment</p></div></article>
+          <article class="operation"><h3>Synchronize</h3><p>Bring trusted external changes into canonical state. Current implementation supports texture synchronization.</p><p class="mono">working today / texture change detection and sync</p><div class="evidence"><div class="frame">PLACEHOLDER — Forge: synchronized texture state</div><p class="mono status">working today / intended crop and treatment</p></div></article>
+          <article class="operation"><h3>Publish</h3><p>Create target-specific derived representations from canonical state. Publishing may transform the export without mutating canonical authority.</p><p class="mono status dev">in active development / Apple Quick Look and USDZ publishing</p><div class="evidence"><div class="frame">PLACEHOLDER — publishing output / no product UI fabricated</div><p class="mono status dev">in active development / status shown intentionally</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark proof" id="proof">
+      <div class="inner">
+        <div><p class="mono station-label">05 / product evidence</p><h2>The system already exists.</h2><p class="proof-intro">The current MVP demonstrates the core operating loop across Forge, Core, and publishing workflows.</p></div>
+        <div>
+          <div class="proof-frames">
+            <figure class="proof-frame large"><div class="screen"><span class="mono">PLACEHOLDER — Forge product evidence<br>canonical package / inspection view</span></div><figcaption class="mono">intended crop / working today</figcaption></figure>
+            <figure class="proof-frame small"><div class="screen"><span class="mono">PLACEHOLDER — Core workflow<br>machine-callable operation</span></div><figcaption class="mono">intended crop / working today</figcaption></figure>
+          </div>
+          <p class="proof-note">Working capabilities include deterministic canonical package creation, canonical OpenUSD stage creation, geometry Variant Set authoring, inspection, dependency diagnostics, texture change detection, canonical texture synchronization, viewer refresh, and headless Core workflows.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section category" id="category">
+      <div class="inner">
+        <p class="mono station-label">06 / category position</p>
+        <div class="category-header"><h2>A missing layer between specialized creation and downstream consumption.</h2><p>Specialized tools should remain specialized. XYZO preserves how their outputs continue to belong to the same asset as they change.</p></div>
+        <div class="boundaries" aria-label="Category boundaries">
+          <div class="boundary b1"><span><b>Creation tools</b><em>Geometry, material, texture, animation, design intent.</em></span><i class="touch"></i></div>
+          <div class="boundary b2"><span><b>Pipeline and production systems</b><em>Tasks, approvals, schedules, versions, handoffs.</em></span><i class="touch"></i></div>
+          <div class="boundary b3"><span><b>DAM, PIM, PLM, and MDM systems</b><em>Storage, cataloging, records, distribution.</em></span><i class="touch"></i></div>
+          <div class="boundary b4"><span><b>Publishing systems and viewers</b><em>Target-specific delivery, presentation, visualization, review.</em></span><i class="touch"></i></div>
+        </div>
+        <p class="category-note"><strong>Pipelines move work. XYZO maintains the continuity and trusted state of the asset being moved.</strong><br><br>It does not replace existing categories. It connects them around one trusted asset.</p>
+      </div>
+    </section>
+
+    <section class="section black closing" id="contact">
+      <div class="inner">
+        <p class="mono station-label">07 / next conversation</p>
+        <h2>Take responsibility for the continuity of the 3D asset itself.</h2>
+        <p>XYZO keeps one authoritative 3D asset connected as its geometry, materials, textures, metadata, dependencies, and outputs change across tools and uses.</p>
+        <a class="button primary" href="mailto:hello@xyzo.io">Request a product conversation</a>
+        <footer><img src="./resources/images/XYZO_Logo_WHITE_Transp.png" alt="XYZO"><span class="mono">infrastructure for living 3D asset compositions</span><span class="mono">© 2024 XYZO</span></footer>
+      </div>
+    </section>
+  </main>
+  <script>
+    (() => {
+      const thread = document.querySelector('.thread path');
+      const ops = document.querySelectorAll('.operation');
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const update = () => {
+        const max = document.documentElement.scrollHeight - innerHeight;
+        const progress = max ? Math.min(1, Math.max(0, scrollY / max)) : 1;
+        thread.style.strokeDashoffset = reduce ? '0' : String(1 - progress);
+      };
+      if (reduce) thread.style.strokeDashoffset = '0';
+      else { addEventListener('scroll', update, {passive:true}); update(); }
+      const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('is-active');
+      }), {threshold:.35});
+      ops.forEach(op => observer.observe(op));
+    })();
+  </script>
+</body>
+</html>
