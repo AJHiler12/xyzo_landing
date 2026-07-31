@@ -49,7 +49,7 @@ There are no other repository `.css` files at the time this document was added.
 ## Naming conventions
 
 - Shared structural selectors are short and generic when they are intentionally reused across sections, for example `.wrap`, `.mono`, `.eyebrow`, and `.reveal`.
-- Component selectors are scoped by section or component name, for example `.hero-inner`, `.signup-form`, `.canonical-intro`, `.evidence-frame`, and `.sync-toggle`.
+- Component selectors are scoped by section or component name, for example `.hero-inner`, `.signup-form`, `.canonical-intro`, `.evidence-frame`, `.normalize-gallery`, and `.sync-gallery`.
 - The header logo uses `.site-logo` so it does not collide with any future hero-specific logo treatment.
 - Hero form styles are scoped under `.hero` to avoid broad control rules leaking into other sections.
 
@@ -76,9 +76,13 @@ Component-specific selectors:
 
 ## Responsive rules
 
-Responsive CSS lives near the end of `resources/styles/site.css` in the `@media (max-width: 760px)` block.
+Responsive CSS lives near the end of `resources/styles/site.css` in these blocks:
 
-This block contains:
+- `@media (max-width: 1150px)`
+- `@media (max-width: 980px)`
+- `@media (max-width: 760px)`
+
+These blocks contain:
 
 - container width changes
 - header compaction
@@ -86,6 +90,7 @@ This block contains:
 - form stacking changes
 - section padding changes
 - loop/stage layout changes
+- gallery copy-height adjustments
 - evidence and footer stacking changes
 
 ## Reduced-motion rules
@@ -100,7 +105,7 @@ This preserves:
 
 - disabled smooth scrolling
 - disabled reveal transitions
-- disabled sync comparison transition
+- disabled nonessential motion while preserving gallery state changes
 
 ## Hero style scoping
 
@@ -140,7 +145,9 @@ Inline `style=""` attributes should also be avoided. At the time this document w
 Inline JavaScript remains in `index.html` because it controls:
 
 - reveal-on-scroll behavior
-- sync comparison state toggling
+- hero background-video selection and fallback
+- Normalize gallery state toggling
+- Synchronize gallery state toggling
 - Netlify form submission success state
 
 ## Local preview
@@ -167,6 +174,7 @@ Then open the local URL in a browser.
 4. Check desktop and mobile behavior.
 5. Confirm reduced-motion and focus behavior still work.
 6. Confirm the Netlify form markup and JS behavior are unchanged.
+7. For gallery work, inspect both the shared display frame and the state-specific copy reservation before changing dimensions or visibility rules.
 
 ## How to avoid duplicate or inline styles
 
@@ -175,6 +183,36 @@ Then open the local URL in a browser.
 - Prefer class-based selectors over inline `style=""` attributes.
 - If a selector belongs only to one section, keep it scoped to that section.
 - If a new pattern is shared across multiple sections, add it to the relevant shared section in `site.css` rather than duplicating declarations.
+
+## Gallery architecture
+
+The homepage currently contains two interactive gallery systems:
+
+- Normalize:
+  - root: `.normalize-gallery[data-normalize-gallery]`
+  - state controls: `[data-normalize-target]`
+  - layered views: `[data-normalize-view]`
+  - active copy: `#normalizeGalleryTitle`, `#normalizeGalleryDescription`
+- Synchronize:
+  - root stage: `[data-sync-root]`
+  - state controls: `[data-sync-state]`
+  - active media: `#syncGalleryImage`
+  - active copy: `#syncGalleryTitle`, `#syncGalleryDescription`
+
+Both galleries rely on:
+
+- one shared display frame
+- one shared active-copy region
+- reserved copy height that is controlled in CSS
+- active-state classes plus `aria-pressed`
+
+When changing gallery behavior:
+
+1. inspect the gallery HTML in `index.html`
+2. inspect the matching `normalize-*` or `sync-*` selectors in `site.css`
+3. inspect the corresponding inline JavaScript state updater
+4. verify inactive states remain hidden and non-interactive
+5. verify copy-region min-height remains stable at desktop and mobile breakpoints
 
 ## Maintenance note
 
