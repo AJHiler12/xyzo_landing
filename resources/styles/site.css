@@ -16,6 +16,12 @@
   --line: rgba(247, 248, 248, 0.16);
   --mono: "IBM Plex Mono", monospace;
   --sans: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  --hero-gutter: clamp(20px, 4.5vw, 76px);
+  --hero-measure: 1240px;
+  --control-height: 48px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
 }
 
 /* ============================================================
@@ -140,8 +146,13 @@ header {
   justify-content: space-between;
 }
 
+header .wrap,
+.hero-inner.wrap {
+  width: min(var(--hero-measure), calc(100% - (var(--hero-gutter) * 2)));
+}
+
 .site-logo {
-  width: 68px;
+  width: clamp(112px, 9vw, 132px);
   filter: none;
 }
 
@@ -162,6 +173,7 @@ header {
 
 .nav-cta {
   border: 1px solid rgba(247, 248, 248, 0.5);
+  border-radius: var(--radius-md);
   padding: 10px 15px;
   font-size: 12px;
 }
@@ -184,7 +196,6 @@ header {
   width: 100%;
   padding: 0;
   gap: 0;
-  overflow: hidden;
   background: var(--black);
   color: var(--white);
   text-align: left;
@@ -204,14 +215,21 @@ header {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(11, 13, 15, 0.64);
+  background: linear-gradient(
+    90deg,
+    rgba(11, 13, 15, 0.86) 0%,
+    rgba(11, 13, 15, 0.8) 28%,
+    rgba(11, 13, 15, 0.66) 56%,
+    rgba(11, 13, 15, 0.4) 78%,
+    rgba(11, 13, 15, 0.24) 100%
+  );
 }
 
 .hero-inner {
   position: relative;
   z-index: 1;
   width: 100%;
-  padding: 170px 0 78px;
+  padding: clamp(146px, 17vh, 176px) 0 clamp(110px, 14vh, 138px);
 }
 
 .hero-kicker {
@@ -231,8 +249,12 @@ header {
 }
 
 .hero h1 {
-  max-width: 850px;
-  margin: 0 0 34px;
+  max-width: 10.75ch;
+  margin: 0 0 26px;
+  font-size: clamp(54px, 8vw, 132px);
+  line-height: 0.92;
+  letter-spacing: -0.058em;
+  text-wrap: balance;
 }
 
 .hero h1 span {
@@ -242,27 +264,33 @@ header {
 
 .hero-foot {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 32px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  max-width: 100%;
+  margin-bottom: 0;
+  gap: clamp(18px, 3vw, 34px);
 }
 
 .hero-copy {
   display: block;
   width: auto;
-  max-width: 450px;
+  max-width: 34ch;
   color: var(--muted);
   font-size: 17px;
   line-height: 1.55;
 }
 
 .hero-copy strong {
+  display: block;
+  margin-bottom: 0.18em;
   color: var(--white);
   font-weight: 500;
 }
 
 .scroll-note {
+  margin-top: 16px;
   color: var(--gray);
+  opacity: 0.82;
   white-space: nowrap;
 }
 
@@ -270,19 +298,21 @@ header {
    FORM
    ============================================================ */
 .hero .signup {
-  width: min(100%, 720px);
+  width: min(100%, 640px);
+  margin-top: clamp(28px, 3.2vw, 36px);
   padding: 24px;
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  background: var(--graphite-2);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  background: rgba(34, 38, 42, 0.46);
+  backdrop-filter: blur(4px);
 }
 
 .hero .signup-form {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   gap: 10px;
   max-width: 570px;
-  margin-top: 30px;
+  margin-top: 0;
 }
 
 .hero .signup-field {
@@ -298,10 +328,12 @@ header {
 
 .hero .signup-field input {
   width: 100%;
+  height: var(--control-height);
   border: 1px solid rgba(247, 248, 248, 0.3);
-  background: rgba(29, 34, 38, 0.82);
+  border-radius: var(--radius-sm);
+  background: rgba(24, 27, 30, 0.68);
   color: var(--white);
-  padding: 12px 14px;
+  padding: 0 14px;
   font: 14px var(--sans);
 }
 
@@ -310,17 +342,33 @@ header {
 }
 
 .hero .signup-form button {
-  border: 0;
-  background: var(--blue);
-  color: var(--white);
-  padding: 13px 16px;
+  height: var(--control-height);
+  padding: 0 16px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius-sm);
+  background: rgba(115, 120, 126, 0.52);
+  color: rgba(255, 255, 255, 0.92);
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-size: 13px;
   white-space: nowrap;
 }
 
 .hero .signup-form button:hover {
-  background: #0871C1;
+  background: rgba(135, 140, 146, 0.62);
+}
+
+.hero .signup-form button:active {
+  background: rgba(95, 100, 106, 0.56);
+}
+
+.hero .signup-form button:disabled {
+  background: rgba(95, 100, 106, 0.34);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.62);
+  cursor: not-allowed;
 }
 
 .hero .audit-note {
@@ -481,6 +529,7 @@ header {
   margin-bottom: 25px;
   padding: 9px 12px;
   border: 1px solid rgba(127, 209, 174, 0.48);
+  border-radius: 999px;
   background: rgba(29, 34, 38, 0.78);
   color: var(--green);
 }
@@ -613,6 +662,7 @@ header {
   min-height: 410px;
   padding: 42px 42px 46px;
   border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
   background: var(--graphite);
 }
 
@@ -677,6 +727,7 @@ header {
   min-height: 340px;
   height: min(60vw, 570px);
   border: 1px solid rgba(247, 248, 248, 0.25);
+  border-radius: var(--radius-lg);
   background: var(--graphite);
 }
 
@@ -707,6 +758,7 @@ header {
   max-width: 310px;
   padding: 16px;
   border: 1px solid rgba(247, 248, 248, 0.3);
+  border-radius: var(--radius-md);
   background: rgba(11, 13, 15, 0.88);
   color: var(--muted);
   text-align: center;
@@ -753,7 +805,7 @@ header {
   margin-top: 20px;
   padding: 11px 14px;
   border: 1px solid var(--blue);
-  border-radius: 0;
+  border-radius: var(--radius-sm);
   background: none;
   color: var(--white);
   cursor: pointer;
@@ -879,6 +931,7 @@ header {
 .evidence-frame {
   padding: 18px;
   border: 1px solid var(--line);
+  border-radius: var(--radius-md);
 }
 
 .evidence-frame .placeholder {
@@ -933,6 +986,7 @@ header {
   display: inline-flex;
   margin-top: 28px;
   padding: 14px 18px;
+  border-radius: var(--radius-sm);
   background: var(--blue);
   color: var(--white);
   font-size: 13px;
@@ -977,6 +1031,11 @@ header {
     width: min(100% - 40px, 1240px);
   }
 
+  header .wrap,
+  .hero-inner.wrap {
+    width: min(var(--hero-measure), calc(100% - (var(--hero-gutter) * 2)));
+  }
+
   header {
     padding: 18px 0;
   }
@@ -986,25 +1045,39 @@ header {
   }
 
   .hero-inner {
-    padding: 150px 0 42px;
+    padding: 118px 0 62px;
   }
 
   .hero h1 {
-    max-width: 600px;
-    font-size: clamp(62px, 18vw, 120px);
+    max-width: 9.5ch;
+    font-size: clamp(52px, 15vw, 88px);
   }
 
   .hero-foot {
     display: block;
+    max-width: 100%;
   }
 
   .hero-copy {
-    margin-bottom: 28px;
+    max-width: 31ch;
     font-size: 16px;
+  }
+
+  .hero-copy strong {
+    margin-bottom: 0.16em;
+  }
+
+  .scroll-note {
+    margin-top: 14px;
+    white-space: normal;
   }
 
   .hero .signup-form {
     display: block;
+  }
+
+  .hero .signup {
+    margin-top: clamp(20px, 6vw, 28px);
   }
 
   .hero .signup-field {
