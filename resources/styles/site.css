@@ -1160,7 +1160,7 @@ header .wrap,
   }
 
   .loop::before {
-    left: 20px;
+    display: none;
   }
 
   .stage,
@@ -1193,6 +1193,7 @@ header .wrap,
   .stage-media,
   .stage-copy {
     width: 100%;
+    padding-left: 0;
   }
 
   .placeholder {
@@ -1204,18 +1205,70 @@ header .wrap,
     padding-top: 0;
   }
 
+  .sync .stage-copy,
+  .sync .stage-media {
+    padding-left: 0;
+  }
+
+  .sync-toggle {
+    margin-top: 18px;
+    padding: 9px 12px;
+    border-color: rgba(255, 255, 255, 0.14);
+    background: rgba(115, 120, 126, 0.34);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 12px;
+    justify-self: start;
+    align-self: flex-start;
+  }
+
+  .sync-toggle:hover,
+  .sync-toggle:active {
+    background: rgba(135, 140, 146, 0.48);
+  }
+
   .sync-pair {
-    gap: 8px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
   }
 
   .sync-pair .placeholder {
-    min-height: 170px;
-    height: 42vw;
+    min-height: 178px;
+    height: auto;
   }
 
   .sync-pair .placeholder-label {
     padding: 8px;
     font-size: 9px;
+  }
+
+  .sync-pair .after {
+    position: relative;
+  }
+
+  .sync-pair .after::before {
+    content: "↓";
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    color: var(--gray);
+    font: 12px/1 var(--mono);
+    transform: translateX(-50%);
+  }
+
+  .sync-note {
+    max-width: 32ch;
+    line-height: 1.5;
+  }
+
+  .sync .caption {
+    max-width: 28ch;
+    line-height: 1.5;
+  }
+
+  .sync .caption .status {
+    display: block;
+    margin-top: 5px;
+    margin-left: 0;
   }
 
   .evidence-head,
