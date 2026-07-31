@@ -238,6 +238,7 @@ header .wrap,
   gap: 10px;
   margin-bottom: 28px;
   color: var(--green);
+  white-space: nowrap;
 }
 
 .marker {
@@ -274,7 +275,7 @@ header .wrap,
 .hero-copy {
   display: block;
   width: auto;
-  max-width: 34ch;
+  max-width: 36ch;
   color: var(--muted);
   font-size: 17px;
   line-height: 1.55;
@@ -308,41 +309,53 @@ header .wrap,
 }
 
 .hero .signup-form {
-  display: flex;
-  align-items: flex-end;
-  gap: 10px;
+  display: block;
   max-width: 570px;
   margin-top: 0;
 }
 
 .hero .signup-field {
   display: flex;
-  flex: 1;
   flex-direction: column;
   gap: 8px;
+}
+
+.hero .signup-controls {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: stretch;
+  gap: 10px;
 }
 
 .hero .signup-field label {
   color: var(--gray);
 }
 
-.hero .signup-field input {
-  width: 100%;
+.hero .signup-controls input,
+.hero .signup-controls button {
+  box-sizing: border-box;
   height: var(--control-height);
+  min-height: var(--control-height);
+  margin: 0;
+}
+
+.hero .signup-controls input {
+  width: 100%;
   border: 1px solid rgba(247, 248, 248, 0.3);
   border-radius: var(--radius-sm);
   background: rgba(24, 27, 30, 0.68);
   color: var(--white);
   padding: 0 14px;
   font: 14px var(--sans);
+  line-height: normal;
+  appearance: none;
 }
 
-.hero .signup-field input::placeholder {
+.hero .signup-controls input::placeholder {
   color: var(--gray);
 }
 
-.hero .signup-form button {
-  height: var(--control-height);
+.hero .signup-controls button {
   padding: 0 16px;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: var(--radius-sm);
@@ -353,18 +366,19 @@ header .wrap,
   align-items: center;
   justify-content: center;
   font-size: 13px;
+  line-height: normal;
   white-space: nowrap;
 }
 
-.hero .signup-form button:hover {
+.hero .signup-controls button:hover {
   background: rgba(135, 140, 146, 0.62);
 }
 
-.hero .signup-form button:active {
+.hero .signup-controls button:active {
   background: rgba(95, 100, 106, 0.56);
 }
 
-.hero .signup-form button:disabled {
+.hero .signup-controls button:disabled {
   background: rgba(95, 100, 106, 0.34);
   border-color: rgba(255, 255, 255, 0.1);
   color: rgba(255, 255, 255, 0.62);
@@ -413,7 +427,7 @@ header .wrap,
 }
 
 .problem-copy p {
-  margin: 0 0 25px;
+  margin: 0;
   color: #4E565C;
   font-size: 19px;
   line-height: 1.55;
@@ -1067,24 +1081,24 @@ header .wrap,
     margin-bottom: 0.16em;
   }
 
-  .scroll-note {
-    margin-top: 14px;
+  .hero-kicker {
     white-space: normal;
   }
 
-  .hero .signup-form {
-    display: block;
+  .scroll-note {
+    margin-top: 14px;
+    white-space: normal;
   }
 
   .hero .signup {
     margin-top: clamp(20px, 6vw, 28px);
   }
 
-  .hero .signup-field {
-    margin-bottom: 10px;
+  .hero .signup-controls {
+    grid-template-columns: minmax(0, 1fr);
   }
 
-  .hero .signup-form button {
+  .hero .signup-controls button {
     width: 100%;
   }
 
