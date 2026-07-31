@@ -1,0 +1,1 @@
+- [Preview cache behavior](preview-cache.md) — Replit Preview can retain an older static HTML document after a homepage promotion; use a query-string cache buster or hard refresh.
