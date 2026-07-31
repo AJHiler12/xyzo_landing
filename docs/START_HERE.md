@@ -7,8 +7,10 @@ Before making any code, content, or design changes, read the documents in this o
 3. WEBSITE_GOALS.md
 4. BRAND.md
 5. DESIGN_LANGUAGE.md
+6. WEBSITE_STYLING.md
 
 These documents define the product truth, positioning, communication goals, brand voice, and visual direction for the XYZO website.
+`WEBSITE_STYLING.md` documents where the website CSS lives, how it is linked, and how to make safe styling changes without reintroducing duplicate or inline CSS.
 
 ## Authority Order
 
@@ -19,7 +21,8 @@ When documents appear to conflict, use this order of authority:
 3. WEBSITE_GOALS.md
 4. BRAND.md
 5. DESIGN_LANGUAGE.md
-6. Existing website implementation
+6. WEBSITE_STYLING.md
+7. Existing website implementation
 
 The current website is not the source of truth. It is an implementation that may be revised to better reflect the documents above.
 
