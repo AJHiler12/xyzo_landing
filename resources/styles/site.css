@@ -273,12 +273,14 @@ header .wrap,
 }
 
 .hero-copy {
-  display: block;
+  display: flex;
+  flex-direction: column;
   width: auto;
   max-width: 36ch;
   color: var(--muted);
   font-size: 17px;
   line-height: 1.55;
+  gap: 0.12em;
 }
 
 .hero-copy strong {
@@ -286,6 +288,10 @@ header .wrap,
   margin-bottom: 0.18em;
   color: var(--white);
   font-weight: 500;
+}
+
+.hero-copy span {
+  display: block;
 }
 
 .scroll-note {
@@ -421,6 +427,18 @@ header .wrap,
   margin: 18px 0 0;
 }
 
+.problem h2 {
+  max-width: 18ch;
+}
+
+.problem-heading-line {
+  display: block;
+}
+
+.problem-heading-pair {
+  display: inline-block;
+}
+
 .problem-copy {
   max-width: 470px;
   padding-top: 20px;
@@ -462,7 +480,19 @@ header .wrap,
 }
 
 .canonical h2 {
-  max-width: 620px;
+  max-width: 18ch;
+}
+
+.canonical-heading-line {
+  display: block;
+}
+
+.canonical-heading-detail {
+  max-width: 100%;
+}
+
+.canonical-heading-pair {
+  display: inline-block;
 }
 
 .canonical-intro p {
@@ -580,6 +610,15 @@ header .wrap,
   line-height: 0.95;
   letter-spacing: -0.07em;
   font-weight: 500;
+  max-width: 11ch;
+}
+
+.state-heading-line {
+  display: block;
+}
+
+.state-heading-pair {
+  display: inline-block;
 }
 
 .interlude p {
@@ -610,6 +649,18 @@ header .wrap,
   letter-spacing: -0.065em;
   line-height: 0.95;
   font-weight: 500;
+}
+
+.category h2 {
+  max-width: 14ch;
+}
+
+.category-heading-line {
+  display: block;
+}
+
+.category-heading-pair {
+  display: inline-block;
 }
 
 .evidence-head p {
@@ -981,12 +1032,21 @@ header .wrap,
 }
 
 .closing h2 {
-  max-width: 850px;
+  max-width: 13ch;
   margin: 18px 0 0;
   font-size: clamp(52px, 8vw, 120px);
   line-height: 0.88;
   letter-spacing: -0.08em;
   font-weight: 500;
+  text-wrap: balance;
+}
+
+.closing-heading-line {
+  display: block;
+}
+
+.closing-heading-pair {
+  display: inline-block;
 }
 
 .closing p {
@@ -1075,6 +1135,7 @@ header .wrap,
   .hero-copy {
     max-width: 31ch;
     font-size: 16px;
+    gap: 0.12em;
   }
 
   .hero-copy strong {
@@ -1304,6 +1365,7 @@ header .wrap,
   }
 
   .closing h2 {
+    max-width: 11ch;
     font-size: 70px;
   }
 
