@@ -17,9 +17,11 @@ Before making any code, content, or design changes, read:
 1. START_HERE.md
 2. PROJECT_CONSTITUTION.md
 3. PRODUCT_POSITIONING.md
-4. WEBSITE_GOALS.md
-5. BRAND.md
-6. DESIGN_LANGUAGE.md
+4. WEBSITE_NARRATIVE.md
+5. WEBSITE_GOALS.md
+6. BRAND.md
+7. DESIGN_LANGUAGE.md
+8. WEBSITE_STYLING.md
 
 The authority order defined in START_HERE.md must be respected.
 
@@ -43,6 +45,8 @@ Do not:
 
 When product meaning is unclear, ask before changing copy.
 
+For homepage work, do not invent a new narrative when `WEBSITE_NARRATIVE.md` already defines the public structure and message hierarchy.
+
 ---
 
 ## Approved Product Model
@@ -65,7 +69,7 @@ Synchronization is the controlled evolution of trusted canonical state.
 
 ## Messaging Rules
 
-Use approved language from PRODUCT_POSITIONING.md and BRAND.md.
+Use approved language from PRODUCT_POSITIONING.md, WEBSITE_NARRATIVE.md, and BRAND.md.
 
 Prefer direct, concrete statements.
 
@@ -94,6 +98,14 @@ Do not rewrite approved core statements unless:
 
 Do not stack abstract terms such as infrastructure, orchestration, trust, provenance, canonical, and ecosystem without explaining the concrete product behavior behind them.
 
+Do not treat the public homepage as a direct deck reproduction.
+
+The public homepage should summarize and orient.
+
+Protected deeper materials should eventually live in `/principles/` and `/advisor/`.
+
+Do not front-load deep technical distinctions such as source evidence, runtime intent, and detailed publishing-boundary language before the visitor understands the problem, the model, and XYZO's product responsibility.
+
 ---
 
 ## Current Capability Discipline
@@ -110,6 +122,8 @@ Do not present future capabilities as current.
 Current capability claims must remain consistent with the approved documentation and the actual repository.
 
 When uncertain, inspect the implementation or ask.
+
+Do not imply that all target-specific publishing profiles, APIs, team workflows, geometry synchronization, broader synchronization, or broader automation are complete unless the approved docs and implementation clearly support that claim.
 
 ---
 
@@ -309,6 +323,7 @@ A proposed change is aligned when it:
 - improves usability
 - improves accessibility
 - supports the approved narrative
+- preserves the public/protected content split
 - uses real evidence
 - remains easy to review and reverse
 
@@ -320,6 +335,7 @@ A proposed change is misaligned when it:
 - prioritizes novelty over clarity
 - broadens scope without approval
 - hides product reality
+- collapses the homepage into protected deep-dive material
 - adds unnecessary complexity
 - imitates generic AI, SaaS, or technology-brand patterns
 

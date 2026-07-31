@@ -4,12 +4,14 @@ Before making any code, content, or design changes, read the documents in this o
 
 1. PROJECT_CONSTITUTION.md
 2. PRODUCT_POSITIONING.md
-3. WEBSITE_GOALS.md
-4. BRAND.md
-5. DESIGN_LANGUAGE.md
-6. WEBSITE_STYLING.md
+3. WEBSITE_NARRATIVE.md
+4. WEBSITE_GOALS.md
+5. BRAND.md
+6. DESIGN_LANGUAGE.md
+7. WEBSITE_STYLING.md
+8. AI_RULES.md
 
-These documents define the product truth, positioning, communication goals, brand voice, and visual direction for the XYZO website.
+These documents define the product truth, positioning, homepage narrative, communication goals, brand voice, visual direction, styling architecture, and agent operating rules for the XYZO website.
 `WEBSITE_STYLING.md` documents where the website CSS lives, how it is linked, and how to make safe styling changes without reintroducing duplicate or inline CSS.
 
 ## Authority Order
@@ -18,13 +20,17 @@ When documents appear to conflict, use this order of authority:
 
 1. PROJECT_CONSTITUTION.md
 2. PRODUCT_POSITIONING.md
-3. WEBSITE_GOALS.md
-4. BRAND.md
-5. DESIGN_LANGUAGE.md
-6. WEBSITE_STYLING.md
-7. Existing website implementation
+3. WEBSITE_NARRATIVE.md
+4. WEBSITE_GOALS.md
+5. BRAND.md
+6. DESIGN_LANGUAGE.md
+7. WEBSITE_STYLING.md
+8. AI_RULES.md
+9. Existing website implementation
 
 The current website is not the source of truth. It is an implementation that may be revised to better reflect the documents above.
+
+The public homepage is a summary and orientation layer, not a verbatim reproduction of the First Principles deck or Advisor deck. Protected deeper material should eventually live in `/principles/` and `/advisor/`.
 
 ## Working Rules
 
@@ -41,7 +47,8 @@ Do not:
 
 Do:
 
-- preserve the distinction between source evidence, canonical state, runtime intent, and derived representations
+- preserve the distinction between working capabilities, active development, and future direction
+- introduce technical concepts progressively rather than front-loading deep architecture language
 - distinguish working capabilities from active development and future direction
 - use real product evidence wherever possible
 - prefer refinement over wholesale replacement
@@ -85,7 +92,7 @@ Before changing files:
 1. Read the documents listed above.
 2. Inspect the current repository structure.
 3. Inspect the current website.
-4. Summarize the product, website goals, current implementation, and proposed scope.
+4. Summarize the product, homepage narrative, website goals, current implementation, and proposed scope.
 5. Identify any conflicts, unsupported claims, or questions.
 6. Wait for approval before making substantial changes.
 

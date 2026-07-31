@@ -2,7 +2,7 @@
 
 ## Purpose
 
-The XYZO website is the public introduction to the product, its underlying thesis, and the working system being built.
+The XYZO website is the public introduction to XYZO and the working system being built.
 
 Its primary job is to help a thoughtful visitor understand:
 
@@ -11,11 +11,13 @@ Its primary job is to help a thoughtful visitor understand:
 - why the problem matters
 - how the canonical asset model addresses it
 - what is already working
-- what is still being developed
+- what category responsibility XYZO owns
 - why the product is credible
-- what conversation should follow
+- how to request deeper access
 
 The website should make XYZO easier to understand without reducing it to a converter, viewer, pipeline tool, publishing utility, or generic 3D platform.
+
+The public homepage should summarize and orient. It should not reproduce the First Principles or Advisor decks word for word.
 
 ---
 
@@ -29,6 +31,8 @@ XYZO keeps one trusted 3D asset connected as its geometry, materials, textures, 
 
 The site should make clear that XYZO takes responsibility for the continuity of the 3D asset itself.
 
+`WEBSITE_NARRATIVE.md` governs the homepage narrative and copy flow used to accomplish that goal.
+
 ---
 
 ## Secondary Goals
@@ -38,7 +42,7 @@ The website should:
 - establish that XYZO is based on a coherent product and architecture thesis
 - demonstrate that a working product already exists
 - introduce the normalize, compose, inspect, synchronize, and publish operating model
-- distinguish persistent identity, source evidence, canonical state, runtime intent, and derived representations
+- introduce technical concepts progressively rather than all at once
 - show that specialized creation tools remain essential
 - make the opportunity legible to advisors, domain experts, early users, technical collaborators, and potential partners
 - create confidence that the product is ambitious but grounded
@@ -48,27 +52,17 @@ The website should:
 
 ## Primary Audiences
 
-### Advisors and Domain Experts
+The public homepage is for thoughtful visitors who need an accurate orientation before deeper material.
 
-They should quickly understand the product thesis, architectural foundation, current maturity, unresolved decisions, and areas where informed pressure would be valuable.
+That includes:
 
-### Designers and 3D Creators
+- advisors and domain experts
+- designers and 3D creators
+- technical collaborators and pipeline-minded teams
+- early users and potential partners
+- informed investors
 
-They should understand that XYZO does not replace their creation tools.
-
-They should see how geometry, materials, textures, variants, metadata, and other dimensions can evolve while remaining connected to one asset identity.
-
-### Pipeline and Technical Teams
-
-They should understand the deterministic canonical asset model, explicit authority boundaries, dependency integrity, validation, synchronization, and derived publishing model.
-
-### Early Users and Partners
-
-They should understand the problem XYZO solves, the value of trusted asset continuity, the capabilities already working, and the logical direction of product expansion.
-
-### Investors
-
-Investors are not the primary audience of the public landing page, but the site should establish enough clarity, ambition, technical credibility, and founder conviction to support a deeper discussion.
+The homepage should be understandable to a non-specialist without flattening the product into generic marketing language.
 
 ---
 
@@ -83,18 +77,6 @@ A 3D asset should behave as a living composition rather than a collection of dis
 The asset remains the same asset as its dimensions change.
 
 Persistent identity does not mean frozen state.
-
-### Origin remains traceable
-
-Source evidence records where the asset began, what was observed, and what normalization decisions were made.
-
-The original source informs the asset without permanently limiting what it may become.
-
-### Canonical state defines the asset now
-
-The canonical asset maintains one evolving authoritative state.
-
-Trusted normalization, composition, synchronization, and authoring operations may change that state without creating a new asset identity.
 
 ### Dimensions can evolve independently
 
@@ -128,16 +110,14 @@ It must clearly distinguish working capabilities from active development and lon
 
 The website should answer these questions in a deliberate sequence:
 
-1. What problem exists?
-2. Why is that problem becoming more important?
-3. What is XYZO?
-4. What responsibility does XYZO own?
-5. What is a living canonical asset?
-6. How can identity persist while state evolves?
-7. What does the product do today?
-8. How is XYZO different from existing categories?
-9. Why is this product credible?
-10. What should the visitor do next?
+1. What is XYZO?
+2. What problem does it solve?
+3. How does the asset model work at a high level?
+4. What does the product do?
+5. What is already working?
+6. What responsibility does XYZO own?
+7. Why does this matter now?
+8. How do I request deeper access?
 
 A visitor should not need to understand OpenUSD before understanding XYZO.
 
@@ -145,39 +125,26 @@ Technical depth should be introduced progressively rather than required at the b
 
 ---
 
-## Authority Model
+## Technical Concept Discipline
 
-The website must preserve the distinction between five concepts.
+The website must preserve product truth, but it should not introduce every deep architectural distinction at the top of the homepage.
 
-### Persistent Identity
+The public homepage should introduce:
 
-The stable identity of the asset throughout its lifetime.
+- persistent identity
+- evolving dimensions
+- trusted representations
 
-### Source Evidence
+Deeper distinctions such as:
 
-The traceable record of where the asset began and what was observed during import and normalization.
+- source evidence
+- runtime intent
+- detailed canonical authority boundaries
+- publishing projection details
 
-### Canonical State
+should appear later in the narrative, in controlled explanatory sections, or in protected deeper materials.
 
-The current authoritative state of the asset.
-
-### Runtime and User Intent
-
-Temporary selections, view state, overrides, host interaction, and other session concerns that do not automatically become asset truth.
-
-### Derived Representations
-
-Published, optimized, or target-specific outputs created from canonical state.
-
-The website must not imply that these concepts are interchangeable.
-
-In particular:
-
-- source evidence is not canonical authority
-- runtime state is not persistent asset truth
-- a viewer is not asset authority
-- a published output is not a new canonical source
-- a target-specific transformation does not mutate the canonical asset when it is confined to a derived artifact
+The site must not imply that these concepts are interchangeable, but it should introduce them progressively instead of all at once.
 
 ---
 
@@ -286,12 +253,12 @@ The primary call to action should invite a relevant conversation rather than for
 
 Appropriate actions include:
 
-- view product demonstrations
-- explore the First Principles
-- review the product architecture
+- request early access
 - contact the founder
 - request a product conversation
-- join a product update list when such a list is active
+- explore the thinking behind XYZO
+
+Deeper material such as First Principles and Advisor content should eventually be oriented through protected routes rather than reproduced in full on the public homepage.
 
 The site should not imply that XYZO is commercially available at a scale or maturity it has not yet reached.
 
@@ -307,18 +274,18 @@ The public website should prioritize:
 4. the XYZO operating loop
 5. working product evidence
 6. category boundaries
-7. founder credibility
+7. why the coordination problem matters now
 8. a focused call to action
 
 Supporting pages may later include:
 
-- First Principles
-- Product Architecture
-- Product Demonstrations
-- Technical Documentation
-- Development Updates
-- Advisor Materials
-- Investor Materials
+- `/principles/`
+- `/advisor/`
+- product demonstrations
+- technical documentation
+- development updates
+
+The public site should summarize and orient these deeper bodies of material rather than duplicate them.
 
 Audience-specific or sensitive materials may be placed behind controlled access.
 
@@ -366,6 +333,8 @@ It should not feel:
 
 The website must follow the approved Project Constitution and Product Positioning.
 
+`WEBSITE_NARRATIVE.md` is the authority for homepage copy hierarchy and section flow.
+
 It must not:
 
 - invent capabilities
@@ -381,6 +350,7 @@ It must not:
 - use OpenUSD as the opening explanation for non-technical audiences
 - introduce unsupported market, customer, adoption, or performance claims
 - use abstract terminology without explaining concrete product responsibility
+- treat the homepage as a direct export of the First Principles or Advisor decks
 
 The site should clearly distinguish:
 
@@ -400,7 +370,6 @@ Preferred examples:
 - XYZO keeps 3D assets trustworthy as they move.
 - XYZO keeps one authoritative asset connected as it changes.
 - A 3D asset is not a file. It is a living composition.
-- Source evidence records where the asset began. Canonical state defines what the asset is now.
 - One identity. Many evolving dimensions.
 - Specialized tools remain specialized.
 - XYZO orchestrates change while preserving one trusted identity.
@@ -456,13 +425,11 @@ The website is successful when a qualified visitor can accurately explain:
 - what problem it owns
 - why the canonical asset matters
 - how identity persists while asset state evolves
-- why source evidence and canonical state are different
-- why runtime intent is not automatically asset truth
-- why published outputs remain derived
-- how target-specific publishing can transform an export without mutating canonical state
 - how XYZO relates to creative tools, pipelines, content systems, converters, and viewers
 - what is working today
 - why the product is worth a deeper conversation
+
+Deeper understanding of source evidence, runtime intent, and derived publishing boundaries may follow through protected or technical materials after the homepage has established the core model.
 
 The website has failed if a visitor leaves believing XYZO is only:
 
