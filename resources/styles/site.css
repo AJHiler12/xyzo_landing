@@ -719,6 +719,92 @@ header .wrap,
   font-weight: 500;
 }
 
+.three-ways {
+  padding: 140px 0 150px;
+  background: var(--black);
+  color: var(--white);
+}
+
+.three-ways-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 11vw;
+  margin-bottom: 50px;
+}
+
+.three-ways-intro p {
+  max-width: 460px;
+  margin-top: 48px;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.three-ways h2 {
+  color: var(--white);
+}
+
+.three-ways-list {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--graphite);
+  overflow: hidden;
+}
+
+.three-ways-row {
+  display: grid;
+  grid-template-columns: minmax(160px, 220px) minmax(0, 1fr);
+  gap: 36px;
+  padding: 31px 34px;
+  align-items: start;
+}
+
+.three-ways-row + .three-ways-row {
+  border-top: 1px solid var(--line);
+}
+
+.three-ways-label {
+  margin: 0;
+  color: var(--green);
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.three-ways-copy {
+  max-width: 700px;
+}
+
+.three-ways-primary,
+.three-ways-secondary {
+  margin: 0;
+}
+
+.three-ways-primary {
+  color: var(--white);
+  font-size: 22px;
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+}
+
+.three-ways-secondary {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.three-ways-closing {
+  max-width: 580px;
+  margin: 36px auto 0;
+  color: var(--white);
+  font-size: 28px;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  text-align: center;
+}
+
 /* ============================================================
    DIAGRAMS AND EVIDENCE
    ============================================================ */
@@ -1868,6 +1954,14 @@ header .wrap,
     margin-top: 30px;
   }
 
+  .three-ways-intro {
+    display: block;
+  }
+
+  .three-ways-intro p {
+    margin-top: 30px;
+  }
+
   .evidence-frame .placeholder {
     min-height: 250px;
     height: 68vw;
@@ -1880,6 +1974,29 @@ header .wrap,
   .boundary {
     grid-template-columns: 1fr;
     gap: 12px;
+  }
+
+  .three-ways {
+    padding: 80px 0 105px;
+  }
+
+  .three-ways-row {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 24px 22px;
+  }
+
+  .three-ways-primary {
+    font-size: 20px;
+  }
+
+  .three-ways-secondary {
+    font-size: 16px;
+  }
+
+  .three-ways-closing {
+    max-width: 14ch;
+    font-size: 24px;
   }
 
   .closing {
