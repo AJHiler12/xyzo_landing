@@ -205,8 +205,18 @@
             <p>XYZO composes independently evolving dimensions into one canonical asset.</p>
           </div>
           <div class="stage-media">
-            <div class="placeholder"><div class="placeholder-label mono"><strong>PLACEHOLDER &mdash; Forge</strong>reference-based geometry variant composition</div></div>
-            <div class="caption mono">canonical OpenUSD stage <span class="status">working today</span></div>
+            <figure class="product-evidence product-evidence-primary compose-evidence">
+              <div class="product-evidence-frame">
+                <video class="product-evidence-image compose-evidence-video" autoplay loop muted playsinline preload="metadata" aria-label="XYZO Forge showing selectable geometry variants on a single Sports Balls prim while preserving one canonical asset identity.">
+                  <source src="./resources/videos/evidence/xyzo_SportsBalls_VS02.mp4" type="video/mp4">
+                  Your browser does not support inline playback of the Compose geometry variants evidence video.
+                </video>
+              </div>
+              <figcaption class="compose-evidence-copy">
+                <div class="compose-evidence-title mono">Compose geometry variants within one prim</div>
+                <p class="compose-evidence-description">A single Sports Balls prim contains multiple selectable geometry states while preserving one canonical asset identity.</p>
+              </figcaption>
+            </figure>
           </div>
         </article>
         <article class="stage reveal">
@@ -378,6 +388,19 @@
     }
 
     initializeHeroBackgroundVideo();
+
+    const composeEvidenceVideo = document.querySelector('.compose-evidence-video');
+    if (composeEvidenceVideo) {
+      if (reduce) {
+        composeEvidenceVideo.removeAttribute('autoplay');
+        composeEvidenceVideo.addEventListener('loadeddata', () => {
+          composeEvidenceVideo.pause();
+          composeEvidenceVideo.currentTime = 0;
+        }, { once: true });
+      } else {
+        attemptHeroPlayback(composeEvidenceVideo);
+      }
+    }
 
     if (!reduce && 'IntersectionObserver' in window) {
       const observer = new IntersectionObserver(entries => entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); observer.unobserve(entry.target); } }), {threshold:.12});

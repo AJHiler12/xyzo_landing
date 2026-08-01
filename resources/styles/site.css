@@ -921,6 +921,35 @@ header .wrap,
   gap: 12px;
 }
 
+.compose-evidence-video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+}
+
+.compose-evidence-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.compose-evidence-title {
+  color: var(--white);
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+}
+
+.compose-evidence-description {
+  margin: 0;
+  max-width: 62ch;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
 .stage-media .placeholder {
   min-height: clamp(280px, 34vw, 440px);
   height: auto;
@@ -1812,6 +1841,10 @@ header .wrap,
     font-size: 15px;
   }
 
+  .compose-evidence-description {
+    font-size: 15px;
+  }
+
   .sync-gallery-expansion-items {
     gap: 8px;
   }
@@ -1878,6 +1911,10 @@ header .wrap,
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .compose-evidence-video {
+    animation: none;
   }
 
   .reveal {
