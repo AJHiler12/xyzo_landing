@@ -76,6 +76,12 @@ h2,
 h3,
 p {
   margin: 0;
+  font-family: var(--sans);
+  font-style: normal;
+  font-stretch: 100%;
+  font-variation-settings: normal;
+  font-feature-settings: normal;
+  text-transform: none;
 }
 
 h1 {
@@ -101,6 +107,22 @@ h3 {
 p {
   font-size: 1rem;
   line-height: 1.7;
+}
+
+:where(h1, h2, h3, p):not(.mono, .eyebrow) :where(span, strong, b, em) {
+  font-family: inherit;
+  font-stretch: inherit;
+  font-variation-settings: inherit;
+  font-feature-settings: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  text-transform: inherit;
+}
+
+:where(h1, h2, h3, p):not(.mono, .eyebrow) span {
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: inherit;
 }
 
 .mono {
@@ -1638,7 +1660,7 @@ header .wrap,
 }
 
 .document-header .wrap {
-  width: min(1240px, calc(100% - 64px));
+  width: min(var(--hero-measure), calc(100% - (var(--hero-gutter) * 2)));
 }
 
 .document-nav {
@@ -1669,102 +1691,183 @@ header .wrap,
 }
 
 .document-hero {
-  padding: 112px 0 64px;
+  padding: clamp(146px, 18vh, 182px) 0 clamp(96px, 12vh, 128px);
   background: var(--black);
 }
 
-.document-hero-inner {
-  max-width: 860px;
+.document-hero-inner.wrap,
+.document-content-inner.wrap,
+.principles-orientation-shell.wrap,
+.principles-why-shell.wrap,
+.document-closing-inner.wrap {
+  width: min(var(--hero-measure), calc(100% - (var(--hero-gutter) * 2)));
+  max-width: none;
 }
 
 .document-hero h1 {
   max-width: 12ch;
-  margin-top: 18px;
-  font-size: clamp(46px, 7vw, 88px);
-  line-height: 0.94;
-  letter-spacing: -0.06em;
-  font-weight: 500;
+  margin-top: 20px;
+  font-size: clamp(56px, 8vw, 118px);
+  line-height: 0.91;
+  letter-spacing: -0.068em;
+  font-weight: 600;
+  text-wrap: balance;
 }
 
 .document-intro {
-  max-width: 760px;
-  margin-top: 28px;
+  max-width: 40ch;
+  margin-top: 30px;
   color: var(--muted);
-  font-size: 21px;
-  line-height: 1.6;
+  font-size: 19px;
+  line-height: 1.68;
 }
 
 .document-content {
-  padding: 0 0 96px;
   background: var(--black);
+}
+
+.document-content-primary {
+  padding: clamp(56px, 8vh, 88px) 0 clamp(92px, 12vh, 118px);
+}
+
+.document-content-secondary {
+  padding: clamp(72px, 9vh, 98px) 0 104px;
 }
 
 .document-content-inner {
   display: grid;
-  gap: 56px;
-  max-width: 920px;
+  gap: clamp(72px, 9vh, 112px);
+}
+
+.document-content-secondary .document-content-inner {
+  gap: 0;
 }
 
 .principles-section {
   color: var(--white);
 }
 
+.principles-eyebrow {
+  margin: 0;
+}
+
+.principles-chapter {
+  display: grid;
+  gap: 16px;
+  width: 100%;
+  max-width: none;
+}
+
+.principles-declaration {
+  max-width: 16ch;
+  color: var(--white);
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 0.98;
+  letter-spacing: -0.058em;
+  font-weight: 500;
+  text-wrap: balance;
+}
+
+.principles-section p.principles-lead {
+  max-width: 32ch;
+  margin: 0;
+  color: var(--white);
+  font-size: clamp(23px, 2.9vw, 34px);
+  line-height: 1.18;
+  letter-spacing: -0.035em;
+  font-weight: 500;
+  text-wrap: balance;
+}
+
+.principles-copy-stack {
+  display: grid;
+  gap: 18px;
+  max-width: 42ch;
+  margin-top: 24px;
+}
+
+.principles-orientation {
+  padding: clamp(52px, 8vh, 84px) 0 clamp(60px, 9vh, 92px);
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.principles-orientation-shell {
+  display: grid;
+  gap: 18px;
+}
+
+.principles-section.principles-orientation .principles-eyebrow {
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.principles-section.principles-orientation .principles-orientation-answer {
+  max-width: 18ch;
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(42px, 5vw, 72px);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  font-weight: 500;
+  text-wrap: balance;
+}
+
 .principles-section-surface,
 .principles-section-emphasis {
-  padding: 34px 36px;
+  padding: 36px 38px;
   border-radius: var(--radius-lg);
 }
 
 .principles-section-surface {
-  border: 1px solid rgba(247, 248, 248, 0.12);
-  background: var(--graphite);
+  border: 1px solid rgba(247, 248, 248, 0.1);
+  background: rgba(29, 34, 38, 0.88);
 }
 
 .principles-section-emphasis {
-  border: 1px solid var(--line);
-  background: var(--graphite-2);
-}
-
-.principles-section h2 {
-  max-width: 20ch;
-  color: var(--white);
-  font-size: clamp(28px, 3.8vw, 40px);
-  line-height: 1.02;
-  letter-spacing: -0.04em;
-  font-weight: 500;
+  border: 1px solid rgba(247, 248, 248, 0.1);
+  background: rgba(37, 43, 48, 0.92);
 }
 
 .principles-section p {
-  max-width: 64ch;
-  margin-top: 18px;
+  max-width: 42ch;
+  margin-top: 20px;
   color: var(--muted);
   font-size: 18px;
-  line-height: 1.65;
+  line-height: 1.68;
+}
+
+.principles-section .principles-copy-stack p {
+  margin-top: 0;
+}
+
+.principles-systems-evidence {
+  margin-top: 44px;
 }
 
 .principles-section-intro {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
-  gap: 32px;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
+  gap: 34px;
   align-items: start;
 }
 
 .principles-section-intro p {
-  margin-top: 6px;
+  margin-top: 8px;
 }
 
 .principles-contrast {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-  margin-top: 28px;
+  gap: 16px;
+  margin-top: 0;
 }
 
 .principles-contrast-group {
-  padding: 22px 24px;
-  border: 1px solid rgba(247, 248, 248, 0.12);
+  padding: 24px 26px;
+  border: 1px solid rgba(247, 248, 248, 0.1);
   border-radius: var(--radius-md);
-  background: var(--graphite);
+  background: rgba(29, 34, 38, 0.82);
 }
 
 .principles-contrast-group h3 {
@@ -1792,16 +1895,118 @@ header .wrap,
   gap: 10px;
   margin-top: 18px;
   color: var(--white);
-  font-size: 18px;
-  line-height: 1.4;
+  font-size: 19px;
+  line-height: 1.42;
+}
+
+.principles-contrast-notes {
+  display: grid;
+  gap: 9px;
+  margin-top: 20px;
+  color: #98A2A9;
+}
+
+.principles-contrast-notes p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.principles-orchestration-intro {
+  max-width: 900px;
+}
+
+.principles-orchestration-declaration {
+  max-width: 18ch;
+}
+
+.principles-orchestration-map {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 74px minmax(180px, 0.78fr) minmax(0, 1.18fr);
+  gap: 20px;
+  align-items: center;
+  margin-top: 34px;
+}
+
+.principles-orchestration-label {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--green);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.principles-orchestration-core-card,
+.principles-orchestration-flow {
+  min-height: 122px;
+  padding: 24px 22px;
+  border: 1px solid rgba(247, 248, 248, 0.1);
+  border-radius: var(--radius-md);
+  background: rgba(11, 13, 15, 0.2);
+}
+
+.principles-orchestration-core-card {
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.principles-orchestration-core-card strong,
+.principles-orchestration-flow {
+  font-size: 25px;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  font-weight: 500;
+}
+
+.principles-orchestration-flow {
+  display: grid;
+  align-content: center;
+}
+
+.principles-orchestration-flow .principles-orchestration-label {
+  margin-bottom: 8px;
+}
+
+.principles-orchestration-connector {
+  display: grid;
+  gap: 12px;
+}
+
+.principles-orchestration-connector span {
+  height: 1px;
+  background: rgba(247, 248, 248, 0.2);
+}
+
+.principles-orchestration-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.principles-orchestration-list li {
+  padding: 11px 12px;
+  border: 1px solid rgba(247, 248, 248, 0.08);
+  border-radius: var(--radius-sm);
+  background: rgba(247, 248, 248, 0.03);
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .principles-anatomy {
   display: grid;
-  grid-template-columns: minmax(0, 360px) minmax(0, 1fr);
-  gap: 28px;
+  grid-template-columns: minmax(0, 380px) minmax(0, 1fr);
+  gap: 30px;
   align-items: start;
-  margin-top: 30px;
+  margin-top: 34px;
 }
 
 .principles-anatomy-copy p {
@@ -1812,7 +2017,7 @@ header .wrap,
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px 14px;
-  margin-top: 22px;
+  margin-top: 20px;
   color: var(--muted);
   font-size: 16px;
   line-height: 1.5;
@@ -1839,10 +2044,10 @@ header .wrap,
 .principles-anatomy-figure {
   display: grid;
   gap: 16px;
-  padding: 24px;
-  border: 1px solid rgba(247, 248, 248, 0.12);
+  padding: 26px;
+  border: 1px solid rgba(247, 248, 248, 0.1);
   border-radius: var(--radius-lg);
-  background: rgba(11, 13, 15, 0.22);
+  background: rgba(11, 13, 15, 0.18);
 }
 
 .principles-anatomy-core,
@@ -1898,31 +2103,97 @@ header .wrap,
 .principles-change-list {
   display: grid;
   gap: 12px;
-  margin-top: 24px;
+  margin-top: 18px;
   color: var(--muted);
   font-size: 17px;
   line-height: 1.55;
 }
 
-.principles-principles {
-  background: var(--graphite-2);
+.principles-tools .principles-copy-stack {
+  max-width: 38ch;
+}
+
+.principles-why-light {
+  padding: clamp(64px, 9vh, 96px) 0 clamp(72px, 10vh, 104px);
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.principles-why-shell {
+  display: grid;
+  gap: 32px;
+}
+
+.principles-section.principles-why-light .principles-eyebrow,
+.principles-section.principles-why-light .principles-declaration,
+.principles-section.principles-why-light p,
+.principles-section.principles-why-light li {
+  color: var(--ink);
+}
+
+.principles-section.principles-why-light .principles-declaration {
+  max-width: 18ch;
+}
+
+.principles-why-evidence {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.principles-why-panel {
+  padding: 28px 30px;
+  border: 1px solid rgba(11, 13, 15, 0.12);
+  border-radius: var(--radius-lg);
+  background: rgba(247, 248, 248, 0.58);
+}
+
+.principles-why-panel h3 {
+  margin: 0;
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.principles-why-panel p {
+  max-width: 30ch;
+  margin-top: 18px;
+  color: #3B4146;
+}
+
+.principles-section.principles-why-light .principles-change-list {
+  color: #3B4146;
+}
+
+.principles-section p.principles-why-closing {
+  max-width: 38ch;
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(22px, 2.7vw, 30px);
+  line-height: 1.22;
+  letter-spacing: -0.03em;
+  font-weight: 500;
 }
 
 .principles-list-shell {
-  margin-top: 28px;
-  padding: 12px 0;
-  border: 1px solid rgba(247, 248, 248, 0.12);
-  border-radius: var(--radius-lg);
-  background: rgba(11, 13, 15, 0.24);
+  margin-top: 36px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
 }
 
 .principles-ordered-list {
   counter-reset: principle;
+  border-top: 1px solid rgba(247, 248, 248, 0.12);
+  border-bottom: 1px solid rgba(247, 248, 248, 0.12);
 }
 
 .principles-ordered-list li {
   position: relative;
-  padding: 22px 28px 22px 78px;
+  padding: 22px 0 22px 54px;
   color: var(--white);
   font-size: 20px;
   line-height: 1.45;
@@ -1938,36 +2209,82 @@ header .wrap,
   content: counter(principle, decimal-leading-zero);
   position: absolute;
   top: 23px;
-  left: 28px;
+  left: 0;
   color: var(--green);
   font: 11px/1.2 var(--mono);
   letter-spacing: 0.08em;
 }
 
 .document-closing {
-  padding: 32px 0 112px;
+  padding: 74px 0 116px;
   background: #08090B;
-}
-
-.document-closing-inner {
-  max-width: 860px;
 }
 
 .document-closing h2 {
   max-width: 13ch;
   margin-top: 16px;
-  font-size: clamp(42px, 6vw, 72px);
-  line-height: 0.94;
-  letter-spacing: -0.05em;
+  font-size: clamp(48px, 6.8vw, 86px);
+  line-height: 0.92;
+  letter-spacing: -0.062em;
   font-weight: 500;
+  text-wrap: balance;
 }
 
 .document-closing p {
-  max-width: 620px;
-  margin-top: 22px;
+  max-width: 36ch;
+  margin-top: 24px;
   color: var(--muted);
-  font-size: 20px;
-  line-height: 1.6;
+  font-size: 19px;
+  line-height: 1.68;
+}
+
+.principles-page .reveal {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+html.principles-reveal-ready .principles-page .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+html.principles-reveal-ready .principles-page .reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.principles-page .principles-reveal-stagger-1 {
+  transition-delay: 0.08s;
+}
+
+.principles-page .principles-reveal-stagger-2 {
+  transition-delay: 0.16s;
+}
+
+.principles-page .principles-reveal-stagger-3 {
+  transition-delay: 0.24s;
+}
+
+.principles-page .principles-reveal-stagger-4 {
+  transition-delay: 0.32s;
+}
+
+.principles-page .principles-reveal-stagger-5 {
+  transition-delay: 0.4s;
+}
+
+.principles-page .principles-reveal-stagger-6 {
+  transition-delay: 0.48s;
+}
+
+.principles-page .principles-reveal-stagger-7 {
+  transition-delay: 0.56s;
+}
+
+.principles-page .principles-reveal-stagger-8 {
+  transition-delay: 0.64s;
 }
 
 .document-home-action {
@@ -2394,33 +2711,61 @@ header .wrap,
   }
 
   .document-header .wrap {
-    width: min(1240px, calc(100% - 40px));
+    width: min(var(--hero-measure), calc(100% - 40px));
   }
 
   .document-hero {
-    padding: 88px 0 52px;
+    padding: 112px 0 76px;
   }
 
   .document-intro {
-    font-size: 19px;
+    max-width: 34ch;
+    font-size: 18px;
   }
 
-  .document-content {
-    padding-bottom: 80px;
+  .document-content-primary {
+    padding: 40px 0 78px;
+  }
+
+  .document-content-secondary {
+    padding: 58px 0 88px;
   }
 
   .document-content-inner {
-    gap: 42px;
+    gap: 68px;
+  }
+
+  .principles-chapter {
+    gap: 14px;
+  }
+
+  .principles-section p.principles-lead {
+    font-size: 21px;
+  }
+
+  .principles-orientation {
+    padding: 44px 0 52px;
+  }
+
+  .principles-orientation-shell {
+    gap: 14px;
+  }
+
+  .principles-section.principles-orientation .principles-orientation-answer {
+    max-width: 16ch;
+    font-size: clamp(34px, 8.4vw, 52px);
+    line-height: 1.02;
   }
 
   .principles-section-surface,
   .principles-section-emphasis {
-    padding: 28px 24px;
+    padding: 30px 24px;
   }
 
   .principles-section-intro,
   .principles-contrast,
-  .principles-anatomy {
+  .principles-anatomy,
+  .principles-orchestration-map {
     grid-template-columns: minmax(0, 1fr);
   }
 
@@ -2428,8 +2773,25 @@ header .wrap,
     margin-top: 0;
   }
 
+  .principles-systems-evidence {
+    margin-top: 42px;
+  }
+
+  .principles-orchestration-core-card,
+  .principles-orchestration-flow {
+    min-height: 0;
+  }
+
+  .principles-orchestration-connector {
+    display: none;
+  }
+
+  .principles-orchestration-list {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
   .principles-bullet-list {
-    font-size: 17px;
+    font-size: 18px;
   }
 
   .principles-dimension-list {
@@ -2437,7 +2799,7 @@ header .wrap,
   }
 
   .principles-anatomy-figure {
-    padding: 20px;
+    padding: 22px;
   }
 
   .principles-anatomy-dimensions {
@@ -2448,22 +2810,52 @@ header .wrap,
     font-size: 16px;
   }
 
+  .principles-why-light {
+    padding: 52px 0 64px;
+  }
+
+  .principles-why-shell {
+    gap: 24px;
+  }
+
+  .principles-why-evidence {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .principles-why-panel {
+    padding: 24px 22px;
+  }
+
   .principles-ordered-list li {
-    padding: 18px 20px 18px 64px;
+    padding: 18px 0 18px 48px;
     font-size: 18px;
   }
 
   .principles-ordered-list li::before {
     top: 19px;
-    left: 20px;
+    left: 0;
   }
 
-  .principles-section p {
-    font-size: 17px;
+  .principles-contrast-notes {
+    gap: 8px;
+  }
+
+  .principles-contrast-notes p {
+    display: grid;
+    justify-content: start;
+    gap: 4px;
+  }
+
+  .principles-contrast-notes p span[aria-hidden="true"] {
+    display: none;
+  }
+
+  .principles-orchestration-list {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .document-closing {
-    padding: 24px 0 88px;
+    padding: 30px 0 92px;
   }
 
   .document-closing p {
@@ -2491,6 +2883,18 @@ header .wrap,
     opacity: 1;
     transform: none;
     transition: none;
+  }
+
+  .principles-page .reveal,
+  html.principles-reveal-ready .principles-page .reveal,
+  html.principles-reveal-ready .principles-page .reveal.visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .principles-page [class*="principles-reveal-stagger-"] {
+    transition-delay: 0s;
   }
 
 }

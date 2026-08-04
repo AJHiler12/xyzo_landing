@@ -16,6 +16,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/resources/styles/site.css">
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script>
+    document.documentElement.classList.add('principles-reveal-ready');
+  </script>
 </head>
 <body class="document-page principles-page">
   <header class="document-header">
@@ -35,49 +38,100 @@
       </div>
     </section>
 
-    <section class="document-content">
+    <section class="principles-section principles-orientation">
+      <div class="wrap principles-orientation-shell">
+        <p class="principles-eyebrow eyebrow">What is XYZO?</p>
+        <h2 class="principles-orientation-answer">XYZO is infrastructure for living 3D asset compositions.</h2>
+      </div>
+    </section>
+
+    <section class="document-content document-content-primary">
       <div class="wrap document-content-inner">
-        <section class="principles-section">
-          <h2>The industry thinks in files. We think in systems.</h2>
-          <p>A 3D asset should behave as a living composition, not a collection of disconnected files. XYZO begins from the belief that the asset itself is what must remain coherent as work expands across tools and uses.</p>
-          <div class="principles-contrast" aria-label="Contrast between today&apos;s file-centered reality and XYZO&apos;s belief">
-            <div class="principles-contrast-group">
-              <h3 class="mono">Today&apos;s reality</h3>
-              <ul class="principles-bullet-list">
-                <li>Files</li>
-                <li>Copies</li>
-                <li>Drift</li>
-                <li>Lost trust</li>
-              </ul>
+        <section class="principles-section principles-systems">
+          <div class="principles-chapter principles-systems-intro reveal">
+            <h2 class="principles-declaration">The industry thinks in files. We think in systems.</h2>
+            <p class="principles-lead">A 3D asset should behave as a living composition, not a collection of disconnected files.</p>
+          </div>
+          <div class="principles-systems-evidence">
+            <div class="principles-contrast" aria-label="Contrast between today&apos;s file-centered reality and XYZO&apos;s belief">
+              <div class="principles-contrast-group reveal principles-reveal-stagger-1">
+                <h3 class="mono">Today&apos;s reality:</h3>
+                <ul class="principles-bullet-list">
+                  <li>Files</li>
+                  <li>Copies</li>
+                  <li>Drift</li>
+                  <li>Lost Trust</li>
+                </ul>
+              </div>
+              <div class="principles-contrast-group reveal principles-reveal-stagger-2">
+                <h3 class="mono">Our belief:</h3>
+                <ul class="principles-bullet-list">
+                  <li>Identity</li>
+                  <li>Continuity</li>
+                  <li>Evolution</li>
+                  <li>Trust</li>
+                </ul>
+              </div>
             </div>
-            <div class="principles-contrast-group">
-              <h3 class="mono">Our belief</h3>
-              <ul class="principles-bullet-list">
-                <li>Identity</li>
-                <li>Continuity</li>
-                <li>Evolution</li>
-                <li>Trust</li>
-              </ul>
+            <div class="principles-contrast-notes mono reveal principles-reveal-stagger-3" aria-label="System contrast summary">
+              <p><span>Many contributors</span><span aria-hidden="true">|</span><span>One living composition.</span></p>
+              <p><span>Fragmented</span><span aria-hidden="true">|</span><span>Drifting</span><span aria-hidden="true">|</span><span>Untrusted</span></p>
             </div>
           </div>
         </section>
 
-        <section class="principles-section">
-          <h2>Assets have lifetimes, not finish lines.</h2>
-          <p>Traditional pipelines optimize for delivery, but assets do not stop evolving once something has been published. Design keeps changing while the asset expands across more downstream experiences.</p>
-          <p>Linear workflows were not designed for that reality, which is why fragmentation, asset drift, and loss of trust keep compounding over time.</p>
+        <section class="principles-section principles-orchestration">
+          <div class="principles-chapter principles-orchestration-intro reveal">
+            <p class="principles-eyebrow eyebrow eyebrow-accent">What does XYZO do?</p>
+            <h2 class="principles-declaration principles-orchestration-declaration">XYZO orchestrates change while preserving one trusted identity.</h2>
+          </div>
+          <div class="principles-orchestration-map reveal" role="img" aria-label="Canonical Asset orchestrated by XYZO into Visualization, Spatial, XR/AR/VR, Manufacturing, Web, Commerce, and Gaming">
+            <div class="principles-orchestration-core">
+              <span class="principles-orchestration-label mono">Canonical Asset</span>
+              <div class="principles-orchestration-core-card">
+                <strong>One trusted identity</strong>
+              </div>
+            </div>
+            <div class="principles-orchestration-connector" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="principles-orchestration-flow">
+              <span class="principles-orchestration-label mono">Orchestrated by XYZO</span>
+            </div>
+            <ul class="principles-orchestration-list mono" aria-label="Downstream destinations">
+              <li>Visualization</li>
+              <li>Spatial</li>
+              <li>XR/AR/VR</li>
+              <li>Manufacturing</li>
+              <li>Web</li>
+              <li>Commerce</li>
+              <li>Gaming</li>
+            </ul>
+          </div>
         </section>
 
-        <section class="principles-section principles-section-emphasis">
-          <div class="principles-section-intro">
-            <div>
-              <h2>The anatomy of a living composition.</h2>
-            </div>
-            <p>A living 3D asset composition is built from evolving dimensions. Those dimensions can change independently while still belonging to one asset.</p>
+        <section class="principles-section principles-lifetimes">
+          <div class="principles-chapter reveal">
+            <p class="principles-eyebrow eyebrow eyebrow-accent">Traditional 3D Asset Pipelines</p>
+            <h2 class="principles-declaration">Traditional pipelines optimize for delivery. Assets don&apos;t stop evolving.</h2>
           </div>
-          <div class="principles-anatomy">
+          <div class="principles-copy-stack reveal">
+            <p>Traditional pipelines assume a 3D asset has a finish line. We believe it has a lifetime.</p>
+            <p>Throughout that lifetime, design continues to evolve while the asset expands across more downstream experiences.</p>
+            <p>Linear workflows weren&apos;t designed for this reality, leading to fragmentation, asset drift, and an increasing loss of trust.</p>
+          </div>
+        </section>
+
+        <section class="principles-section principles-anatomy-section">
+          <div class="principles-chapter principles-anatomy-intro reveal">
+            <h2 class="principles-declaration">The Anatomy of a Living Composition</h2>
+            <p class="principles-lead">A living 3D asset composition is built from evolving dimensions.</p>
+          </div>
+          <div class="principles-anatomy reveal">
             <div class="principles-anatomy-copy">
-              <p>Specialized tools author and evolve these dimensions while XYZO preserves one identity, retains traceability to the asset&apos;s origin, and keeps canonical state trustworthy as it changes.</p>
+              <p>Specialized tools author and evolve those dimensions while XYZO preserves one identity, retains traceability to the asset&apos;s origin, and keeps its canonical state trustworthy as it changes.</p>
               <ul class="principles-dimension-list">
                 <li>Geometry</li>
                 <li>Materials</li>
@@ -119,47 +173,61 @@
           </div>
         </section>
 
-        <section class="principles-section">
-          <h2>XYZO orchestrates change while preserving one trusted identity.</h2>
-          <p>XYZO exists to keep the asset connected as it moves across tools and downstream uses. It preserves one persistent identity, retains traceability to source evidence, and keeps canonical state trustworthy as it evolves.</p>
-          <p>Downstream outputs remain trusted representations of the asset, not competing sources of truth.</p>
+        <section class="principles-section principles-tools">
+          <div class="principles-chapter reveal">
+            <h2 class="principles-declaration">Specialized tools should remain specialized.</h2>
+            <p class="principles-lead">XYZO is not trying to replace creation tools.</p>
+          </div>
+          <div class="principles-copy-stack reveal">
+            <p>Specialized tools should continue to author the dimensions they understand best while XYZO connects their outputs around one trusted asset.</p>
+            <p>Infrastructure should connect creation, not replace it.</p>
+          </div>
         </section>
+      </div>
+    </section>
 
-        <section class="principles-section principles-section-surface">
-          <h2>Specialized tools should remain specialized.</h2>
-          <p>XYZO is not trying to replace creation tools. Specialized tools should continue to author the dimensions they understand best while XYZO connects their outputs around one trusted asset.</p>
-          <p>Infrastructure should connect creation, not replace it.</p>
-        </section>
+    <section class="principles-section principles-why-light">
+      <div class="wrap principles-why-shell">
+        <div class="principles-chapter reveal">
+          <p class="principles-eyebrow eyebrow eyebrow-accent">Why an Infrastructure Layer</p>
+          <h2 class="principles-declaration">The future doesn&apos;t need another creation tool. It needs infrastructure that allows the best creation tools to work together.</h2>
+        </div>
+        <div class="principles-why-evidence">
+          <div class="principles-why-panel reveal principles-reveal-stagger-1">
+            <h3 class="mono">What&apos;s Changing?</h3>
+            <ul class="principles-change-list">
+              <li>Creation is becoming more specialized.</li>
+              <li>Content is being created faster than ever.</li>
+              <li>Assets are expected to move everywhere.</li>
+              <li>Complexity grows faster than coordination.</li>
+            </ul>
+          </div>
+          <div class="principles-why-panel reveal principles-reveal-stagger-2">
+            <h3 class="mono">What&apos;s Opportunity?</h3>
+            <p>The future belongs to specialized creation tools connected by trusted infrastructure. As assets become more dynamic and more widely consumed, coordinating them becomes a new layer of value.</p>
+          </div>
+        </div>
+        <p class="principles-why-closing reveal principles-reveal-stagger-3">The next decade of innovation won&apos;t come from replacing creators. It will come from connecting them.</p>
+      </div>
+    </section>
 
-        <section class="principles-section">
-          <h2>Why an infrastructure layer.</h2>
-          <p>The future does not need another creation tool. It needs infrastructure that allows the best creation tools to work together.</p>
-          <ul class="principles-change-list">
-            <li>Creation is becoming more specialized.</li>
-            <li>Content is being created faster than ever.</li>
-            <li>Assets are expected to move everywhere.</li>
-            <li>Complexity grows faster than coordination.</li>
-          </ul>
-          <p>The next decade of innovation will not come from replacing creators. It will come from connecting them.</p>
-        </section>
-
-        <section class="principles-section principles-section-emphasis principles-principles">
-          <div class="principles-section-intro">
-            <div>
-              <h2>XYZO Principles.</h2>
-            </div>
+    <section class="document-content document-content-secondary">
+      <div class="wrap document-content-inner">
+        <section class="principles-section principles-principles">
+          <div class="principles-chapter principles-principles-intro reveal">
+            <h2 class="principles-declaration">XYZO Principles</h2>
             <p>These principles guide every product, architecture, and design decision we make.</p>
           </div>
           <div class="principles-list-shell">
             <ol class="principles-ordered-list">
-              <li>A 3D asset is not a file. It is a living composition.</li>
-              <li>Identity should persist while assets evolve.</li>
-              <li>One identity. Many evolving dimensions.</li>
-              <li>Specialized tools should remain specialized.</li>
-              <li>Infrastructure should connect creation, not replace it.</li>
-              <li>One source of truth. Many trusted representations.</li>
-              <li>Trust should scale with complexity.</li>
-              <li>The future belongs to connected ecosystems, not isolated tools.</li>
+              <li class="reveal principles-reveal-stagger-1">A 3D asset is not a file. It is a living composition.</li>
+              <li class="reveal principles-reveal-stagger-2">Identity should persist while assets evolve.</li>
+              <li class="reveal principles-reveal-stagger-3">One identity. Many evolving dimensions.</li>
+              <li class="reveal principles-reveal-stagger-4">Specialized tools should remain specialized.</li>
+              <li class="reveal principles-reveal-stagger-5">Infrastructure should connect creation, not replace it.</li>
+              <li class="reveal principles-reveal-stagger-6">One source of truth. Many trusted representations.</li>
+              <li class="reveal principles-reveal-stagger-7">Trust should scale with complexity.</li>
+              <li class="reveal principles-reveal-stagger-8">The future belongs to connected ecosystems, not isolated tools.</li>
             </ol>
           </div>
         </section>
@@ -167,10 +235,10 @@
     </section>
 
     <section class="document-closing">
-      <div class="wrap document-closing-inner">
-        <div class="eyebrow">Closing</div>
-        <h2>The future of 3D should not be constrained by the limitations of files.</h2>
-        <p>The infrastructure for that future does not exist yet. We are building it.</p>
+      <div class="wrap document-closing-inner reveal">
+        <div class="eyebrow eyebrow-accent">XYZO Future</div>
+        <h2>The future of 3D shouldn&apos;t be constrained by the limitations of files.</h2>
+        <p>The infrastructure for that future doesn&apos;t exist yet. We&apos;re building it.</p>
         <a class="document-home-action" href="/">Return to the homepage</a>
       </div>
     </section>
@@ -183,5 +251,22 @@
       <span class="mono">OpenUSD is the composition engine. XYZO is the trusted operating layer around it.</span>
     </div>
   </footer>
+  <script>
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const reveals = document.querySelectorAll('.principles-page .reveal');
+
+    if (!reduce && 'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      }), { threshold: 0.12 });
+
+      reveals.forEach(el => observer.observe(el));
+    } else {
+      reveals.forEach(el => el.classList.add('visible'));
+    }
+  </script>
 </body>
 </html>
