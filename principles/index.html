@@ -40,8 +40,11 @@
 
     <section class="principles-section principles-orientation">
       <div class="wrap principles-orientation-shell">
-        <p class="principles-eyebrow eyebrow">What is XYZO?</p>
-        <h2 class="principles-orientation-answer">XYZO is infrastructure for living 3D asset compositions.</h2>
+        <div class="principles-orientation-declaration">
+          <p class="principles-eyebrow eyebrow">What is XYZO?</p>
+          <h2 class="principles-orientation-answer">XYZO is infrastructure for living 3D asset compositions.</h2>
+        </div>
+        <div class="principles-orientation-context" aria-hidden="true"></div>
       </div>
     </section>
 
@@ -99,7 +102,7 @@
               <span></span>
               <span></span>
             </div>
-            <div class="principles-orchestration-dimensions" aria-label="Evolving dimensions compose into the canonical asset">
+            <div class="principles-orchestration-dimensions" aria-label="Evolving dimensions contribute changes to the canonical asset">
               <span class="principles-orchestration-label mono">Evolving dimensions</span>
               <ul class="principles-orchestration-dimension-list mono">
                 <li>Geometry</li>
@@ -118,12 +121,11 @@
               <span></span>
             </div>
             <div class="principles-orchestration-canonical" aria-label="XYZO orchestrates the canonical asset while its trusted identity remains persistent">
-              <span class="principles-orchestration-label mono">Orchestrated by XYZO</span>
-              <div class="principles-orchestration-boundary">
-                <div class="principles-orchestration-core">
-                  <span class="principles-orchestration-core-label mono">Canonical Asset</span>
-                  <strong>One trusted identity</strong>
-                </div>
+              <div class="principles-orchestration-frame" aria-hidden="true"></div>
+              <span class="principles-orchestration-frame-label mono">Orchestrated by XYZO</span>
+              <div class="principles-orchestration-core">
+                <span class="principles-orchestration-core-label mono">Canonical Asset</span>
+                <strong>One trusted identity</strong>
               </div>
             </div>
             <div class="principles-orchestration-connector principles-orchestration-connector-representations" aria-hidden="true">
@@ -301,6 +303,7 @@
     } else {
       reveals.forEach(el => el.classList.add('visible'));
     }
+
   </script>
 </body>
 </html>
