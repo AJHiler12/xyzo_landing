@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>XYZO | Infrastructure for Living 3D Assets</title>
+  <title>XYZO | Infrastructure for Living 3D Asset Compositions</title>
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#0B0D0F">
-  <meta name="description" content="XYZO keeps living 3D assets connected and trustworthy as their geometry, materials, textures, variants, metadata, and dependencies evolve across tools and downstream uses.">
+  <meta name="description" content="XYZO keeps 3D assets connected and trustworthy as their geometry, materials, textures, variants, metadata, and dependencies evolve across tools and downstream uses.">
   <!-- Inter typeface -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -69,7 +69,7 @@
               <div class="stage-status mono">WORKING TODAY</div>
             </div>
             <h2>Normalize</h2>
-            <p>XYZO turns varied source packages into a deterministic canonical structure. It preserves where each part came from.</p>
+            <p>XYZO turns varied source packages into a deterministic canonical structure while retaining traceability to the asset&apos;s source.</p>
           </div>
           <div class="stage-media">
             <div class="normalize-gallery" data-normalize-gallery>
@@ -244,7 +244,7 @@
               <div class="stage-status mono">WORKING TODAY</div>
             </div>
             <h2>Synchronize</h2>
-            <p>XYZO brings a trusted external edit back into canonical state. It detects and validates the change, then updates the asset without breaking continuity.</p>
+            <p>XYZO brings a trusted texture edit back into canonical state, updates the same asset, and refreshes the viewer without breaking continuity.</p>
             <div class="sync-gallery-nav">
               <div class="sync-gallery-label mono">Texture synchronization</div>
               <div class="sync-gallery-controls" aria-label="Synchronization evidence states">
@@ -285,12 +285,12 @@
             </div>
             <div class="sync-gallery-expansion" aria-label="Planned synchronization expansion">
               <div class="eyebrow">PLANNED EXPANSION</div>
-              <p class="sync-gallery-expansion-description">XYZO's synchronization model is designed to extend beyond textures while preserving the same canonical identity and trusted state.</p>
+              <p class="sync-gallery-expansion-description">The same synchronization model can extend to additional asset dimensions while preserving canonical identity and trusted state.</p>
               <div class="sync-gallery-expansion-items">
                 <span class="sync-gallery-expansion-item">Complete look packages</span>
+                <span class="sync-gallery-expansion-item">Materials</span>
                 <span class="sync-gallery-expansion-item">Geometry</span>
                 <span class="sync-gallery-expansion-item">Levels of detail</span>
-                <span class="sync-gallery-expansion-item">Animation</span>
               </div>
             </div>
             <div class="caption mono">viewer refresh after synchronized change</div>
@@ -303,7 +303,7 @@
               <div class="stage-status stage-status-dev mono">IN ACTIVE DEVELOPMENT</div>
             </div>
             <h2>Publish</h2>
-            <p>XYZO creates a target-specific derived output from canonical state. Target transformations stay in the exported artifact; canonical state remains unchanged.</p>
+            <p>XYZO creates a target-specific representation from canonical state. Target transformations remain in the exported artifact, while canonical state stays unchanged.</p>
           </div>
           <div class="stage-media">
             <div class="placeholder"><div class="placeholder-label mono"><strong>PLACEHOLDER &mdash; Apple USDZ</strong>export-only projection</div></div>
@@ -313,51 +313,16 @@
       </div>
     </section>
     <section class="interlude">
-      <div class="wrap interlude-inner reveal"><div><div class="eyebrow">The state model</div><h2><span class="state-heading-line">One asset.</span><span class="state-heading-line"><span class="state-heading-pair">Distinct states.</span></span></h2><p>Where the asset began informs the record. Canonical state defines what it is now. Runtime intent and derived outputs stay separate.</p></div><div class="timeline" aria-label="Summary timeline diagram"><div class="timeline-origin"></div><div class="timeline-main"></div><div class="timeline-node"><span class="node"></span><span class="node"></span><span class="node"></span><span class="node"></span><span class="node"></span></div><div class="timeline-labels"><span>source evidence</span><span>normalize</span><span>compose</span><span>synchronize</span><span>derived output</span></div><div class="branches"><span class="branch">geometry<br>dimension</span><span class="branch">texture<br>dimension</span><span class="branch">downstream<br>representation</span></div></div></div>
+      <div class="wrap interlude-inner reveal"><div><div class="eyebrow">The state model</div><h2><span class="state-heading-line">One asset.</span><span class="state-heading-line"><span class="state-heading-pair">Distinct states.</span></span></h2><p>Source evidence records where the asset began. Canonical state defines what it is now. Trusted downstream representations remain separate from canonical authority.</p></div><div class="timeline" aria-label="Summary timeline diagram"><div class="timeline-origin"></div><div class="timeline-main"></div><div class="timeline-node"><span class="node"></span><span class="node"></span><span class="node"></span><span class="node"></span><span class="node"></span></div><div class="timeline-labels"><span>source evidence</span><span>normalize</span><span>compose</span><span>synchronize</span><span>trusted representation</span></div><div class="branches"><span class="branch">geometry<br>dimension</span><span class="branch">texture<br>dimension</span><span class="branch">downstream<br>representation</span></div></div></div>
     </section>
     <section class="evidence" id="evidence">
       <div class="wrap"><div class="evidence-head reveal"><div><div class="eyebrow eyebrow-accent">Trust should be visible.</div><h2>The architecture is already working.</h2></div><p>See the asset&apos;s structure, integrity, and synchronized change directly in Forge.</p></div><div class="evidence-frame reveal"><figure class="product-evidence product-evidence-feature"><div class="product-evidence-frame"><img class="product-evidence-image" src="./resources/images/evidence/xyzo-evidence-forge-inspection-desktop.png" alt="XYZO Forge showing a canonical basketball asset with Stage hierarchy, Variant Builder, computed bounds, package integrity, dependencies, and asset properties" width="1922" height="1112" loading="lazy" decoding="async"></div><figcaption class="product-evidence-caption mono">Canonical structure, composition, dimensions, dependencies, and integrity visible in Forge.</figcaption></figure></div></div>
     </section>
     <section class="category">
-      <div class="wrap"><div class="category-intro reveal"><div><div class="eyebrow">Category</div><h2><span class="category-heading-line"><span class="category-heading-pair">Specialized tools</span></span><span class="category-heading-line category-heading-detail"><span class="category-heading-pair">should remain</span> <span class="category-heading-pair">specialized.</span></span></h2></div><p>Creation tools author. Pipelines move work. Publishing systems deliver. XYZO preserves the continuity of the 3D asset across them.</p></div><div class="boundaries reveal"><div class="boundary"><h3>Creation tools</h3><p>They own authoring and design intent. <strong>XYZO preserves how their outputs continue to belong to the same asset.</strong></p></div><div class="boundary"><h3>Pipeline and production systems</h3><p>They own workflow coordination. <strong>XYZO maintains the trusted state of the asset being moved.</strong></p></div><div class="boundary"><h3>Conversion and optimization tools</h3><p>They transform content for a purpose. XYZO keeps those operations connected to canonical state without creating new canonical authority.</p></div><div class="boundary"><h3>Publishing systems</h3><p><strong>They deliver derived representations from canonical state.</strong> They do not create another competing authority.</p></div></div></div>
-    </section>
-    <section class="three-ways">
-      <div class="wrap">
-        <div class="three-ways-intro reveal">
-          <div>
-            <div class="eyebrow eyebrow-accent">WHAT IS XYZO?</div>
-            <h2>Three ways to understand XYZO</h2>
-          </div>
-          <p>The same product can be explained at different levels without changing what it is responsible for.</p>
-        </div>
-        <div class="three-ways-list reveal">
-          <div class="three-ways-row">
-            <div class="three-ways-label mono">Straight answer</div>
-            <div class="three-ways-copy">
-              <p class="three-ways-primary">XYZO keeps a 3D asset connected and trustworthy as it changes and moves across tools and uses.</p>
-              <p class="three-ways-secondary">Think of it as the master record for a 3D asset.</p>
-            </div>
-          </div>
-          <div class="three-ways-row">
-            <div class="three-ways-label mono">For designers and creators</div>
-            <div class="three-ways-copy">
-              <p class="three-ways-primary">XYZO turns disconnected 3D files into one living asset whose geometry, materials, textures, variants, and metadata can evolve without losing identity.</p>
-              <p class="three-ways-secondary">Think of it as a non-destructive design system for a 3D asset.</p>
-            </div>
-          </div>
-          <div class="three-ways-row">
-            <div class="three-ways-label mono">For pipeline and technical teams</div>
-            <div class="three-ways-copy">
-              <p class="three-ways-primary">XYZO is a deterministic orchestration layer for canonical OpenUSD assets, preserving identity, composition, dependencies, integrity, and trusted downstream publishing.</p>
-              <p class="three-ways-secondary">Not another DCC, converter, or pipeline tracker. XYZO is the layer responsible for the asset&apos;s persistent identity and trusted state.</p>
-            </div>
-          </div>
-        </div>
-        <p class="three-ways-closing reveal">The explanation changes. The responsibility does not.</p>
-      </div>
+      <div class="wrap"><div class="category-intro reveal"><div><div class="eyebrow">Category</div><h2><span class="category-heading-line"><span class="category-heading-pair">Specialized tools</span></span><span class="category-heading-line category-heading-detail"><span class="category-heading-pair">should remain</span> <span class="category-heading-pair">specialized.</span></span></h2></div><p>Specialized systems author, move, record, transform, and deliver 3D work. XYZO preserves the internal composition, continuity, and trusted state of the asset across them.</p></div><div class="boundaries reveal"><div class="boundary"><h3>Creation tools</h3><p>They own geometry, materials, textures, animation, and design intent. XYZO preserves how those authored dimensions continue to belong to the same asset.</p></div><div class="boundary"><h3>Pipeline and production systems</h3><p>They own tasks, approvals, versions, schedules, and handoffs. XYZO maintains the continuity and trusted state of the asset being moved.</p></div><div class="boundary"><h3>Record and distribution systems</h3><p>DAM, PIM, PLM, and related systems manage storage, cataloging, business metadata, product records, and distribution. XYZO manages the internal composition and integrity of the 3D asset itself.</p></div><div class="boundary"><h3>Conversion and publishing systems</h3><p>They translate, optimize, package, and deliver content for specific targets. XYZO keeps those operations downstream from canonical state rather than creating another competing authority.</p></div></div></div>
     </section>
     <section class="closing">
-      <div class="wrap"><div class="closing-inner reveal"><div><div class="eyebrow eyebrow-accent">The operating layer around OpenUSD</div><h2><span class="closing-heading-line"><span class="closing-heading-pair">XYZO keeps</span> <span class="closing-heading-pair">3D assets</span></span><span class="closing-heading-line closing-heading-detail"><span class="closing-heading-pair">trustworthy</span> <span class="closing-heading-pair">as they move.</span></span></h2></div><div><p>XYZO is infrastructure for living 3D asset compositions. Request a product conversation.</p><a class="action" href="#signup">Request a conversation &#8594;</a></div></div><footer class="footer"><img src="./resources/images/XYZO_Logo_WHITE_Transp.png" alt="XYZO"><span class="mono">OpenUSD is the composition engine. XYZO is the trusted operating layer around it.</span></footer></div>
+      <div class="wrap"><div class="closing-inner reveal"><div><div class="eyebrow eyebrow-accent">INFRASTRUCTURE FOR LIVING 3D ASSET COMPOSITIONS</div><h2><span class="closing-heading-line"><span class="closing-heading-pair">XYZO keeps</span> <span class="closing-heading-pair">3D assets</span></span><span class="closing-heading-line closing-heading-detail"><span class="closing-heading-pair">trustworthy</span> <span class="closing-heading-pair">as they move.</span></span></h2></div><div><p>XYZO keeps a 3D asset connected and trustworthy as it changes and moves across tools and uses.</p><a class="action" href="#signup">Request a conversation &#8594;</a></div></div><footer class="footer"><img src="./resources/images/XYZO_Logo_WHITE_Transp.png" alt="XYZO"><span class="mono">OpenUSD is the composition engine. XYZO is the trusted operating layer around it.</span></footer></div>
     </section>
   </main>
   <script>

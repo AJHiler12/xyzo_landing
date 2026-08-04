@@ -1624,6 +1624,378 @@ header .wrap,
   background: #0871C1;
 }
 
+.document-page {
+  background: var(--black);
+  color: var(--white);
+}
+
+.document-header {
+  position: relative;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(247, 248, 248, 0.12);
+  background: var(--black);
+  color: var(--white);
+}
+
+.document-header .wrap {
+  width: min(1240px, calc(100% - 64px));
+}
+
+.document-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.document-brand {
+  display: inline-flex;
+  align-items: center;
+}
+
+.document-home-link {
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.document-home-link:hover {
+  color: var(--green);
+}
+
+.document-main {
+  background: var(--black);
+}
+
+.document-hero {
+  padding: 112px 0 64px;
+  background: var(--black);
+}
+
+.document-hero-inner {
+  max-width: 860px;
+}
+
+.document-hero h1 {
+  max-width: 12ch;
+  margin-top: 18px;
+  font-size: clamp(46px, 7vw, 88px);
+  line-height: 0.94;
+  letter-spacing: -0.06em;
+  font-weight: 500;
+}
+
+.document-intro {
+  max-width: 760px;
+  margin-top: 28px;
+  color: var(--muted);
+  font-size: 21px;
+  line-height: 1.6;
+}
+
+.document-content {
+  padding: 0 0 96px;
+  background: var(--black);
+}
+
+.document-content-inner {
+  display: grid;
+  gap: 56px;
+  max-width: 920px;
+}
+
+.principles-section {
+  color: var(--white);
+}
+
+.principles-section-surface,
+.principles-section-emphasis {
+  padding: 34px 36px;
+  border-radius: var(--radius-lg);
+}
+
+.principles-section-surface {
+  border: 1px solid rgba(247, 248, 248, 0.12);
+  background: var(--graphite);
+}
+
+.principles-section-emphasis {
+  border: 1px solid var(--line);
+  background: var(--graphite-2);
+}
+
+.principles-section h2 {
+  max-width: 20ch;
+  color: var(--white);
+  font-size: clamp(28px, 3.8vw, 40px);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  font-weight: 500;
+}
+
+.principles-section p {
+  max-width: 64ch;
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.principles-section-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+  gap: 32px;
+  align-items: start;
+}
+
+.principles-section-intro p {
+  margin-top: 6px;
+}
+
+.principles-contrast {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.principles-contrast-group {
+  padding: 22px 24px;
+  border: 1px solid rgba(247, 248, 248, 0.12);
+  border-radius: var(--radius-md);
+  background: var(--graphite);
+}
+
+.principles-contrast-group h3 {
+  margin: 0;
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.principles-bullet-list,
+.principles-dimension-list,
+.principles-change-list,
+.principles-ordered-list,
+.principles-anatomy-dimensions,
+.principles-output-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.principles-bullet-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+  color: var(--white);
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.principles-anatomy {
+  display: grid;
+  grid-template-columns: minmax(0, 360px) minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+  margin-top: 30px;
+}
+
+.principles-anatomy-copy p {
+  margin-top: 0;
+}
+
+.principles-dimension-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 14px;
+  margin-top: 22px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.principles-dimension-list li,
+.principles-change-list li {
+  position: relative;
+  padding-left: 16px;
+}
+
+.principles-dimension-list li::before,
+.principles-change-list li::before {
+  content: "";
+  position: absolute;
+  top: 0.62em;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+}
+
+.principles-anatomy-figure {
+  display: grid;
+  gap: 16px;
+  padding: 24px;
+  border: 1px solid rgba(247, 248, 248, 0.12);
+  border-radius: var(--radius-lg);
+  background: rgba(11, 13, 15, 0.22);
+}
+
+.principles-anatomy-core,
+.principles-anatomy-output {
+  padding: 18px 20px;
+  border: 1px solid rgba(247, 248, 248, 0.1);
+  border-radius: var(--radius-md);
+  background: rgba(247, 248, 248, 0.04);
+}
+
+.principles-anatomy-core-label,
+.principles-anatomy-output-label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--green);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.principles-anatomy-core strong {
+  display: block;
+  font-size: 28px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-weight: 500;
+}
+
+.principles-anatomy-dimensions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.principles-anatomy-dimensions li,
+.principles-output-list li {
+  padding: 10px 12px;
+  border: 1px solid rgba(247, 248, 248, 0.08);
+  border-radius: var(--radius-sm);
+  background: rgba(247, 248, 248, 0.03);
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.principles-output-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.principles-change-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.principles-principles {
+  background: var(--graphite-2);
+}
+
+.principles-list-shell {
+  margin-top: 28px;
+  padding: 12px 0;
+  border: 1px solid rgba(247, 248, 248, 0.12);
+  border-radius: var(--radius-lg);
+  background: rgba(11, 13, 15, 0.24);
+}
+
+.principles-ordered-list {
+  counter-reset: principle;
+}
+
+.principles-ordered-list li {
+  position: relative;
+  padding: 22px 28px 22px 78px;
+  color: var(--white);
+  font-size: 20px;
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+}
+
+.principles-ordered-list li + li {
+  border-top: 1px solid rgba(247, 248, 248, 0.1);
+}
+
+.principles-ordered-list li::before {
+  counter-increment: principle;
+  content: counter(principle, decimal-leading-zero);
+  position: absolute;
+  top: 23px;
+  left: 28px;
+  color: var(--green);
+  font: 11px/1.2 var(--mono);
+  letter-spacing: 0.08em;
+}
+
+.document-closing {
+  padding: 32px 0 112px;
+  background: #08090B;
+}
+
+.document-closing-inner {
+  max-width: 860px;
+}
+
+.document-closing h2 {
+  max-width: 13ch;
+  margin-top: 16px;
+  font-size: clamp(42px, 6vw, 72px);
+  line-height: 0.94;
+  letter-spacing: -0.05em;
+  font-weight: 500;
+}
+
+.document-closing p {
+  max-width: 620px;
+  margin-top: 22px;
+  color: var(--muted);
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.document-home-action {
+  display: inline-flex;
+  margin-top: 30px;
+  padding: 14px 18px;
+  border: 1px solid rgba(247, 248, 248, 0.22);
+  border-radius: var(--radius-md);
+  color: var(--white);
+  font-size: 13px;
+}
+
+.document-home-action:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+.document-footer {
+  padding: 0 0 34px;
+  background: #08090B;
+}
+
+.document-footer .footer {
+  margin-top: 0;
+  border-top: 1px solid rgba(247, 248, 248, 0.12);
+  color: #858E94;
+}
+
 .footer {
   display: flex;
   justify-content: space-between;
@@ -2019,6 +2391,87 @@ header .wrap,
 
   .footer .mono {
     margin-top: 14px;
+  }
+
+  .document-header .wrap {
+    width: min(1240px, calc(100% - 40px));
+  }
+
+  .document-hero {
+    padding: 88px 0 52px;
+  }
+
+  .document-intro {
+    font-size: 19px;
+  }
+
+  .document-content {
+    padding-bottom: 80px;
+  }
+
+  .document-content-inner {
+    gap: 42px;
+  }
+
+  .principles-section-surface,
+  .principles-section-emphasis {
+    padding: 28px 24px;
+  }
+
+  .principles-section-intro,
+  .principles-contrast,
+  .principles-anatomy {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .principles-section-intro p {
+    margin-top: 0;
+  }
+
+  .principles-bullet-list {
+    font-size: 17px;
+  }
+
+  .principles-dimension-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .principles-anatomy-figure {
+    padding: 20px;
+  }
+
+  .principles-anatomy-dimensions {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .principles-change-list {
+    font-size: 16px;
+  }
+
+  .principles-ordered-list li {
+    padding: 18px 20px 18px 64px;
+    font-size: 18px;
+  }
+
+  .principles-ordered-list li::before {
+    top: 19px;
+    left: 20px;
+  }
+
+  .principles-section p {
+    font-size: 17px;
+  }
+
+  .document-closing {
+    padding: 24px 0 88px;
+  }
+
+  .document-closing p {
+    font-size: 18px;
+  }
+
+  .document-footer {
+    padding-bottom: 28px;
   }
 }
 
