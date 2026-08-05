@@ -22,7 +22,7 @@
   <header>
     <nav class="wrap nav" aria-label="Primary navigation">
       <a href="#top" aria-label="XYZO home"><img class="site-logo" src="./resources/images/XYZO_Logo_WHITE_Transp.png" alt="XYZO"></a>
-      <div class="navlinks"><a href="#problem">Why XYZO</a><a href="#how-it-works">How it works</a><a href="#tool-boundary">Where it fits</a><a class="nav-cta" href="#signup">Request Early Access</a></div>
+      <div class="navlinks"><a href="#problem">Why XYZO</a><a href="#how-it-works">How it works</a><a href="#where-it-fits">Where it fits</a><a class="nav-cta" href="#signup">Request Early Access</a></div>
     </nav>
   </header>
   <main id="top">
@@ -52,13 +52,26 @@
           <p class="problem-closing">XYZO keeps those changes connected to the same authoritative asset.</p>
         </div>
         <div class="problem-visual" aria-label="The same basketball asset remains recognizable while its dimensions evolve">
-          <div class="problem-asset-frame">
-            <img class="problem-asset-image" src="./resources/images/evidence/xyzo_forge_Bastball.png" alt="Basketball asset in XYZO Forge shown as one canonical asset with connected dimensions" width="1922" height="1112" loading="lazy" decoding="async">
-            <span class="problem-tag problem-tag-geometry mono">Geometry</span>
-            <span class="problem-tag problem-tag-materials mono">Materials</span>
-            <span class="problem-tag problem-tag-textures mono">Textures</span>
-            <span class="problem-tag problem-tag-variants mono">Variants</span>
-            <span class="problem-tag problem-tag-metadata mono">Metadata</span>
+          <div class="problem-asset-frame" data-problem-root>
+            <div class="problem-asset-stage">
+              <div class="problem-dimension-panel">
+                <div class="problem-dimension-label mono">Living asset dimensions</div>
+                <div class="problem-dimension-list" aria-label="Asset dimensions">
+                  <button class="problem-dimension-button is-active" type="button" data-problem-dimension="geometry" data-problem-title="Geometry" data-problem-description="The ball's shape, scale, seams, and construction can change without creating a new asset identity." aria-pressed="true" aria-controls="problemDimensionDescription">Geometry</button>
+                  <button class="problem-dimension-button" type="button" data-problem-dimension="materials" data-problem-title="Materials" data-problem-description="The rubber, finish, reflectivity, and surface response can evolve while remaining part of the same asset." aria-pressed="false" aria-controls="problemDimensionDescription">Materials</button>
+                  <button class="problem-dimension-button" type="button" data-problem-dimension="textures" data-problem-title="Textures" data-problem-description="Color, branding, wear, and surface detail can update independently without rebuilding the whole asset." aria-pressed="false" aria-controls="problemDimensionDescription">Textures</button>
+                  <button class="problem-dimension-button" type="button" data-problem-dimension="variants" data-problem-title="Variants" data-problem-description="Basketball, football, and soccer-ball alternatives can live as trusted choices within one canonical asset." aria-pressed="false" aria-controls="problemDimensionDescription">Variants</button>
+                  <button class="problem-dimension-button" type="button" data-problem-dimension="metadata" data-problem-title="Metadata" data-problem-description="Identity, dimensions, source references, status, and other context stay attached as the asset evolves." aria-pressed="false" aria-controls="problemDimensionDescription">Metadata</button>
+                </div>
+              </div>
+              <div class="problem-asset-core">
+                <img class="problem-asset-image" src="./resources/images/evidence/xyzo_forge_Bastball_Standalone.png" alt="Standalone basketball asset shown as one canonical asset with connected dimensions" width="1922" height="1112" loading="lazy" decoding="async">
+              </div>
+            </div>
+            <div class="problem-dimension-copy" id="problemDimensionDescription" aria-live="polite">
+              <div class="problem-dimension-title mono" id="problemDimensionTitle">Geometry</div>
+              <p class="problem-dimension-description" id="problemDimensionText">The ball's shape, scale, seams, and construction can change without creating a new asset identity.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -68,11 +81,11 @@
         <div class="how-it-works-intro reveal">
           <div>
             <div class="eyebrow eyebrow-accent">HOW XYZO WORKS</div>
-            <h2>One asset. Five continuous actions.</h2>
+            <h2>The XYZO operating loop.</h2>
+            <p class="how-it-works-support">Normalize, compose, inspect, synchronize, and publish work in tandem to keep one canonical asset trustworthy as it evolves.</p>
           </div>
-          <p class="workflow-loop mono">Normalize &#8594; Compose &#8594; Inspect &#8594; Synchronize &#8594; Publish</p>
         </div>
-        <div class="workflow-grid">
+        <div class="workflow-top-row">
           <article class="workflow-panel workflow-panel-normalize reveal">
             <div class="workflow-panel-header">
               <div class="workflow-panel-label mono">01 &mdash; NORMALIZE</div>
@@ -80,27 +93,64 @@
             </div>
             <h3>Normalize</h3>
             <p>Turn source files into predictable packages with consistent scale, structure, naming, and identity.</p>
-            <figure class="product-evidence workflow-evidence">
-              <div class="product-evidence-frame">
-                <img class="product-evidence-image" src="./resources/images/evidence/xyzo-normalize-supported-intake-desktop.png" alt="XYZO Forge intake screen ready to accept supported 3D source formats for normalization" width="1922" height="1112" loading="lazy" decoding="async">
+            <div class="normalize-gallery" data-normalize-gallery>
+              <div class="normalize-gallery-display">
+                <div class="normalize-gallery-view is-active" data-normalize-view="intake">
+                  <figure class="product-evidence workflow-evidence">
+                    <div class="product-evidence-frame">
+                      <img class="product-evidence-image" src="./resources/images/evidence/xyzo-normalize-supported-intake-desktop.png" alt="XYZO Forge intake screen ready to accept supported 3D source formats for normalization" width="1922" height="1112" loading="lazy" decoding="async">
+                    </div>
+                  </figure>
+                </div>
+                <div class="normalize-gallery-view" data-normalize-view="root" hidden>
+                  <figure class="product-evidence workflow-evidence">
+                    <div class="product-evidence-frame">
+                      <img class="product-evidence-image" src="./resources/images/evidence/xyzo-normalize-canonical-package-root.png" alt="Normalized XYZO package root showing a canonical asset structure" width="1922" height="1112" loading="lazy" decoding="async">
+                    </div>
+                  </figure>
+                </div>
+                <div class="normalize-gallery-view" data-normalize-view="content" hidden>
+                  <figure class="product-evidence workflow-evidence">
+                    <div class="product-evidence-frame">
+                      <img class="product-evidence-image" src="./resources/images/evidence/xyzo-normalize-canonical-package-content.png" alt="Normalized XYZO package content view showing organized canonical asset files" width="1922" height="1112" loading="lazy" decoding="async">
+                    </div>
+                  </figure>
+                </div>
               </div>
-            </figure>
-          </article>
-          <article class="workflow-panel workflow-panel-compose reveal">
-            <div class="workflow-panel-header">
-              <div class="workflow-panel-label mono">02 &mdash; COMPOSE</div>
-              <div class="stage-status mono">WORKING TODAY</div>
+              <div class="normalize-gallery-copy" aria-live="polite">
+                <div class="normalize-gallery-title mono" id="normalizeGalleryTitle">Source intake</div>
+                <p class="normalize-gallery-description" id="normalizeGalleryDescription">Supported source files enter one predictable normalization path before canonical structure is created.</p>
+              </div>
+              <div class="normalize-gallery-selectors" aria-label="Normalization evidence states">
+                <button class="normalize-gallery-trigger is-active" type="button" data-normalize-target="intake" data-normalize-title="Source intake" data-normalize-description="Supported source files enter one predictable normalization path before canonical structure is created." aria-pressed="true">
+                  <span class="normalize-gallery-trigger-preview normalize-gallery-trigger-image">
+                    <img src="./resources/images/evidence/xyzo-normalize-supported-intake-desktop.png" alt="" width="1922" height="1112" loading="lazy" decoding="async">
+                  </span>
+                  <span class="normalize-gallery-trigger-copy">
+                    <span class="normalize-gallery-trigger-title">Intake</span>
+                    <span class="normalize-gallery-trigger-meta mono">Supported sources</span>
+                  </span>
+                </button>
+                <button class="normalize-gallery-trigger" type="button" data-normalize-target="root" data-normalize-title="Canonical package root" data-normalize-description="Normalization establishes a stable root structure that gives the asset one predictable home." aria-pressed="false">
+                  <span class="normalize-gallery-trigger-preview normalize-gallery-trigger-image">
+                    <img src="./resources/images/evidence/xyzo-normalize-canonical-package-root.png" alt="" width="1922" height="1112" loading="lazy" decoding="async">
+                  </span>
+                  <span class="normalize-gallery-trigger-copy">
+                    <span class="normalize-gallery-trigger-title">Package root</span>
+                    <span class="normalize-gallery-trigger-meta mono">Stable structure</span>
+                  </span>
+                </button>
+                <button class="normalize-gallery-trigger" type="button" data-normalize-target="content" data-normalize-title="Canonical package content" data-normalize-description="Organized package content keeps the asset readable, deterministic, and easier to trust downstream." aria-pressed="false">
+                  <span class="normalize-gallery-trigger-preview normalize-gallery-trigger-image">
+                    <img src="./resources/images/evidence/xyzo-normalize-canonical-package-content.png" alt="" width="1922" height="1112" loading="lazy" decoding="async">
+                  </span>
+                  <span class="normalize-gallery-trigger-copy">
+                    <span class="normalize-gallery-trigger-title">Package content</span>
+                    <span class="normalize-gallery-trigger-meta mono">Deterministic layout</span>
+                  </span>
+                </button>
+              </div>
             </div>
-            <h3>Compose</h3>
-            <figure class="product-evidence workflow-evidence compose-evidence">
-              <div class="product-evidence-frame">
-                <video class="product-evidence-image compose-evidence-video" autoplay loop muted playsinline preload="metadata" aria-label="XYZO Forge showing selectable geometry variants on a single Sports Balls prim while preserving one canonical asset identity.">
-                  <source src="./resources/videos/evidence/xyzo_SportsBalls_VS02.mp4" type="video/mp4">
-                  Your browser does not support inline playback of the Compose geometry variants evidence video.
-                </video>
-              </div>
-              <figcaption class="compose-evidence-copy mono">Variant switching within one canonical asset</figcaption>
-            </figure>
           </article>
           <article class="workflow-panel workflow-panel-inspect reveal">
             <div class="workflow-panel-header">
@@ -113,6 +163,25 @@
               <div class="product-evidence-frame">
                 <img class="product-evidence-image" src="./resources/images/evidence/xyzo_properties01.png" alt="XYZO Forge inspecting a selected basketball asset with computed size, content, and package integrity properties." width="1922" height="1112" loading="lazy" decoding="async">
               </div>
+            </figure>
+          </article>
+        </div>
+        <div class="workflow-feature-row">
+          <article class="workflow-panel workflow-panel-compose reveal">
+            <div class="workflow-panel-header">
+              <div class="workflow-panel-label mono">02 &mdash; COMPOSE</div>
+              <div class="stage-status mono">WORKING TODAY</div>
+            </div>
+            <h3>Compose</h3>
+            <p>Keep one canonical asset intact while variants, options, and decisions stay composed inside it instead of drifting into separate files.</p>
+            <figure class="product-evidence workflow-evidence compose-evidence">
+              <div class="product-evidence-frame">
+                <video class="product-evidence-image compose-evidence-video" autoplay loop muted playsinline preload="metadata" aria-label="XYZO Forge showing selectable geometry variants on a single Sports Balls prim while preserving one canonical asset identity.">
+                  <source src="./resources/videos/evidence/xyzo_SportsBalls_VS02.mp4" type="video/mp4">
+                  Your browser does not support inline playback of the Compose geometry variants evidence video.
+                </video>
+              </div>
+              <figcaption class="compose-evidence-copy mono">Variant switching within one canonical asset</figcaption>
             </figure>
           </article>
           <article class="workflow-panel workflow-panel-sync reveal" data-sync-root>
@@ -159,48 +228,70 @@
               </div>
             </div>
           </article>
-          <article class="workflow-panel workflow-panel-publish reveal" aria-label="Publishing capability status">
-            <div class="workflow-panel-header">
-              <div class="workflow-panel-label mono">05 &mdash; PUBLISH</div>
-              <div class="stage-status stage-status-dev mono">IN ACTIVE DEVELOPMENT</div>
-            </div>
+        </div>
+        <article class="workflow-panel workflow-panel-publish reveal" aria-label="Publishing capability status">
+          <div class="workflow-panel-header">
+            <div class="workflow-panel-label mono">05 &mdash; PUBLISH</div>
+            <div class="stage-status stage-status-dev mono">IN ACTIVE DEVELOPMENT</div>
+          </div>
+          <div class="workflow-panel-publish-copy">
             <h3>Publish</h3>
             <p>Create target-specific outputs without creating competing sources of truth.</p>
-            <p class="publish-note">Apple USDZ publishing is in active development.</p>
-          </article>
-        </div>
+          </div>
+          <div class="publish-placeholder" aria-hidden="true">
+            <div class="publish-placeholder-stage">
+              <div class="publish-placeholder-lane">
+                <div class="publish-placeholder-badge mono">Canonical asset</div>
+                <div class="publish-placeholder-node">Authoritative stage</div>
+              </div>
+              <div class="publish-placeholder-arrow" aria-hidden="true"></div>
+              <div class="publish-placeholder-lane">
+                <div class="publish-placeholder-badge mono">Derived output</div>
+                <div class="publish-placeholder-node">Apple USDZ</div>
+              </div>
+            </div>
+            <div class="publish-placeholder-caption mono">Reserved for target-specific publish proof</div>
+          </div>
+          <p class="publish-note">Apple USDZ publishing is in active development.</p>
+        </article>
       </div>
     </section>
-    <section class="light tool-boundary" id="tool-boundary">
+    <section class="light tool-boundary" id="where-it-fits">
       <div class="wrap tool-boundary-layout reveal">
         <div class="tool-boundary-copy">
-          <div class="eyebrow">TOOL BOUNDARY</div>
-          <h2>Built to connect, not replace.</h2>
+          <div class="eyebrow">WHERE XYZO FITS</div>
+          <h2>Where XYZO fits</h2>
           <p class="tool-boundary-support">Blender, Maya, Houdini, Substance, Photoshop, ZBrush, generators, pipelines, DAM, and PIM keep doing what they do best.</p>
           <p class="tool-boundary-closing">XYZO keeps the asset itself continuous and trustworthy across them.</p>
         </div>
-        <div class="tool-boundary-diagram" aria-label="Creation tools and source systems feed a canonical asset that serves trusted downstream representations">
-          <div class="tool-boundary-side tool-boundary-inputs">
-            <span class="tool-boundary-chip mono">Creation tools</span>
-            <span class="tool-boundary-chip mono">Generators</span>
-            <span class="tool-boundary-chip mono">Source systems</span>
+        <div class="tool-boundary-diagram" aria-label="Creation tools and source systems feed XYZO as a continuity layer that supports trusted downstream outputs">
+          <div class="tool-boundary-group tool-boundary-group-inputs">
+            <div class="tool-boundary-group-label mono">Creation and source systems</div>
+            <div class="tool-boundary-group-card">
+              <span class="tool-boundary-item mono">Creation tools</span>
+              <span class="tool-boundary-item mono">Source systems</span>
+              <span class="tool-boundary-item mono">Pipelines / DAM / PIM</span>
+            </div>
           </div>
           <div class="tool-boundary-center">
             <div class="tool-boundary-connector tool-boundary-connector-left" aria-hidden="true"></div>
-            <figure class="tool-boundary-asset">
-              <div class="product-evidence-frame">
-                <img class="product-evidence-image" src="./resources/images/evidence/xyzo_forge_Bastball.png" alt="Basketball asset centered as one canonical asset connected to tools and outputs" width="1922" height="1112" loading="lazy" decoding="async">
-              </div>
-              <figcaption class="tool-boundary-asset-label mono">Canonical asset</figcaption>
-            </figure>
+            <div class="tool-boundary-core">
+              <div class="tool-boundary-core-mark mono">XYZO</div>
+              <div class="tool-boundary-core-title">Canonical asset</div>
+              <div class="tool-boundary-core-copy">Trusted identity</div>
+              <div class="tool-boundary-core-copy">Continuity layer</div>
+            </div>
             <div class="tool-boundary-connector tool-boundary-connector-right" aria-hidden="true"></div>
           </div>
-          <div class="tool-boundary-side tool-boundary-outputs">
-            <span class="tool-boundary-chip mono">Commerce</span>
-            <span class="tool-boundary-chip mono">Visualization</span>
-            <span class="tool-boundary-chip mono">Spatial experiences</span>
-            <span class="tool-boundary-chip mono">Manufacturing</span>
-            <span class="tool-boundary-chip mono">Web</span>
+          <div class="tool-boundary-group tool-boundary-group-outputs">
+            <div class="tool-boundary-group-label mono">Downstream outputs</div>
+            <div class="tool-boundary-group-card">
+              <span class="tool-boundary-item mono">Commerce</span>
+              <span class="tool-boundary-item mono">Visualization</span>
+              <span class="tool-boundary-item mono">Web</span>
+              <span class="tool-boundary-item mono">Spatial experiences</span>
+              <span class="tool-boundary-item mono">Manufacturing</span>
+            </div>
           </div>
         </div>
       </div>
@@ -208,18 +299,20 @@
     <section class="closing closing-section">
       <div class="wrap">
         <div class="closing-inner reveal">
-          <div>
+          <div class="closing-copy">
             <div class="eyebrow eyebrow-accent">CLOSING</div>
             <h2>The future of 3D should not be constrained by files.</h2>
           </div>
           <div class="closing-side">
             <figure class="closing-asset">
               <div class="product-evidence-frame">
-                <img class="product-evidence-image" src="./resources/images/evidence/xyzo_forge_Bastball.png" alt="Basketball asset shown again as a continuous trusted asset" width="1922" height="1112" loading="lazy" decoding="async">
+                <img class="product-evidence-image" src="./resources/images/evidence/xyzo-evidence-forge-inspection-desktop.png" alt="XYZO Forge showing a larger canonical asset inspection view" width="1922" height="1112" loading="lazy" decoding="async">
               </div>
             </figure>
-            <p>We are building the infrastructure for living 3D assets.</p>
-            <a class="action" href="#signup">Request Early Access</a>
+            <div class="closing-side-copy">
+              <p>We are building the infrastructure for living 3D assets.</p>
+              <a class="action" href="#signup">Request Early Access</a>
+            </div>
           </div>
         </div>
         <footer class="footer"><img src="./resources/images/XYZO_Logo_WHITE_Transp.png" alt="XYZO"><span class="mono">OpenUSD is the composition engine. XYZO is the trusted operating layer around it.</span></footer>
@@ -287,6 +380,67 @@
       const observer = new IntersectionObserver(entries => entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); observer.unobserve(entry.target); } }), {threshold:.12});
       reveals.forEach(el => observer.observe(el));
     } else reveals.forEach(el => el.classList.add('visible'));
+
+    const problemRoot = document.querySelector('[data-problem-root]');
+    if (problemRoot) {
+      const problemButtons = problemRoot.querySelectorAll('[data-problem-dimension]');
+      const problemTitle = problemRoot.querySelector('#problemDimensionTitle');
+      const problemDescription = problemRoot.querySelector('#problemDimensionText');
+
+      function setProblemDimension(button) {
+        if (!button || !problemTitle || !problemDescription) {
+          return;
+        }
+
+        problemButtons.forEach(item => {
+          const isActive = item === button;
+          item.classList.toggle('is-active', isActive);
+          item.setAttribute('aria-pressed', String(isActive));
+        });
+
+        problemTitle.textContent = button.dataset.problemTitle || '';
+        problemDescription.textContent = button.dataset.problemDescription || '';
+      }
+
+      problemButtons.forEach(button => {
+        button.addEventListener('click', () => setProblemDimension(button));
+      });
+
+      setProblemDimension(problemRoot.querySelector('.problem-dimension-button.is-active') || problemButtons[0]);
+    }
+
+    const normalizeGallery = document.querySelector('[data-normalize-gallery]');
+    if (normalizeGallery) {
+      const normalizeButtons = normalizeGallery.querySelectorAll('[data-normalize-target]');
+      const normalizeViews = normalizeGallery.querySelectorAll('[data-normalize-view]');
+      const normalizeTitle = normalizeGallery.querySelector('#normalizeGalleryTitle');
+      const normalizeDescription = normalizeGallery.querySelector('#normalizeGalleryDescription');
+
+      function setNormalizeState(targetKey) {
+        normalizeButtons.forEach(button => {
+          const isActive = button.dataset.normalizeTarget === targetKey;
+          button.classList.toggle('is-active', isActive);
+          button.setAttribute('aria-pressed', String(isActive));
+
+          if (isActive && normalizeTitle && normalizeDescription) {
+            normalizeTitle.textContent = button.dataset.normalizeTitle || '';
+            normalizeDescription.textContent = button.dataset.normalizeDescription || '';
+          }
+        });
+
+        normalizeViews.forEach(view => {
+          const isActive = view.dataset.normalizeView === targetKey;
+          view.classList.toggle('is-active', isActive);
+          view.hidden = !isActive;
+        });
+      }
+
+      normalizeButtons.forEach(button => {
+        button.addEventListener('click', () => setNormalizeState(button.dataset.normalizeTarget));
+      });
+
+      setNormalizeState('intake');
+    }
 
     const syncRoot = document.querySelector('[data-sync-root]');
     if (syncRoot) {
