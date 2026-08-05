@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -29,10 +29,10 @@
     <section class="hero">
       <video id="hero-background-video" autoplay muted loop playsinline aria-hidden="true"><source src="./resources/videos/XYZO_Splash_001.mp4" type="video/mp4"></video>
       <div class="hero-inner wrap">
-        <div class="hero-kicker eyebrow"><span class="marker"></span> INFRASTRUCTURE FOR LIVING 3D ASSETS</div>
-        <h1>Keep 3D assets trustworthy<span>as they move.</span></h1>
-        <p class="hero-support">XYZO preserves one trusted identity as geometry, materials, textures, variants, metadata, and dependencies evolve across tools and outputs.</p>
-        <div class="hero-foot"><p class="hero-copy"><strong>One canonical asset.</strong><span>Many evolving dimensions.</span><span>Many trusted representations.</span></p></div>
+        <div class="hero-kicker eyebrow"><span class="marker"></span> TRUST ACROSS CHANGE</div>
+        <h1>XYZO is infrastructure<span>for living 3D assets.</span></h1>
+        <p class="hero-secondary">One trusted identity <span>as the asset evolves.</span></p>
+        <p class="hero-support">A living asset has multiple dimensions: geometry, materials, textures, variants, metadata, and outputs. Each can evolve while remaining connected to the same canonical asset.</p>
         <div class="signup" id="signup">
           <form class="signup-form" name="xyzo_signup" method="POST" data-netlify="true" onsubmit="handleSubmit(event)">
             <input type="hidden" name="form-name" value="xyzo_signup" />
@@ -48,14 +48,15 @@
         <div class="problem-content">
           <div class="eyebrow">THE PROBLEM</div>
           <h2><span class="problem-heading-line">The asset changes.</span><span class="problem-heading-line problem-heading-detail">Its identity should not.</span></h2>
-          <p class="problem-support">Geometry gets revised. Textures update. Variants multiply. Every export creates another chance for drift.</p>
-          <p class="problem-closing">XYZO keeps those changes connected to the same authoritative asset.</p>
+          <p class="problem-support">Today, every revision, handoff, and export can create another disconnected version of the asset.</p>
+          <p class="problem-closing">XYZO keeps the asset continuous through those changes.</p>
         </div>
         <div class="problem-visual" aria-label="The same basketball asset remains recognizable while its dimensions evolve">
           <div class="problem-asset-frame" data-problem-root>
+            <h3 class="problem-dimension-heading">Living asset dimensions</h3>
             <div class="problem-asset-stage">
               <div class="problem-dimension-panel">
-                <div class="problem-dimension-label mono">Living asset dimensions</div>
+                <div class="problem-dimension-label mono">SELECT A DIMENSION</div>
                 <div class="problem-dimension-list" aria-label="Asset dimensions">
                   <button class="problem-dimension-button is-active" type="button" data-problem-dimension="geometry" data-problem-title="Geometry" data-problem-description="The ball's shape, scale, seams, and construction can change without creating a new asset identity." aria-pressed="true" aria-controls="problemDimensionDescription">Geometry</button>
                   <button class="problem-dimension-button" type="button" data-problem-dimension="materials" data-problem-title="Materials" data-problem-description="The rubber, finish, reflectivity, and surface response can evolve while remaining part of the same asset." aria-pressed="false" aria-controls="problemDimensionDescription">Materials</button>

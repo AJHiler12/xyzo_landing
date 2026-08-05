@@ -251,14 +251,14 @@ header .wrap,
   position: relative;
   z-index: 1;
   width: 100%;
-  padding: clamp(146px, 17vh, 176px) 0 clamp(110px, 14vh, 138px);
+  padding: clamp(138px, 16vh, 166px) 0 clamp(96px, 12vh, 122px);
 }
 
 .hero-kicker {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 28px;
+  margin-bottom: 18px;
   color: var(--green);
   white-space: nowrap;
 }
@@ -272,56 +272,40 @@ header .wrap,
 }
 
 .hero h1 {
-  max-width: 10.75ch;
+  max-width: 11.2ch;
   margin: 0 0 26px;
-  font-size: clamp(54px, 8vw, 132px);
-  line-height: 0.92;
+  font-size: clamp(52px, 7.8vw, 122px);
+  line-height: 0.9;
   letter-spacing: -0.058em;
   text-wrap: balance;
 }
 
 .hero h1 span {
   display: block;
+  color: var(--white);
+}
+
+.hero-secondary {
+  max-width: 16ch;
+  margin: 0 0 18px;
+  color: var(--green);
+  font-size: clamp(30px, 4vw, 58px);
+  line-height: 1.02;
+  letter-spacing: -0.05em;
+  font-weight: 500;
+  text-wrap: balance;
+}
+
+.hero-secondary span {
   color: var(--green);
 }
 
-.hero-foot {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  max-width: 100%;
-  margin-bottom: 0;
-  gap: clamp(18px, 3vw, 34px);
-}
-
-.hero-copy {
-  display: flex;
-  flex-direction: column;
-  width: auto;
-  max-width: 36ch;
-  color: var(--muted);
-  font-size: 17px;
-  line-height: 1.55;
-  gap: 0.12em;
-}
-
 .hero-support {
-  max-width: 38ch;
-  margin: 0 0 24px;
+  max-width: 44ch;
+  margin: 0 0 28px;
   color: var(--muted);
   font-size: 18px;
   line-height: 1.58;
-}
-
-.hero-copy strong {
-  display: block;
-  margin-bottom: 0.18em;
-  color: var(--muted);
-  font-weight: 500;
-}
-
-.hero-copy span {
-  display: block;
 }
 
 .scroll-note {
@@ -336,7 +320,7 @@ header .wrap,
    ============================================================ */
 .hero .signup {
   width: min(100%, 640px);
-  margin-top: clamp(28px, 3.2vw, 36px);
+  margin-top: clamp(18px, 2.4vw, 26px);
   padding: 24px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-md);
@@ -1705,7 +1689,7 @@ header .wrap,
 .problem-asset-frame {
   position: relative;
   display: grid;
-  gap: 18px;
+  gap: 14px;
   min-height: clamp(420px, 46vw, 640px);
   padding: clamp(28px, 4vw, 48px);
   border-radius: 30px;
@@ -1725,11 +1709,22 @@ header .wrap,
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 14px;
+  gap: 12px;
   min-width: 0;
 }
 
+.problem-dimension-heading {
+  margin: 0;
+  color: var(--ink);
+  font-size: 28px;
+  line-height: 1.04;
+  letter-spacing: -0.05em;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
 .problem-dimension-label {
+  margin-bottom: 2px;
   color: #4E565C;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -3146,6 +3141,10 @@ html.principles-reveal-ready .principles-page .reveal.visible {
     grid-template-columns: minmax(116px, 0.32fr) minmax(0, 1fr);
   }
 
+  .problem-dimension-heading {
+    font-size: 26px;
+  }
+
   .workflow-panel-compose .product-evidence-frame {
     min-height: 360px;
   }
@@ -3212,29 +3211,21 @@ html.principles-reveal-ready .principles-page .reveal.visible {
   }
 
   .hero h1 {
-    max-width: 9.5ch;
-    font-size: clamp(52px, 15vw, 88px);
+    max-width: 10.2ch;
+    margin-bottom: 22px;
+    font-size: clamp(47px, 12.5vw, 76px);
   }
 
-  .hero-foot {
-    display: block;
-    max-width: 100%;
+  .hero-secondary {
+    max-width: 15ch;
+    margin-bottom: 16px;
+    font-size: clamp(26px, 7vw, 40px);
   }
 
   .hero-support {
-    max-width: 32ch;
-    margin-bottom: 20px;
+    max-width: 34ch;
+    margin-bottom: 22px;
     font-size: 16px;
-  }
-
-  .hero-copy {
-    max-width: 31ch;
-    font-size: 16px;
-    gap: 0.12em;
-  }
-
-  .hero-copy strong {
-    margin-bottom: 0.16em;
   }
 
   .hero-kicker {
@@ -3289,6 +3280,11 @@ html.principles-reveal-ready .principles-page .reveal.visible {
     gap: 14px;
   }
 
+  .problem-dimension-heading {
+    font-size: 24px;
+    white-space: normal;
+  }
+
   .problem-dimension-list {
     flex-direction: row;
     flex-wrap: wrap;
@@ -3299,7 +3295,6 @@ html.principles-reveal-ready .principles-page .reveal.visible {
   .problem-dimension-panel {
     gap: 12px;
   }
-
   .problem-dimension-button {
     width: fit-content;
   }
