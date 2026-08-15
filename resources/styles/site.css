@@ -272,27 +272,29 @@ header .wrap,
 }
 
 .hero h1 {
-  max-width: 11.2ch;
+  max-width: 14ch;
   margin: 0 0 26px;
-  font-size: clamp(52px, 7.8vw, 122px);
-  line-height: 0.9;
+  font-size: clamp(52px, 6.9vw, 108px);
+  line-height: 0.92;
   letter-spacing: -0.058em;
   text-wrap: balance;
+  white-space: nowrap;
 }
 
 .hero h1 span {
   display: block;
   color: var(--white);
+  white-space: nowrap;
 }
 
 .hero-secondary {
-  max-width: 16ch;
-  margin: 0 0 18px;
+  max-width: 42ch;
+  margin: 0 0 28px;
   color: var(--green);
-  font-size: clamp(30px, 4vw, 58px);
-  line-height: 1.02;
-  letter-spacing: -0.05em;
-  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.45;
+  letter-spacing: 0;
+  font-weight: 600;
   text-wrap: balance;
 }
 
@@ -301,7 +303,7 @@ header .wrap,
 }
 
 .hero-support {
-  max-width: 44ch;
+  max-width: 64ch;
   margin: 0 0 28px;
   color: var(--muted);
   font-size: 18px;
@@ -1126,6 +1128,11 @@ header .wrap,
   border-radius: inherit;
 }
 
+.normalize-gallery-display .normalize-intake-image {
+  object-fit: cover;
+  object-position: center center;
+}
+
 .normalize-gallery-view .normalize-structure-panel {
   border-radius: inherit;
   overflow: hidden;
@@ -1215,6 +1222,8 @@ header .wrap,
   font-size: 11px;
   line-height: 1.25;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .normalize-gallery-trigger-copy {
@@ -1247,12 +1256,12 @@ header .wrap,
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: clamp(16px, 2vw, 22px);
-  padding: clamp(18px, 2.2vw, 24px);
+  gap: clamp(12px, 1.6vw, 18px);
+  padding: clamp(16px, 2vw, 22px);
   border: 1px solid rgba(247, 248, 248, 0.18);
   border-radius: var(--radius-lg);
   background:
-    linear-gradient(180deg, rgba(37, 43, 48, 0.94) 0%, rgba(24, 29, 33, 0.96) 100%);
+    linear-gradient(180deg, rgba(31, 37, 41, 0.96) 0%, rgba(18, 22, 25, 0.98) 100%);
 }
 
 .normalize-structure-header {
@@ -1279,19 +1288,35 @@ header .wrap,
   display: grid;
   flex: 1 1 auto;
   min-height: 0;
-  gap: 10px;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .normalize-structure-row {
+  position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 220px) minmax(0, 1fr);
-  gap: 14px;
+  grid-template-columns: minmax(0, 180px) minmax(0, 1fr);
+  gap: 12px;
   align-items: center;
   min-height: 0;
-  padding: 12px 14px;
+  padding: 10px 12px 10px 18px;
   border: 1px solid rgba(247, 248, 248, 0.08);
   border-radius: var(--radius-sm);
   background: rgba(11, 13, 15, 0.26);
+}
+
+.normalize-structure-row::before {
+  content: "";
+  position: absolute;
+  left: 9px;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--green);
+  transform: translateY(-50%);
 }
 
 .normalize-structure-panel-root .normalize-structure-list {
@@ -1314,9 +1339,10 @@ header .wrap,
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 18px;
-  margin-right: 8px;
+  width: 12px;
+  margin-right: 7px;
   color: var(--green);
+  font-size: 11px;
 }
 
 .normalize-node-folder::before {
@@ -1325,6 +1351,14 @@ header .wrap,
 
 .normalize-node-file::before {
   content: "—";
+}
+
+.normalize-node-folder::before {
+  content: "/";
+}
+
+.normalize-node-file::before {
+  content: "-";
 }
 
 .normalize-node-detail {
@@ -1609,6 +1643,12 @@ header .wrap,
   text-wrap: balance;
 }
 
+.closing-section h2 {
+  max-width: 16ch;
+  font-size: clamp(46px, 6.2vw, 92px);
+  line-height: 0.92;
+}
+
 .closing-heading-line {
   display: block;
 }
@@ -1655,6 +1695,13 @@ header .wrap,
 .tool-boundary-copy h2,
 .how-it-works h2 {
   margin-top: 16px;
+}
+
+.problem-content h2 {
+  max-width: 12.5ch;
+  font-size: clamp(44px, 4.8vw, 74px);
+  line-height: 0.96;
+  letter-spacing: -0.062em;
 }
 
 .problem-heading-detail {
@@ -1847,15 +1894,34 @@ header .wrap,
 }
 
 .how-it-works h2 {
-  max-width: 11ch;
+  max-width: 20ch;
+  font-size: clamp(46px, 5.2vw, 82px);
+  line-height: 0.94;
+}
+
+.how-it-works h2 span {
+  display: block;
+  white-space: nowrap;
+}
+
+.loop-sequence {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  align-items: center;
+  margin-top: 24px;
+  color: var(--green);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .how-it-works-support {
-  max-width: 36ch;
-  margin-top: 22px;
+  max-width: 50ch;
+  margin-top: 14px;
   color: var(--muted);
-  font-size: 18px;
-  line-height: 1.62;
+  font-size: 17px;
+  line-height: 1.5;
 }
 
 .workflow-top-row {
@@ -1960,7 +2026,7 @@ header .wrap,
 }
 
 .workflow-panel-normalize .normalize-gallery-trigger {
-  grid-template-columns: 72px minmax(0, 1fr);
+  grid-template-columns: 62px minmax(0, 1fr);
   padding: 10px;
 }
 
@@ -1998,6 +2064,10 @@ header .wrap,
 .workflow-panel-normalize .workflow-evidence .product-evidence-frame,
 .workflow-panel-inspect .workflow-evidence .product-evidence-frame {
   min-height: 220px;
+}
+
+.workflow-panel-inspect .workflow-evidence {
+  margin-top: 0;
 }
 
 .workflow-panel-compose .product-evidence-frame {
@@ -3214,12 +3284,18 @@ html.principles-reveal-ready .principles-page .reveal.visible {
     max-width: 10.2ch;
     margin-bottom: 22px;
     font-size: clamp(47px, 12.5vw, 76px);
+    white-space: normal;
+  }
+
+  .hero h1 span {
+    white-space: normal;
   }
 
   .hero-secondary {
-    max-width: 15ch;
-    margin-bottom: 16px;
-    font-size: clamp(26px, 7vw, 40px);
+    max-width: 34ch;
+    margin-bottom: 22px;
+    font-size: 16px;
+    line-height: 1.5;
   }
 
   .hero-support {
@@ -3260,6 +3336,19 @@ html.principles-reveal-ready .principles-page .reveal.visible {
   .how-it-works-intro {
     grid-template-columns: 1fr;
     gap: 34px;
+  }
+
+  .how-it-works h2 {
+    max-width: 11ch;
+  }
+
+  .how-it-works h2 span {
+    white-space: normal;
+  }
+
+  .loop-sequence {
+    margin-top: 20px;
+    font-size: 12px;
   }
 
   .problem-support,
@@ -3456,6 +3545,11 @@ html.principles-reveal-ready .principles-page .reveal.visible {
     gap: 12px;
   }
 
+  .workflow-panel-normalize .normalize-gallery-display {
+    aspect-ratio: auto;
+    min-height: 340px;
+  }
+
   .normalize-gallery-trigger {
     grid-template-columns: 76px minmax(0, 1fr);
     gap: 10px;
@@ -3477,6 +3571,12 @@ html.principles-reveal-ready .principles-page .reveal.visible {
   .normalize-structure-panel {
     gap: 14px;
     padding: 16px;
+  }
+
+  .normalize-structure-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+    align-items: start;
   }
 
   .normalize-node,
@@ -3585,8 +3685,8 @@ html.principles-reveal-ready .principles-page .reveal.visible {
   }
 
   .closing h2 {
-    max-width: 11ch;
-    font-size: 70px;
+    max-width: 13ch;
+    font-size: 64px;
   }
 
   .closing p {
