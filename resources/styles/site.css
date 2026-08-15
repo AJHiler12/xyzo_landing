@@ -1367,6 +1367,281 @@ header .wrap,
   line-height: 1.45;
 }
 
+.inspect-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: auto;
+}
+
+.inspect-gallery-display {
+  position: relative;
+  aspect-ratio: 1922 / 1112;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.inspect-gallery-view[hidden] {
+  display: none;
+}
+
+.inspect-gallery-view {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.inspect-gallery-view.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.inspect-diagram {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 1.6vw, 18px);
+  padding: clamp(16px, 2vw, 22px);
+  border: 1px solid rgba(247, 248, 248, 0.18);
+  border-radius: inherit;
+  background:
+    linear-gradient(180deg, rgba(31, 37, 41, 0.96) 0%, rgba(18, 22, 25, 0.98) 100%);
+  overflow: hidden;
+}
+
+.inspect-diagram-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.inspect-diagram-badge {
+  color: var(--green);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.inspect-diagram-name {
+  color: rgba(247, 248, 248, 0.9);
+  font-size: 13px;
+}
+
+.inspect-overview-body {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.62fr) minmax(0, 1fr);
+  gap: clamp(16px, 2vw, 24px);
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.inspect-asset-plate,
+.inspect-asset-node,
+.inspect-asset-strip {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.inspect-asset-plate {
+  padding: 8px;
+  background: radial-gradient(circle at 50% 46%, rgba(127, 209, 174, 0.09), transparent 58%);
+}
+
+.inspect-asset-image {
+  display: block;
+  width: min(100%, 280px);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 18px 26px rgba(0, 0, 0, 0.32));
+}
+
+.inspect-readout,
+.inspect-relationship-list,
+.inspect-validation-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.inspect-readout {
+  gap: 0;
+}
+
+.inspect-readout-row,
+.inspect-relationship-row,
+.inspect-validation-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: baseline;
+  padding: 10px 0;
+  border-top: 1px solid rgba(247, 248, 248, 0.1);
+}
+
+.inspect-readout-row:first-child,
+.inspect-relationship-row:first-child,
+.inspect-validation-row:first-child {
+  border-top: 0;
+}
+
+.inspect-readout-label,
+.inspect-relationship-label {
+  color: var(--gray);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.inspect-readout-value,
+.inspect-relationship-value,
+.inspect-validation-value {
+  margin: 0;
+  color: var(--white);
+  font-size: 14px;
+  line-height: 1.35;
+  text-align: right;
+}
+
+.inspect-diagram-note {
+  margin: 0;
+  max-width: 36ch;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.inspect-relationship-layout,
+.inspect-validation-layout {
+  display: grid;
+  flex: 1 1 auto;
+  min-height: 0;
+  gap: clamp(16px, 2vw, 24px);
+  align-items: center;
+}
+
+.inspect-relationship-layout {
+  grid-template-columns: minmax(150px, 0.48fr) minmax(0, 1fr);
+}
+
+.inspect-validation-layout {
+  grid-template-columns: minmax(120px, 0.38fr) minmax(0, 1fr);
+}
+
+.inspect-asset-node {
+  position: relative;
+  flex-direction: column;
+  gap: 8px;
+  padding-right: clamp(18px, 3vw, 34px);
+}
+
+.inspect-asset-node::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: clamp(18px, 3vw, 34px);
+  height: 1px;
+  background: linear-gradient(90deg, rgba(127, 209, 174, 0.75), rgba(127, 209, 174, 0));
+}
+
+.inspect-asset-node .inspect-asset-image {
+  width: min(100%, 150px);
+}
+
+.inspect-asset-name {
+  color: var(--gray);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+
+.inspect-relationship-readout {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.inspect-relationship-list,
+.inspect-validation-list {
+  list-style: none;
+}
+
+.inspect-asset-strip .inspect-asset-image {
+  width: min(100%, 132px);
+}
+
+.inspect-validation-label {
+  color: rgba(247, 248, 248, 0.88);
+  font-size: 14px;
+}
+
+.inspect-validation-value {
+  color: var(--green);
+}
+
+.inspect-status-good {
+  color: var(--green);
+}
+
+.inspect-gallery-controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.inspect-gallery-trigger {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid rgba(247, 248, 248, 0.1);
+  border-radius: var(--radius-sm);
+  background: rgba(29, 34, 38, 0.5);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.inspect-gallery-trigger:hover {
+  border-color: rgba(247, 248, 248, 0.14);
+  background: rgba(29, 34, 38, 0.62);
+}
+
+.inspect-gallery-trigger.is-active {
+  border-color: rgba(127, 209, 174, 0.42);
+  background: rgba(24, 31, 33, 0.92);
+}
+
+.inspect-gallery-trigger:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.inspect-gallery-step {
+  color: var(--green);
+  font-size: 11px;
+}
+
+.inspect-gallery-label {
+  min-width: 0;
+  color: var(--white);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
 .sync-media {
   gap: 12px;
 }
@@ -2000,6 +2275,10 @@ header .wrap,
   line-height: 1.6;
 }
 
+.workflow-top-row .workflow-panel > p {
+  max-width: 44ch;
+}
+
 .workflow-evidence {
   margin-top: auto;
 }
@@ -2014,7 +2293,7 @@ header .wrap,
 }
 
 .workflow-panel-normalize .normalize-gallery {
-  margin-top: auto;
+  margin-top: 0;
 }
 
 .workflow-panel-normalize .normalize-gallery-display {
@@ -2068,6 +2347,61 @@ header .wrap,
 
 .workflow-panel-inspect .workflow-evidence {
   margin-top: 0;
+}
+
+.workflow-panel-inspect .inspect-gallery {
+  margin-top: 0;
+}
+
+.workflow-panel-normalize .normalize-gallery,
+.workflow-panel-inspect .inspect-gallery {
+  gap: 14px;
+}
+
+.workflow-panel-normalize .normalize-gallery-display,
+.workflow-panel-inspect .inspect-gallery-display {
+  aspect-ratio: 1922 / 1112;
+  border: 1px solid rgba(247, 248, 248, 0.14);
+  border-radius: var(--radius-lg);
+  background: rgba(11, 13, 15, 0.42);
+}
+
+.workflow-panel-normalize .normalize-structure-panel,
+.workflow-panel-inspect .inspect-diagram {
+  border: 0;
+}
+
+.workflow-panel-normalize .normalize-gallery-selectors,
+.workflow-panel-inspect .inspect-gallery-controls {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.workflow-panel-normalize .normalize-gallery-trigger,
+.workflow-panel-inspect .inspect-gallery-trigger {
+  min-height: 82px;
+  padding: 10px;
+  border-color: rgba(247, 248, 248, 0.12);
+  border-radius: var(--radius-md);
+  background: rgba(29, 34, 38, 0.54);
+  color: var(--white);
+}
+
+.workflow-panel-normalize .normalize-gallery-trigger:hover,
+.workflow-panel-inspect .inspect-gallery-trigger:hover {
+  border-color: rgba(247, 248, 248, 0.18);
+  background: rgba(29, 34, 38, 0.68);
+}
+
+.workflow-panel-normalize .normalize-gallery-trigger.is-active,
+.workflow-panel-inspect .inspect-gallery-trigger.is-active {
+  border-color: rgba(127, 209, 174, 0.42);
+  background: rgba(24, 31, 33, 0.9);
+}
+
+.workflow-panel-normalize .normalize-gallery-trigger-title,
+.workflow-panel-inspect .inspect-gallery-label {
+  font-size: 13px;
 }
 
 .workflow-panel-compose .product-evidence-frame {
@@ -3548,6 +3882,38 @@ html.principles-reveal-ready .principles-page .reveal.visible {
   .workflow-panel-normalize .normalize-gallery-display {
     aspect-ratio: auto;
     min-height: 340px;
+  }
+
+  .inspect-gallery-display {
+    aspect-ratio: auto;
+    min-height: 340px;
+  }
+
+  .inspect-overview-body,
+  .inspect-relationship-layout,
+  .inspect-validation-layout,
+  .inspect-readout-row,
+  .inspect-relationship-row,
+  .inspect-validation-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .inspect-readout-value,
+  .inspect-relationship-value,
+  .inspect-validation-value {
+    text-align: left;
+  }
+
+  .inspect-asset-node {
+    padding-right: 0;
+  }
+
+  .inspect-asset-node::after {
+    display: none;
+  }
+
+  .inspect-gallery-controls {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .normalize-gallery-trigger {

@@ -219,12 +219,126 @@
               <div class="stage-status mono">WORKING TODAY</div>
             </div>
             <h3>Inspect</h3>
-            <p>Reveal hierarchy, dimensions, dependencies, and integrity before decisions multiply.</p>
-            <figure class="product-evidence workflow-evidence">
-              <div class="product-evidence-frame">
-                <img class="product-evidence-image" src="./resources/images/evidence/xyzo_properties01.png" alt="XYZO Forge inspecting a selected basketball asset with computed size, content, and package integrity properties." width="1922" height="1112" loading="lazy" decoding="async">
+            <p>Understand structure, dimensions, dependencies, and integrity before composition begins.</p>
+            <div class="inspect-gallery" data-inspect-gallery>
+              <div class="inspect-gallery-display">
+                <div class="inspect-gallery-view is-active" data-inspect-view="overview">
+                  <div class="inspect-diagram inspect-diagram-overview" role="group" aria-label="Asset overview for ball_basketball_realistic">
+                    <div class="inspect-diagram-header">
+                      <div class="inspect-diagram-badge mono">ASSET OVERVIEW</div>
+                      <div class="inspect-diagram-name mono">ball_basketball_realistic</div>
+                    </div>
+                    <div class="inspect-overview-body">
+                      <div class="inspect-asset-plate">
+                        <img class="inspect-asset-image" src="./resources/images/evidence/xyzo_forge_Bastball_Standalone.png" alt="Basketball asset being inspected by XYZO" width="1922" height="1112" loading="lazy" decoding="async">
+                      </div>
+                      <dl class="inspect-readout">
+                        <div class="inspect-readout-row">
+                          <dt class="inspect-readout-label mono">IDENTITY</dt>
+                          <dd class="inspect-readout-value">ball_basketball_realistic</dd>
+                        </div>
+                        <div class="inspect-readout-row">
+                          <dt class="inspect-readout-label mono">STRUCTURE</dt>
+                          <dd class="inspect-readout-value">1 object &middot; 1 material</dd>
+                        </div>
+                        <div class="inspect-readout-row">
+                          <dt class="inspect-readout-label mono">DIMENSIONS</dt>
+                          <dd class="inspect-readout-value">24.6 &times; 24.9 &times; 24.6 cm</dd>
+                        </div>
+                        <div class="inspect-readout-row">
+                          <dt class="inspect-readout-label mono">CONTENT</dt>
+                          <dd class="inspect-readout-value">Geometry &middot; Material &middot; Textures</dd>
+                        </div>
+                        <div class="inspect-readout-row">
+                          <dt class="inspect-readout-label mono">TEXTURE STATUS</dt>
+                          <dd class="inspect-readout-value inspect-status-good">Resolved</dd>
+                        </div>
+                      </dl>
+                    </div>
+                  </div>
+                </div>
+                <div class="inspect-gallery-view" data-inspect-view="dependencies" hidden>
+                  <div class="inspect-diagram inspect-diagram-dependencies" role="group" aria-label="Dependency status for the basketball asset">
+                    <div class="inspect-diagram-header">
+                      <div class="inspect-diagram-badge mono">DEPENDENCIES</div>
+                      <div class="inspect-diagram-name mono">basketball asset graph</div>
+                    </div>
+                    <div class="inspect-relationship-layout">
+                      <div class="inspect-asset-node">
+                        <img class="inspect-asset-image" src="./resources/images/evidence/xyzo_forge_Bastball_Standalone.png" alt="Basketball asset dependency anchor" width="1922" height="1112" loading="lazy" decoding="async">
+                        <span class="inspect-asset-name mono">ball_basketball_realistic</span>
+                      </div>
+                      <div class="inspect-relationship-readout">
+                        <ul class="inspect-relationship-list">
+                          <li class="inspect-relationship-row">
+                            <span class="inspect-relationship-label mono">Internal</span>
+                            <span class="inspect-relationship-value">0</span>
+                          </li>
+                          <li class="inspect-relationship-row">
+                            <span class="inspect-relationship-label mono">External</span>
+                            <span class="inspect-relationship-value">0</span>
+                          </li>
+                          <li class="inspect-relationship-row">
+                            <span class="inspect-relationship-label mono">Missing</span>
+                            <span class="inspect-relationship-value">0</span>
+                          </li>
+                          <li class="inspect-relationship-row">
+                            <span class="inspect-relationship-label mono">Unresolved</span>
+                            <span class="inspect-relationship-value">0</span>
+                          </li>
+                        </ul>
+                        <p class="inspect-diagram-note">All required asset relationships resolve.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="inspect-gallery-view" data-inspect-view="integrity" hidden>
+                  <div class="inspect-diagram inspect-diagram-integrity" role="group" aria-label="Integrity status for the basketball asset">
+                    <div class="inspect-diagram-header">
+                      <div class="inspect-diagram-badge mono">INTEGRITY</div>
+                      <div class="inspect-diagram-name mono">package health</div>
+                    </div>
+                    <div class="inspect-validation-layout">
+                      <div class="inspect-asset-strip">
+                        <img class="inspect-asset-image" src="./resources/images/evidence/xyzo_forge_Bastball_Standalone.png" alt="Basketball asset validated by XYZO" width="1922" height="1112" loading="lazy" decoding="async">
+                      </div>
+                      <ul class="inspect-validation-list">
+                        <li class="inspect-validation-row">
+                          <span class="inspect-validation-label">Package integrity</span>
+                          <span class="inspect-validation-value">Valid</span>
+                        </li>
+                        <li class="inspect-validation-row">
+                          <span class="inspect-validation-label">Structure</span>
+                          <span class="inspect-validation-value">Valid</span>
+                        </li>
+                        <li class="inspect-validation-row">
+                          <span class="inspect-validation-label">Dependency resolution</span>
+                          <span class="inspect-validation-value">Resolved</span>
+                        </li>
+                        <li class="inspect-validation-row">
+                          <span class="inspect-validation-label">Overall status</span>
+                          <span class="inspect-validation-value">Healthy</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </figure>
+              <div class="inspect-gallery-controls" aria-label="Inspect evidence states">
+                <button class="inspect-gallery-trigger is-active" type="button" data-inspect-target="overview" aria-pressed="true">
+                  <span class="inspect-gallery-step mono">01</span>
+                  <span class="inspect-gallery-label">Asset overview</span>
+                </button>
+                <button class="inspect-gallery-trigger" type="button" data-inspect-target="dependencies" aria-pressed="false">
+                  <span class="inspect-gallery-step mono">02</span>
+                  <span class="inspect-gallery-label">Dependencies</span>
+                </button>
+                <button class="inspect-gallery-trigger" type="button" data-inspect-target="integrity" aria-pressed="false">
+                  <span class="inspect-gallery-step mono">03</span>
+                  <span class="inspect-gallery-label">Integrity</span>
+                </button>
+              </div>
+            </div>
           </article>
         </div>
         <div class="workflow-feature-row">
@@ -503,6 +617,32 @@
       });
 
       setNormalizeState('intake');
+    }
+
+    const inspectGallery = document.querySelector('[data-inspect-gallery]');
+    if (inspectGallery) {
+      const inspectButtons = inspectGallery.querySelectorAll('[data-inspect-target]');
+      const inspectViews = inspectGallery.querySelectorAll('[data-inspect-view]');
+
+      function setInspectState(targetKey) {
+        inspectButtons.forEach(button => {
+          const isActive = button.dataset.inspectTarget === targetKey;
+          button.classList.toggle('is-active', isActive);
+          button.setAttribute('aria-pressed', String(isActive));
+        });
+
+        inspectViews.forEach(view => {
+          const isActive = view.dataset.inspectView === targetKey;
+          view.classList.toggle('is-active', isActive);
+          view.hidden = !isActive;
+        });
+      }
+
+      inspectButtons.forEach(button => {
+        button.addEventListener('click', () => setInspectState(button.dataset.inspectTarget));
+      });
+
+      setInspectState('overview');
     }
 
     const syncRoot = document.querySelector('[data-sync-root]');
